@@ -9,6 +9,7 @@ public class CameraController : MonoBehaviour
     /// </summary>
 
     // 0 is left, 1 is center, 3 is right
+    [SerializeField]
     private int cameraPosition = 1;
 
     // Time when the movement started.
@@ -17,60 +18,59 @@ public class CameraController : MonoBehaviour
     // Total distance between the markers.
     private float journeyLength;
 
-    private bool isMoving = false;
-    private int movingTo;
-
     public Camera sceneCamera;
 
     public Transform[] cameraPositions;
 
-    // Movement speed in units/sec.
-    public float speed = 1.0F;
+    // How long it takes to switch views
+    public float timeToMove = 1.0F;
 
     public void MoveCam(int position)
     {
-        movingTo = position;
+        StartCoroutine(WaitAndMove(position));
+    }
 
-        // Keep a note of the time the movement started.
-        startTime = Time.time;
-
-        // Calculate the journey length.
-        journeyLength = Vector3.Distance(cameraPositions[cameraPosition].position, cameraPositions[position].position);
-        isMoving = true;
+    IEnumerator WaitAndMove(int position)
+    {
+        print(position);
+        int oldPos = cameraPosition;
+        cameraPosition = position;
+        float elapsedTime = 0;
+        float time = timeToMove;
+        Vector3 startingPos = cameraPositions[oldPos].position;
+        Vector3 newPos = cameraPositions[position].position;
+        while (elapsedTime < time)
+        {
+            sceneCamera.transform.position = Vector3.Lerp(startingPos, newPos, (elapsedTime / time));
+            elapsedTime += Time.deltaTime;
+            yield return 1;
+        }
+        sceneCamera.transform.position = newPos;
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        if(isMoving)
-        {
-            // Distance moved = time * speed.
-            float distCovered = (Time.time - startTime) * speed;
-
-            // Fraction of journey completed = current distance divided by total distance.
-            float fracJourney = distCovered / journeyLength;
-
-            // Set our position as a fraction of the distance between the markers.
-            sceneCamera.gameObject.transform.position = Vector3.Lerp(cameraPositions[cameraPosition].position, cameraPositions[movingTo].position, fracJourney);
-        }
         
-        if(!Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A))
+        if(Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.A))
         {
-            cameraPosition = 1;
-            MoveCam(1);
+            if(!Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A))
+            {
+                MoveCam(1);
+                print("center");
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.D))
         {
-            cameraPosition = 2;
             MoveCam(2);
+            print("right");
         }
 
         if (Input.GetKeyDown(KeyCode.A))
         {
-            cameraPosition = 0;
             MoveCam(0);
+            print("left");
         }
     }
 }
