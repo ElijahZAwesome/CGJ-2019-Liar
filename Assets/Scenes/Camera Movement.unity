@@ -1071,6 +1071,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraPosition: 1
+  blockInput: 0
   sceneCamera: {fileID: 116161433}
   fadeImage: {fileID: 1022340763}
   cameraPositions:
