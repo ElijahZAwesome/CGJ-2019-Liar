@@ -12,27 +12,36 @@ public class CameraController : MonoBehaviour
     [SerializeField]
     private int cameraPosition = 1;
 
-    // Time when the movement started.
-    private float startTime;
-
-    // Total distance between the markers.
-    private float journeyLength;
+    private float cameraSizeStart = 5f;
 
     public Camera sceneCamera;
 
     public Transform[] cameraPositions;
+    public Transform[] doorPositions;
 
     // How long it takes to switch views
-    public float timeToMove = 1.0F;
+    public float timeToMove = 0.1f;
+
+    // How long it takes to zoom into door
+    public float timeToMoveDoor = 0.4f;
+
+    private void Start()
+    {
+        cameraSizeStart = sceneCamera.orthographicSize;
+    }
 
     public void MoveCam(int position)
     {
-        StartCoroutine(WaitAndMove(position));
+        StartCoroutine(SlideCam(position));
     }
 
-    IEnumerator WaitAndMove(int position)
+    public void SelectDoor(int position)
     {
-        print(position);
+        StartCoroutine(ZoomCam(position));
+    }
+
+    private IEnumerator SlideCam(int position)
+    {
         int oldPos = cameraPosition;
         cameraPosition = position;
         float elapsedTime = 0;
@@ -42,6 +51,25 @@ public class CameraController : MonoBehaviour
         while (elapsedTime < time)
         {
             sceneCamera.transform.position = Vector3.Lerp(startingPos, newPos, (elapsedTime / time));
+            elapsedTime += Time.deltaTime;
+            yield return 1;
+        }
+        sceneCamera.transform.position = newPos;
+    }
+
+    private IEnumerator ZoomCam(int position)
+    {
+        sceneCamera.orthographicSize = cameraSizeStart;
+        int oldPos = cameraPosition;
+        float elapsedTime = 0;
+        float time = timeToMoveDoor;
+        Vector3 startingPos = cameraPositions[oldPos].position;
+        Vector3 newPos = doorPositions[position].position;
+        float origSize = sceneCamera.orthographicSize;
+        while (elapsedTime < time)
+        {
+            sceneCamera.transform.position = Vector3.Lerp(startingPos, newPos, (elapsedTime / time));
+            sceneCamera.orthographicSize = Mathf.Lerp(origSize, 0, (elapsedTime / time));
             elapsedTime += Time.deltaTime;
             yield return 1;
         }
@@ -71,6 +99,27 @@ public class CameraController : MonoBehaviour
         {
             MoveCam(0);
             print("left");
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            SelectDoor(0);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            SelectDoor(1);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            SelectDoor(2);
+        }
+
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            sceneCamera.transform.position = cameraPositions[1].position;
+            sceneCamera.orthographicSize = cameraSizeStart;
         }
     }
 }
