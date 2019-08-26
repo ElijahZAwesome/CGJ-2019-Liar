@@ -9,6 +9,10 @@ public class MasterLogic : MonoBehaviour
     // The list of whether or not sign i was truthful
     private List<bool> truthfulSigns;
 
+    // The possible positions of signs
+    [SerializeField]
+    private List<GameObject> signs;
+
     // All rooms the player has traversed
     private List<RoomStats> allRooms;
 
@@ -53,7 +57,8 @@ public class MasterLogic : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        CreateNewRoom();
+        DetermineSafeDoors();
     }
 
     // Update is called once per frame
@@ -61,22 +66,19 @@ public class MasterLogic : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            // select left door
+            // Select left door
+            EnterDoor(1);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            // select middle door
+            // Select middle door
+            EnterDoor(2);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            // select right door
+            // Select right door
+            EnterDoor(3);
         }
-    }
-
-    // Selects which door you pressed, either 1, 2, or 3
-    void SelectDoor(int doorNum)
-    {
-        // Check if the door selected was correct
     }
 
     // Creates a new RoomStats object with the info, should be called at the start of each room
@@ -84,6 +86,7 @@ public class MasterLogic : MonoBehaviour
     {
         // Pick a random door to place the sign above
         int doorWithSign = Random.Range(1, 4);
+        PlaceSign(doorWithSign);
 
         // Pick random thing for sign to say
         bool signSaysSafe_;
@@ -91,10 +94,12 @@ public class MasterLogic : MonoBehaviour
         if (randomMessage == 1)
         {
             signSaysSafe_ = true;
+            print("THE SIGN SAYS SAFE");
         }
         else
         {
             signSaysSafe_ = false;
+            print("THE SIGN SAYS DEATH");
         }
 
         // Place random props in the room
@@ -103,6 +108,19 @@ public class MasterLogic : MonoBehaviour
         bool trapped = false;
 
         // Is the sign lying?
+        // THESE VALUES NEED TO BE CHANGED EVENTUALLY TO REFLECT LOGIC IN ANOTHER SCRIPT
+        int randSignLie = Random.Range(0, 2);
+        bool signLying;
+        if (randSignLie == 0)
+        {
+            signLying = false;
+            print("The sign is telling the truth");
+        }
+        else
+        {
+            signLying = true;
+            print("The sign is lying");
+        }
 
         // Which doors are safe?
 
@@ -114,14 +132,58 @@ public class MasterLogic : MonoBehaviour
         newRoom.roomTrapped = trapped;
         newRoom.signLocation = doorWithSign;
         newRoom.signSaysSafe = signSaysSafe_;
-        //newRoom.safeDoors = 
         //newRoom.entranceDoor = 
-        //newRoom.signLying = 
+        newRoom.signLying = signLying;
+
+        // Set this room as the current one
+        currentRoom = newRoom;
+    }
+
+    // Sets the safe rooms in the current room. This will be the script that checks all logic
+    private void DetermineSafeDoors()
+    {
+        // If sign is above middle door and reads "Safe" and it's lying, then all doors are set to safe, then the middle door is flipped to death
+
+        bool doorSafe = currentRoom.signSaysSafe;
+        // Set all doors to safe by default
+        currentRoom.safeDoors = new bool[3] { true, true, true };
+
+        if (!currentRoom.signLying)
+        {
+            // Sign is telling the truth, mark all doors the opposite
+            currentRoom.safeDoors = new bool[3] { !doorSafe, !doorSafe, !doorSafe };
+            // Sign is telling the truth, set the marked door to what it reads
+            currentRoom.safeDoors[currentRoom.signLocation - 1] = doorSafe;
+        }
+        else
+        {
+            // Sign is lying, mark all doors to what it says
+            currentRoom.safeDoors = new bool[3] { doorSafe, doorSafe, doorSafe };
+            // Sign is lying, set the marked door to opposite of what it says
+            currentRoom.safeDoors[currentRoom.signLocation - 1] = !doorSafe;
+        }
     }
 
     // Place the sign sprite above the corresponding door
     private void PlaceSign(int doorNum)
     {
+        // Turn off all signs, then turn on the correct sign
+        foreach(GameObject sign in signs)
+        {
+            sign.SetActive(false);
+        }
+        signs[doorNum - 1].SetActive(true);
+    }
 
+    private void EnterDoor(int doorNum)
+    {
+        if (currentRoom.safeDoors[doorNum-1] == true)
+        {
+            print("YOU PICKED A SAFE DOOR");
+        }
+        else
+        {
+            print("YOU ARE DEAD, WRONG DOOR");
+        }
     }
 }
