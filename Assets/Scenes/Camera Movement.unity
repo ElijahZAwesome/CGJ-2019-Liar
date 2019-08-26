@@ -643,10 +643,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20731507765d58d46b70286374c3aff2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneCamera: {fileID: 116161433}
   cameraPositions:
   - {fileID: 565028782}
   - {fileID: 1904381087}
   - {fileID: 470530526}
+  speed: 1
 --- !u!4 &2123378929
 Transform:
   m_ObjectHideFlags: 0
