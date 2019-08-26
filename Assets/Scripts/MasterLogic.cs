@@ -15,6 +15,7 @@ public class MasterLogic : MonoBehaviour
     // Current ID of the rooms
     private int currentId;
 
+    // A room object containing all the info
     public struct RoomStats
     {
         // Rooms ID
@@ -45,6 +46,10 @@ public class MasterLogic : MonoBehaviour
     // The room the player is in
     private RoomStats currentRoom;
 
+    // The sign object placed above the door
+    [SerializeField]
+    private GameObject signObject;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -74,7 +79,7 @@ public class MasterLogic : MonoBehaviour
         // Check if the door selected was correct
     }
 
-    // Creates a new RoomStats object with the info
+    // Creates a new RoomStats object with the info, should be called at the start of each room
     private void CreateNewRoom()
     {
         // Pick a random door to place the sign above
@@ -104,6 +109,7 @@ public class MasterLogic : MonoBehaviour
         // Create a new room with all of this info
         RoomStats newRoom = new RoomStats();
         newRoom.id = currentId;
+
         //newRoom.roomProps = 
         newRoom.roomTrapped = trapped;
         newRoom.signLocation = doorWithSign;
@@ -111,5 +117,11 @@ public class MasterLogic : MonoBehaviour
         //newRoom.safeDoors = 
         //newRoom.entranceDoor = 
         //newRoom.signLying = 
+    }
+
+    // Place the sign sprite above the corresponding door
+    private void PlaceSign(int doorNum)
+    {
+
     }
 }
