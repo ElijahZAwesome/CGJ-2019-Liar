@@ -844,7 +844,7 @@ MonoBehaviour:
   - {fileID: 1363138170}
   - {fileID: 135020111}
   timeToMove: 0.1
-  timeToMoveDoor: 0.3
+  timeToMoveDoor: 0.5
 --- !u!4 &2123378929
 Transform:
   m_ObjectHideFlags: 0
