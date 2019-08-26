@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CameraController : MonoBehaviour
 {
@@ -14,7 +15,12 @@ public class CameraController : MonoBehaviour
 
     private float cameraSizeStart = 5f;
 
+    [SerializeField]
+    private bool blockInput = false;
+
     public Camera sceneCamera;
+
+    public RawImage fadeImage;
 
     public Transform[] cameraPositions;
     public Transform[] doorPositions;
@@ -25,11 +31,14 @@ public class CameraController : MonoBehaviour
     // How long it takes to zoom into door
     public float timeToMoveDoor = 0.4f;
 
+    public float timeToFade = 0.4f;
+
     public float transitionTime = 1f;
 
     private void Start()
     {
         cameraSizeStart = sceneCamera.orthographicSize;
+        fadeImage.CrossFadeAlpha(0, 0, true);
     }
 
     public void MoveCam(int position)
@@ -50,6 +59,7 @@ public class CameraController : MonoBehaviour
 
     private IEnumerator SlideCam(int position)
     {
+        blockInput = false;
         Reset();
         int oldPos = cameraPosition;
         cameraPosition = position;
@@ -68,6 +78,7 @@ public class CameraController : MonoBehaviour
 
     private IEnumerator ZoomCam(int position)
     {
+        blockInput = true;
         Reset();
         int oldPos = cameraPosition;
         float elapsedTime = 0;
@@ -78,14 +89,18 @@ public class CameraController : MonoBehaviour
         while (elapsedTime < time)
         {
             sceneCamera.transform.position = Vector3.Lerp(startingPos, newPos, (elapsedTime / time));
-            sceneCamera.orthographicSize = Mathf.Lerp(origSize, 0, (elapsedTime / time));
+            sceneCamera.orthographicSize = Mathf.Lerp(origSize, 0.001f, (elapsedTime / time));
             elapsedTime += Time.deltaTime;
             yield return 1;
         }
         sceneCamera.transform.position = newPos;
-        sceneCamera.orthographicSize = 0;
+        sceneCamera.orthographicSize = 0.001f;
+        fadeImage.canvasRenderer.SetAlpha(1);
+        fadeImage.CrossFadeAlpha(1, 0, true);
         yield return new WaitForSeconds(transitionTime);
-
+        Reset();
+        fadeImage.CrossFadeAlpha(0, timeToFade, false);
+        blockInput = false;
     }
 
     // Update is called once per frame
@@ -100,34 +115,38 @@ public class CameraController : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.D))
+        if (blockInput == false)
         {
-            MoveCam(2);
-        }
 
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            MoveCam(0);
-        }
+            if (Input.GetKeyDown(KeyCode.D))
+            {
+                MoveCam(2);
+            }
 
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            SelectDoor(0);
-        }
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                MoveCam(0);
+            }
 
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            SelectDoor(1);
-        }
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                SelectDoor(0);
+            }
 
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            SelectDoor(2);
-        }
+            if (Input.GetKeyDown(KeyCode.Alpha2))
+            {
+                SelectDoor(1);
+            }
 
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            Reset();
+            if (Input.GetKeyDown(KeyCode.Alpha3))
+            {
+                SelectDoor(2);
+            }
+
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                Reset();
+            }
         }
     }
 }
