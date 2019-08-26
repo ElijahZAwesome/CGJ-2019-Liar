@@ -25,6 +25,8 @@ public class CameraController : MonoBehaviour
     // How long it takes to zoom into door
     public float timeToMoveDoor = 0.4f;
 
+    public float transitionTime = 1f;
+
     private void Start()
     {
         cameraSizeStart = sceneCamera.orthographicSize;
@@ -40,8 +42,15 @@ public class CameraController : MonoBehaviour
         StartCoroutine(ZoomCam(position));
     }
 
+    private void Reset()
+    {
+        sceneCamera.transform.position = cameraPositions[1].position;
+        sceneCamera.orthographicSize = cameraSizeStart;
+    }
+
     private IEnumerator SlideCam(int position)
     {
+        Reset();
         int oldPos = cameraPosition;
         cameraPosition = position;
         float elapsedTime = 0;
@@ -59,7 +68,7 @@ public class CameraController : MonoBehaviour
 
     private IEnumerator ZoomCam(int position)
     {
-        sceneCamera.orthographicSize = cameraSizeStart;
+        Reset();
         int oldPos = cameraPosition;
         float elapsedTime = 0;
         float time = timeToMoveDoor;
@@ -74,6 +83,9 @@ public class CameraController : MonoBehaviour
             yield return 1;
         }
         sceneCamera.transform.position = newPos;
+        sceneCamera.orthographicSize = 0;
+        yield return new WaitForSeconds(transitionTime);
+
     }
 
     // Update is called once per frame
@@ -85,20 +97,17 @@ public class CameraController : MonoBehaviour
             if(!Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A))
             {
                 MoveCam(1);
-                print("center");
             }
         }
 
         if (Input.GetKeyDown(KeyCode.D))
         {
             MoveCam(2);
-            print("right");
         }
 
         if (Input.GetKeyDown(KeyCode.A))
         {
             MoveCam(0);
-            print("left");
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
@@ -118,8 +127,7 @@ public class CameraController : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            sceneCamera.transform.position = cameraPositions[1].position;
-            sceneCamera.orthographicSize = cameraSizeStart;
+            Reset();
         }
     }
 }
