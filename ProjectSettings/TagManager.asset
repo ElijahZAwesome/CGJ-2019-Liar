@@ -41,3 +41,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Cave
+    uniqueID: 4068437871
+    locked: 0
+  - name: Details
+    uniqueID: 570013231
+    locked: 0
+  - name: Objects
+    uniqueID: 1137102351
+    locked: 0
