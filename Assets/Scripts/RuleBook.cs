@@ -8,6 +8,9 @@ public class RuleBook : MonoBehaviour
     // The grand variable, that in the end, deterines if the sign is lying
     private bool signIsLying, leftSafe, middleSafe, rightSafe;
 
+    // If the value of the door is altered directly by a condition. If these are false, they will become opposite of the door with the sign
+    private bool leftTouched, middleTouched, rightTouched;
+
     private MasterLogic ML;
 
     // Delegate so we can store methods
@@ -17,13 +20,7 @@ public class RuleBook : MonoBehaviour
     public List<int> rulesInThisGame;
 
     // Rulebook containing our rules
-    public List<RuleMethod> rules = new List<RuleMethod>();
-
-    private void Start()
-    {
-        ML = GetComponent<MasterLogic>();
-        AddRules();
-    }
+    public List<RuleMethod> rules = new List<RuleMethod>() { };
 
     // Add each rule that is defined at the bottom of this script. Use this as an example
     public void AddRules()
@@ -50,12 +47,14 @@ public class RuleBook : MonoBehaviour
     /// </summary>
     public void RunThroughRules()
     {
+        ML = GetComponent<MasterLogic>();
         signIsLying = false;
-        leftSafe = true; middleSafe = true; rightSafe = true;
-        foreach (RuleMethod ruleFunc in rules)
+        leftSafe = false; middleSafe = false; rightSafe = false;
+        for (int i = 0; i < rules.Count; i++)
         {
-            ruleFunc();
+            rules[i]();
         }
+
         FinalizeRoomStats();
     }
 
@@ -68,39 +67,125 @@ public class RuleBook : MonoBehaviour
         DetermineSafeDoors();
     }
 
-    // Sets the safe rooms in the current room. This will be the script that checks all logic
+    // Sets the safe rooms in the current room
     private void DetermineSafeDoors()
     {
         int doorWithSign = ML.currentRoom.signLocation;
 
-        // Set all door states to whatever the rules hard code them to be
-        bool[] doorStates = new bool[3] { leftSafe, middleSafe, rightSafe };
+        ML.currentRoom.safeDoors = new bool[3] { false, false, false };
 
-        ML.currentRoom.safeDoors = doorStates;
-
-        // Set the door with a sign to be whatever it says
-        if (ML.currentRoom.signLying)
+        // If a door isn't affected directly, it is set to the opposite of what the sign says
+        bool untouchedDoor;
+        if (signIsLying)
         {
-            ML.currentRoom.safeDoors[doorWithSign] = !ML.currentRoom.signSaysSafe;
+            untouchedDoor = ML.currentRoom.signSaysSafe;
         }
         else
         {
-            ML.currentRoom.safeDoors[doorWithSign] = ML.currentRoom.signSaysSafe;
+            untouchedDoor = !ML.currentRoom.signSaysSafe;
         }
 
-        // If the signed door's state conflicts with a hard rule
-        if (ML.currentRoom.safeDoors[doorWithSign] != doorStates[doorWithSign])
+        print("untouched doors should be: " + untouchedDoor);
+
+        // Hard code the doors that weren't affected by logic to be the opposite of what the sign said
+        if (!leftTouched && doorWithSign != 0) { leftSafe = untouchedDoor; print("left door not touched"); }
+        if (!middleTouched && doorWithSign != 1) { middleSafe = untouchedDoor; print("middle door not touched"); }
+        if (!rightTouched && doorWithSign != 2) { rightSafe = untouchedDoor; print("right door not touched"); }
+
+        bool[] touchedStates = new bool[3] { leftTouched, middleTouched, rightTouched };
+        // If the sign is lying and the door with the sign isn't hard coded
+        if (ML.currentRoom.signLying && touchedStates[doorWithSign] == false)
         {
-            // Flip the state of the sign 
+            // Set the marked door to be the opposite of what the sign says
+            SetDoor(doorWithSign, !ML.currentRoom.signSaysSafe);
+            print("sign is lying, door " + doorWithSign + " is set to " + !ML.currentRoom.signSaysSafe);
+        }
+        // If the sign is not lying and the door with the sign isn't hard coded
+        else if (!ML.currentRoom.signLying && touchedStates[doorWithSign] == false)
+        {
+            // Set the marked door to be what the sign says
+            SetDoor(doorWithSign, ML.currentRoom.signSaysSafe);
+            print("sign is truthful, door " + doorWithSign + " is set to " + ML.currentRoom.signSaysSafe);
+        }
+        // The marked door was changed by a hard coded rule (example, sign is above left door saying safe but there's dripping meaning left door is deadly)
+        else if (touchedStates[doorWithSign] == true && CheckDoorOpposite(doorWithSign) == true)
+        {
+            // Note: this does not apply if the hard code is the same as the sign, for example, if a truthful sign says "death" above a tunnel that is hard coded to be death, nothign happens
+            print("The marked door has been hard forced to opposite, flip everything");
+            // Flip other two doors and the sign state
             signIsLying = !signIsLying;
-
-            ML.currentRoom.signLying = signIsLying;
+            FlipOtherDoors(doorWithSign);
         }
 
-        // If all doors are not safe
-        if (!leftSafe && !middleSafe && !rightSafe)
+        print("before setting the room to these: " + leftSafe + ", " + middleSafe + ", " + rightSafe);
+        ML.currentRoom.safeDoors[0] = leftSafe;
+        ML.currentRoom.safeDoors[1] = middleSafe;
+        ML.currentRoom.safeDoors[2] = rightSafe;
+    }
+
+    /// <summary>
+    /// Shows if the marked door's state (safe/death) is opposite of what the sign says it is
+    /// </summary>
+    /// <param name="doorNum">The door number (0, 1, 2)</param>
+    /// <returns>If the doors are opposite, used to check if a full flip is needed</returns>
+    private bool CheckDoorOpposite(int doorNum)
+    {
+        bool signState;
+        if (ML.currentRoom.signLying)
+            signState = !ML.currentRoom.signSaysSafe;
+        else
+            signState = ML.currentRoom.signSaysSafe;
+
+        switch (doorNum)
         {
-            print("NONE OF THE DOORS ARE SAFE");
+            case 0:
+                if (leftSafe != signState)
+                    return true;
+                break;
+            case 1:
+                if (middleSafe != signState)
+                    return true;
+                break;
+            case 2:
+                if (rightSafe != signState)
+                    return true;
+                break;
+        }
+        return false;
+    }
+
+    private void SetDoor(int doorNum, bool doorState)
+    {
+        switch (doorNum)
+        {
+            case 0:
+                leftSafe = doorState;
+                break;
+            case 1:
+                middleSafe = doorState;
+                break;
+            case 2:
+                rightSafe = doorState;
+                break;
+        }
+    }
+
+    private void FlipOtherDoors(int doorNum)
+    {
+        switch (doorNum)
+        {
+            case 0:
+                middleSafe = !middleSafe;
+                rightSafe = !rightSafe;
+                break;
+            case 1:
+                leftSafe = !leftSafe;
+                rightSafe = !rightSafe;
+                break;
+            case 2:
+                leftSafe = !leftSafe;
+                middleSafe = !middleSafe;
+                break;
         }
     }
 
@@ -134,6 +219,7 @@ public class RuleBook : MonoBehaviour
         {
             print("There is dripping, left is deadly");
             leftSafe = false;
+            leftTouched = true;
             return true;
         }
         return false;
@@ -147,6 +233,7 @@ public class RuleBook : MonoBehaviour
             rightSafe = false;
             return true;
         }
+        print("Didn't enter middle");
         return false;
     }
 

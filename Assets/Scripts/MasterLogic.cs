@@ -6,6 +6,7 @@ public class MasterLogic : MonoBehaviour
 {
     // Handles the overall GameLogic of which door ends up being safe
 
+    // The rulebook script attached to this object
     private RuleBook ruleBook;
 
     // The list of whether or not sign i was truthful
@@ -61,6 +62,11 @@ public class MasterLogic : MonoBehaviour
     void Start()
     {
         ruleBook = GetComponent<RuleBook>();
+
+        truthfulSigns = new List<bool> { };
+        allRooms = new List<RoomStats> { };
+
+        // Make a new room with some stats. This will have to read back info from the manager object with room generation
         CreateNewRoom();
     }
 
@@ -92,6 +98,7 @@ public class MasterLogic : MonoBehaviour
         PlaceSign(doorWithSign);
 	
         // Pick random thing for sign to say
+        // TODO: This will have to spawn the correct sign sprite object above the door
         bool signSaysSafe_;
         int randomMessage = Random.Range(0, 2);
         if (randomMessage == 1)
@@ -105,24 +112,40 @@ public class MasterLogic : MonoBehaviour
             print("THE SIGN SAYS DEATH");
         }
 
-        // Roll to place a trap (TODO: Needs to be updated)
+        // Roll to place a trap (TODO: Needs to be updated with info from the manager)
         bool trapped = false;
 
         // Create a new room with all of this info
         RoomStats newRoom = new RoomStats();
-        newRoom.id = currentId;
 
-        //newRoom.roomProps = 
-        newRoom.hasRat = true;
-        newRoom.hasWater = true;
-        newRoom.roomTrapped = trapped;
-        newRoom.signLocation = doorWithSign;
-        newRoom.signSaysSafe = signSaysSafe_;
-        //newRoom.entranceDoor = 
+        // ------------------------ ZACH'S CODE NEEDS TO APPLY HERE -----------------------------
+
+        // Set the ID
+        newRoom.id = currentId;
+        newRoom.hasRat = true; // has a rat in the room?
+        newRoom.hasWater = true; // water dripping/flowing?
+        newRoom.roomTrapped = trapped; // is it trapped?
+        newRoom.signLying = false; // default value of the sign lying
+        newRoom.signLocation = doorWithSign; // which door is the sign above? (0, 1, 2)
+        newRoom.signSaysSafe = signSaysSafe_; // does the sign say safe?
+        //newRoom.entranceDoor = //TODO: This needs to be solved, when you press a button it will have to pass the variable off
 
         // Set this room as the current one
         currentRoom = newRoom;
+
+        // Add the rules currently active to the rulebook (needs to be called here to avoid an error with duplicates
+        ruleBook.AddRules();
+
+        // Apply all logic to find if the sign is truthful or not
         ruleBook.RunThroughRules();
+
+        // Increment the ID
+        currentId++;
+
+        // Add the bool value of signLying to the list of bools
+        truthfulSigns.Add(!currentRoom.signLying);
+
+        print(currentRoom.safeDoors[0] + ", " + currentRoom.safeDoors[1] + ", " + currentRoom.safeDoors[2]);
     }
 
     // Place the sign sprite above the corresponding door
@@ -136,6 +159,7 @@ public class MasterLogic : MonoBehaviour
         signs[doorNum].SetActive(true);
     }
 
+    // Called when you enter a door
     private void EnterDoor(int doorNum)
     {
         if (currentRoom.safeDoors[doorNum] == true)
@@ -146,5 +170,8 @@ public class MasterLogic : MonoBehaviour
         {
             print("YOU ARE DEAD, WRONG DOOR");
         }
+
+        // Add the room to the list before you leave it
+        allRooms.Add(currentRoom);
     }
 }
