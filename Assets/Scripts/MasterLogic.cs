@@ -25,8 +25,9 @@ public class MasterLogic : MonoBehaviour
         // Rooms ID
         public int id;
 
-        // The objects in the room
-        public List<GameObject> roomProps;
+        public int numberOfRocks, numberOfStalagmites;
+
+        public bool hasRat, hasWater;
 
         // Was the room trapped (QTE)?
         public bool roomTrapped;
@@ -58,7 +59,6 @@ public class MasterLogic : MonoBehaviour
     void Start()
     {
         CreateNewRoom();
-        DetermineSafeDoors();
     }
 
     // Update is called once per frame
@@ -123,6 +123,7 @@ public class MasterLogic : MonoBehaviour
         }
 
         // Which doors are safe?
+        DetermineSafeDoors();
 
         // Create a new room with all of this info
         RoomStats newRoom = new RoomStats();
@@ -148,19 +149,19 @@ public class MasterLogic : MonoBehaviour
         // Set all doors to safe by default
         currentRoom.safeDoors = new bool[3] { true, true, true };
 
-        if (!currentRoom.signLying)
-        {
-            // Sign is telling the truth, mark all doors the opposite
-            currentRoom.safeDoors = new bool[3] { !doorSafe, !doorSafe, !doorSafe };
-            // Sign is telling the truth, set the marked door to what it reads
-            currentRoom.safeDoors[currentRoom.signLocation - 1] = doorSafe;
-        }
-        else
+        if (currentRoom.signLying)
         {
             // Sign is lying, mark all doors to what it says
             currentRoom.safeDoors = new bool[3] { doorSafe, doorSafe, doorSafe };
             // Sign is lying, set the marked door to opposite of what it says
             currentRoom.safeDoors[currentRoom.signLocation - 1] = !doorSafe;
+        }
+        else
+        {
+            // Sign is telling the truth, mark all doors the opposite
+            currentRoom.safeDoors = new bool[3] { !doorSafe, !doorSafe, !doorSafe };
+            // Sign is telling the truth, set the marked door to what it reads
+            currentRoom.safeDoors[currentRoom.signLocation - 1] = doorSafe;
         }
     }
 
