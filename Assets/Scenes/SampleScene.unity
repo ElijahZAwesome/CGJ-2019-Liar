@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 6467102}
   - component: {fileID: 6467101}
   m_Layer: 0
-  m_Name: Rat
+  m_Name: Donavan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

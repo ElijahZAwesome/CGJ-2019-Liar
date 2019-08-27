@@ -17,6 +17,12 @@ TextureImporter:
   - first:
       213: 6736303707625017609
     second: Rat_2
+  - first:
+      213: 128146093679295338
+    second: Rat_Glare
+  - first:
+      213: -1378026658245254789
+    second: Rat_Blink
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -140,12 +146,12 @@ TextureImporter:
       name: Rat_1
       rect:
         serializedVersion: 2
-        x: 666
-        y: 776
+        x: 147
+        y: 789
         width: 695
         height: 230
       alignment: 9
-      pivot: {x: 0.4968016, y: 0.4999997}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -161,12 +167,12 @@ TextureImporter:
       name: Rat_3
       rect:
         serializedVersion: 2
-        x: 666
-        y: 55
+        x: 147
+        y: 67
         width: 695
         height: 230
       alignment: 9
-      pivot: {x: 0.4968016, y: 0.4999997}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -182,12 +188,12 @@ TextureImporter:
       name: Rat_2
       rect:
         serializedVersion: 2
-        x: 666
-        y: 416
+        x: 147
+        y: 428
         width: 695
         height: 230
       alignment: 9
-      pivot: {x: 0.4968016, y: 0.4999997}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -195,6 +201,48 @@ TextureImporter:
       bones: []
       spriteID: 869a1d88d81bc664490fd4f850cb1650
       internalID: 6736303707625017609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rat_Glare
+      rect:
+        serializedVersion: 2
+        x: 1186
+        y: 428
+        width: 695
+        height: 230
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e43251a07c43e24aa7666fc8b0875ce
+      internalID: 128146093679295338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rat_Blink
+      rect:
+        serializedVersion: 2
+        x: 1186
+        y: 66
+        width: 695
+        height: 230
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99d59eb53938fa3479b6a365510bd525
+      internalID: -1378026658245254789
       vertices: []
       indices: 
       edges: []
