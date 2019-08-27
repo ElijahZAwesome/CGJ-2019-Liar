@@ -87,7 +87,7 @@ public class MasterLogic : MonoBehaviour
         // Pick a random door to place the sign above
         int doorWithSign = Random.Range(1, 4);
         PlaceSign(doorWithSign);
-
+	
         // Pick random thing for sign to say
         bool signSaysSafe_;
         int randomMessage = Random.Range(0, 2);

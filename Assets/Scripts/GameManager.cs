@@ -11,7 +11,9 @@ public class GameManager : MonoBehaviour
 	//Rocks V Stalactites V etc....
 	private string key = "0v0";
 	//Add more lists of the objects as needed to be spawned
+	[SerializeField]
 	private List<GameObject> rocks;
+	[SerializeField]
 	private List<GameObject> stalactites;
 	//This controlls the number of things the key will be able to generate. Decided by list of things like rocks and stalactites
 	int numberOfThings = 2, difficultyLevels = 5;
@@ -22,6 +24,11 @@ public class GameManager : MonoBehaviour
 		{
 			instance = this;
 		}
+		//Debugging Purposes
+		Debug.Log("GameStart");
+		Debug.Log(key);
+		KeyUpdate();
+		Debug.Log(key);
 	}
 	//call this on the completion of a room to update the key
 	void KeyUpdate()
@@ -30,10 +37,10 @@ public class GameManager : MonoBehaviour
 		List<int> keyPart = new List<int>();
 		for (int i = 0; i < numberOfThings; i++)
 		{
-
+			//This adds the more to the part in the key that we are accessing
 			keyPart.Add(int.Parse(key.Split('v')[i]) + difficultyLevels);
 		}
-		//Add to key based on where the object you want to influene is in the list based on what you want the difficulty to be and how the scale will rise.
+		//This creates the new key
 		key = keyPart[0].ToString() + 'v' + keyPart[1].ToString();
 
 	}
