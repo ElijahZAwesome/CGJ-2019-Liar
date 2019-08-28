@@ -1,13 +1,19 @@
 fileFormatVersion: 2
-guid: c910e7588ca3f18479818623571ee870
+guid: 696d96726ea6f804ba7832fe63edec38
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2846385447485985070
-    second: caveTest_0
+      213: -3286189400204805870
+    second: Rat_Idle
   - first:
-      213: 3450198159081859876
-    second: caveTest_1
+      213: 1721258866511934227
+    second: Rat_Idle_1
+  - first:
+      213: 404825924362706992
+    second: Rat_Idle_2
+  - first:
+      213: -5316513773841380738
+    second: Rat_Idle2
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -101,7 +107,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: Android
+    buildTarget: iPhone
     maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
@@ -113,7 +119,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: iPhone
+    buildTarget: Android
     maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
@@ -128,13 +134,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: caveTest_0
+      name: Rat_Idle
       rect:
         serializedVersion: 2
-        x: 1931
-        y: 2
-        width: 3851
-        height: 1077
+        x: 613
+        y: 427
+        width: 695
+        height: 230
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -142,29 +148,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a98faca7243c1a349b0c9dc818963940
-      internalID: 2846385447485985070
+      spriteID: ff56d8805608edb48b2626e0e5bfb1f3
+      internalID: -3286189400204805870
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: caveTest_1
+      name: Rat_Idle_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 9
-        width: 1919
-        height: 1080
+        x: 1840
+        y: 1019
+        width: 6
+        height: 6
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6c5476063a5d41c4ba745c6c9e4b6938
-      internalID: 3450198159081859876
+      spriteID: 979ee462e41517e48b7b54d2aa465f2c
+      internalID: 1721258866511934227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rat_Idle2
+      rect:
+        serializedVersion: 2
+        x: 615
+        y: 54
+        width: 695
+        height: 230
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20bf1884f23444f48a4e4971817ce67c
+      internalID: -5316513773841380738
       vertices: []
       indices: 
       edges: []
@@ -181,7 +208,7 @@ TextureImporter:
     secondaryTextures: []
   spritePackingTag: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
+  pSDShowRemoveMatteOption: 1
   userData: 
   assetBundleName: 
   assetBundleVariant: 
