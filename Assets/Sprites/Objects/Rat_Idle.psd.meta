@@ -4,7 +4,7 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: -3286189400204805870
-    second: Rat_Idle
+    second: Rat_Idle3
   - first:
       213: 1721258866511934227
     second: Rat_Idle_1
@@ -13,7 +13,10 @@ TextureImporter:
     second: Rat_Idle_2
   - first:
       213: -5316513773841380738
-    second: Rat_Idle2
+    second: Rat_Idle3
+  - first:
+      213: -3286189400204805870
+    second: Rat_Idle1
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -134,7 +137,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Rat_Idle
+      name: Rat_Idle2
       rect:
         serializedVersion: 2
         x: 613
@@ -155,31 +158,10 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rat_Idle_1
+      name: Rat_Idle3
       rect:
         serializedVersion: 2
-        x: 1840
-        y: 1019
-        width: 6
-        height: 6
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 979ee462e41517e48b7b54d2aa465f2c
-      internalID: 1721258866511934227
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Rat_Idle2
-      rect:
-        serializedVersion: 2
-        x: 615
+        x: 613
         y: 54
         width: 695
         height: 230
@@ -192,6 +174,27 @@ TextureImporter:
       bones: []
       spriteID: 20bf1884f23444f48a4e4971817ce67c
       internalID: -5316513773841380738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rat_Idle1
+      rect:
+        serializedVersion: 2
+        x: 613
+        y: 800
+        width: 695
+        height: 230
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c6b0ec42bbd3ab4b8b8849e36871d38
+      internalID: -3286189400204805870
       vertices: []
       indices: 
       edges: []
