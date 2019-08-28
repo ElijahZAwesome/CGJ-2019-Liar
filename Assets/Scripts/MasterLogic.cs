@@ -93,6 +93,8 @@ public class MasterLogic : MonoBehaviour
     // Creates a new RoomStats object with the info, should be called at the start of each room
     private void CreateNewRoom()
     {
+        // Call on the GameManager to get a seed
+
         // Pick a random door to place the sign above
         int doorWithSign = Random.Range(0, 3);
         PlaceSign(doorWithSign);
@@ -133,7 +135,7 @@ public class MasterLogic : MonoBehaviour
         // Set this room as the current one
         currentRoom = newRoom;
 
-        // Add the rules currently active to the rulebook (needs to be called here to avoid an error with duplicates
+        // Add the rules currently active to the rulebook (needs to be called here to avoid an error with duplicates)
         ruleBook.AddRules();
 
         // Apply all logic to find if the sign is truthful or not
