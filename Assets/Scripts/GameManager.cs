@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
 	private List<GameObject> rocks;
 	[SerializeField]
 	private List<GameObject> stalactites;
+	[SerializeField]
+	private List<GameObject> spawnPoints;
 	//This controlls the number of things the key will be able to generate. Decided by list of things like rocks and stalactites
 	int numberOfThings = 2, difficultyLevels = 5;
 	// Start is called before the first frame update
@@ -44,6 +46,7 @@ public class GameManager : MonoBehaviour
 		key = keyPart[0].ToString() + 'v' + keyPart[1].ToString();
 
 	}
+
 	/**
 	void GenTheRoom()
 	{
