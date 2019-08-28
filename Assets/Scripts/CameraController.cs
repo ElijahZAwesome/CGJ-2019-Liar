@@ -22,6 +22,8 @@ public class CameraController : MonoBehaviour
 
     public RawImage fadeImage;
 
+    public GameObject stalags;
+
     public Transform[] cameraPositions;
     public Transform[] doorPositions;
 
@@ -55,25 +57,34 @@ public class CameraController : MonoBehaviour
     {
         sceneCamera.transform.position = cameraPositions[1].position;
         sceneCamera.orthographicSize = cameraSizeStart;
+        stalags.transform.position = cameraPositions[1].position;
     }
 
     private IEnumerator SlideCam(int position)
     {
         blockInput = false;
-        Reset();
         int oldPos = cameraPosition;
         cameraPosition = position;
         float elapsedTime = 0;
         float time = timeToMove;
         Vector3 startingPos = cameraPositions[oldPos].position;
+        Vector3 startingPosStalags = stalags.transform.position;
         Vector3 newPos = cameraPositions[position].position;
         while (elapsedTime < time)
         {
             sceneCamera.transform.position = Vector3.Lerp(startingPos, newPos, (elapsedTime / time));
+            if(position == 0 || position == 2)
+            {
+                stalags.transform.position = Vector3.Lerp(startingPosStalags, newPos / 2, (elapsedTime / time));
+            } else
+            {
+                stalags.transform.position = Vector3.Lerp(startingPosStalags, newPos, (elapsedTime / time));
+            }
             elapsedTime += Time.deltaTime;
             yield return 1;
         }
         sceneCamera.transform.position = newPos;
+        stalags.transform.position = newPos / 2;
     }
 
     private IEnumerator ZoomCam(int position)
