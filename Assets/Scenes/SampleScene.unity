@@ -517,7 +517,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de22de0e38f36144dbc7ce3f81a5ff5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  randTime: 5
+  multipleAnim: 0
+  randTime: 20
 --- !u!95 &428304475
 Animator:
   serializedVersion: 3
@@ -906,7 +907,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de22de0e38f36144dbc7ce3f81a5ff5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  randTime: 5
+  multipleAnim: 0
+  randTime: 20
 --- !u!95 &846167045
 Animator:
   serializedVersion: 3
@@ -1317,7 +1319,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de22de0e38f36144dbc7ce3f81a5ff5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  randTime: 5
+  multipleAnim: 0
+  randTime: 20
 --- !u!95 &1213590790
 Animator:
   serializedVersion: 3
@@ -2132,7 +2135,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de22de0e38f36144dbc7ce3f81a5ff5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  randTime: 5
+  multipleAnim: 0
+  randTime: 20
 --- !u!95 &1541703759
 Animator:
   serializedVersion: 3
@@ -2316,7 +2320,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de22de0e38f36144dbc7ce3f81a5ff5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  randTime: 5
+  multipleAnim: 0
+  randTime: 20
 --- !u!1 &1698455185
 GameObject:
   m_ObjectHideFlags: 0
@@ -2463,7 +2468,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de22de0e38f36144dbc7ce3f81a5ff5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  randTime: 5
+  multipleAnim: 0
+  randTime: 20
 --- !u!95 &1772095671
 Animator:
   serializedVersion: 3

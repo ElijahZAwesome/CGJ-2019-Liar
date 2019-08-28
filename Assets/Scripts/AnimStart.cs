@@ -35,15 +35,17 @@ public class AnimStart : MonoBehaviour
             pickTime -= Time.deltaTime;
             if (!start)
             {
-                if (pickTime < 0)
+                if (pickTime <= 10)
                 {
                     gameObject.GetComponent<Animator>().SetBool("Go", true);
                     start = true;
                 }
-            }
-            else
-            {
-                // make your animation do more things here
+
+                else if (pickTime >= 10)
+                {
+                    gameObject.GetComponent<Animator>().SetBool("Go", false);
+                    start = true;
+                }
             }
         }
     }
