@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
 		}
 		//Debugging Purposes
 		Debug.Log("GameStart");
-
+		DontDestroyOnLoad(instance);
         allProps.Add(rocks);
         allProps.Add(mushrooms);
         allProps.Add(rats);
