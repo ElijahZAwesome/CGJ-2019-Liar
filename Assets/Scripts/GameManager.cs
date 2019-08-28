@@ -24,12 +24,20 @@ public class GameManager : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
 	{
+        allProps = new List<List<GameObject>>();
+
 		if (instance == null)
 		{
 			instance = this;
 		}
 		//Debugging Purposes
 		Debug.Log("GameStart");
+
+        allProps.Add(rocks);
+        allProps.Add(mushrooms);
+        allProps.Add(rats);
+        allProps.Add(webs);
+
 		Debug.Log(key);
         //KeyUpdate();
         GenerateNewKey();
