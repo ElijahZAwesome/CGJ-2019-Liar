@@ -1,25 +1,10 @@
 fileFormatVersion: 2
-guid: b6f971ddcf1ea1945be7919f882d4cd8
+guid: 341cf5c0d071a3f4d950d5204d61140d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8939545618966041546
-    second: dylanSpriteSheet_0
-  - first:
-      213: -1484470539954432495
-    second: dylanSpriteSheet_1
-  - first:
-      213: 8223328897674609559
-    second: dylanSpriteSheet_2
-  - first:
-      213: 7990865507024857760
-    second: dylanSpriteSheet_3
-  - first:
-      213: -431806098357468507
-    second: dylanSpriteSheet_4
-  - first:
-      213: 1364107391448007191
-    second: dylanSpriteSheet_5
+      213: -7791909800306019487
+    second: Rule_Sheet
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -78,7 +63,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -90,7 +75,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 2048
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -102,7 +87,19 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Windows Store Apps
-    maxTextureSize: 2048
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -114,7 +111,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
-    maxTextureSize: 2048
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -128,13 +125,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: dylanSpriteSheet_0
+      name: Rule_Sheet
       rect:
         serializedVersion: 2
-        x: 176
-        y: 3560
-        width: 485
-        height: 246
+        x: 642
+        y: 198
+        width: 460
+        height: 684
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -142,113 +139,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d0d8d1bf7e0447441801a3c805b13f7b
-      internalID: 8939545618966041546
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: dylanSpriteSheet_1
-      rect:
-        serializedVersion: 2
-        x: 711
-        y: 3638
-        width: 356
-        height: 176
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2745e1422dd89494185f45da18378abc
-      internalID: -1484470539954432495
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: dylanSpriteSheet_2
-      rect:
-        serializedVersion: 2
-        x: 1165
-        y: 3610
-        width: 318
-        height: 239
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2ac73fd5f75959f44ad5e0d350392652
-      internalID: 8223328897674609559
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: dylanSpriteSheet_3
-      rect:
-        serializedVersion: 2
-        x: 175
-        y: 2909
-        width: 275
-        height: 507
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 76b865a0efebd45429b44973e0d8e973
-      internalID: 7990865507024857760
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: dylanSpriteSheet_4
-      rect:
-        serializedVersion: 2
-        x: 560
-        y: 2958
-        width: 429
-        height: 412
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e346f0eff247ca940831b2beb2c41a67
-      internalID: -431806098357468507
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: dylanSpriteSheet_5
-      rect:
-        serializedVersion: 2
-        x: 1185
-        y: 2909
-        width: 543
-        height: 506
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2f3d371014675b54a821d6dc924f6731
-      internalID: 1364107391448007191
+      spriteID: 57f20191ab03f14488291aa243dba28b
+      internalID: -7791909800306019487
       vertices: []
       indices: 
       edges: []
