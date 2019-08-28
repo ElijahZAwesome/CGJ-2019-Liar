@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AnimStart : MonoBehaviour
 {
+    public bool multipleAnim;
     public float randTime;
     float pickTime;
     bool start = false;
@@ -17,13 +18,32 @@ public class AnimStart : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!start)
+        if (!multipleAnim)
+        {
+            if (!start)
+            {
+                pickTime -= Time.deltaTime;
+                if (pickTime < 0)
+                {
+                    gameObject.GetComponent<Animator>().SetBool("Go", true);
+                    start = true;
+                }
+            }
+        }
+        else
         {
             pickTime -= Time.deltaTime;
-            if (pickTime < 0)
+            if (!start)
             {
-                gameObject.GetComponent<Animator>().SetBool("Go", true);
-                start = true;
+                if (pickTime < 0)
+                {
+                    gameObject.GetComponent<Animator>().SetBool("Go", true);
+                    start = true;
+                }
+            }
+            else
+            {
+                // make your animation do more things here
             }
         }
     }
