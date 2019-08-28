@@ -25,6 +25,7 @@ public class RuleBook : MonoBehaviour
     // Add each rule that is defined at the bottom of this script. Use this as an example
     public void AddRules()
     {
+        rules.Clear();
         rules.Add(LyingIfRat);
         rules.Add(DripLeftDeath);
     }
@@ -43,7 +44,7 @@ public class RuleBook : MonoBehaviour
 
     /// <summary>
     /// Calls each rule, which will modify signIsLying and also return whether or not the rule was true
-    /// (currently i can't think of a use for this, but futureproofing never hurts)
+    /// (currently I can't think of a use for this, but futureproofing never hurts)
     /// </summary>
     public void RunThroughRules()
     {
