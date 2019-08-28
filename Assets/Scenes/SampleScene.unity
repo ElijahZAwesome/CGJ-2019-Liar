@@ -986,7 +986,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 846167043}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 19.59, y: -4.03, z: 0}
+  m_LocalPosition: {x: 19.59, y: -4.32, z: 0}
   m_LocalScale: {x: 0.35, y: 0.35, z: 1}
   m_Children: []
   m_Father: {fileID: 1408407098}
@@ -2302,7 +2302,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1629620384}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -24.54, y: -4.03, z: 0}
+  m_LocalPosition: {x: -24.54, y: -4.35, z: 0}
   m_LocalScale: {x: -0.35, y: 0.35, z: 1}
   m_Children: []
   m_Father: {fileID: 1408407098}
@@ -2660,6 +2660,11 @@ PrefabInstance:
       propertyPath: doorPositions.Array.data[2]
       value: 
       objectReference: {fileID: 574254748}
+    - target: {fileID: 1748648781630698286, guid: 777d45c53ecc35a45af87f87b2e97e55,
+        type: 3}
+      propertyPath: stalags
+      value: 
+      objectReference: {fileID: 1276530473}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 777d45c53ecc35a45af87f87b2e97e55, type: 3}
 --- !u!1 &1827009535
