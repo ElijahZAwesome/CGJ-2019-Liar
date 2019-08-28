@@ -3769,6 +3769,11 @@ PrefabInstance:
       propertyPath: doorPositions.Array.data[2]
       value: 
       objectReference: {fileID: 574254748}
+    - target: {fileID: 1748648781630698286, guid: 777d45c53ecc35a45af87f87b2e97e55,
+        type: 3}
+      propertyPath: stalags
+      value: 
+      objectReference: {fileID: 1276530473}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 777d45c53ecc35a45af87f87b2e97e55, type: 3}
 --- !u!1 &1827009535
