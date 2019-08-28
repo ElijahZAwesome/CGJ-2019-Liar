@@ -6,10 +6,13 @@ using UnityEngine.SceneManagement;
 public class Buttons : MonoBehaviour
 {
     public GameObject howToPlay;
+    public GameObject closed;
+    public GameObject open;
 
     void Start()
     {
         howToPlay.SetActive(false);
+        open.SetActive(false);
     }
 
     public void openRules()
@@ -20,6 +23,8 @@ public class Buttons : MonoBehaviour
     public void closeRules()
     {
         howToPlay.SetActive(false);
+        open.SetActive(false);
+        closed.SetActive(true);
     }
 
     public void loadGame()
@@ -34,5 +39,11 @@ public class Buttons : MonoBehaviour
 #else
         Application.Quit();
 #endif
+    }
+
+    public void openPack()
+    {
+        closed.SetActive(false);
+        open.SetActive(true);
     }
 }
