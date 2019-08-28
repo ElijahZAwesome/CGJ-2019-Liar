@@ -28,6 +28,10 @@ public class RuleBook : MonoBehaviour
         rules.Clear();
         rules.Add(LyingIfRat);
         rules.Add(DripLeftDeath);
+        rules.Add(EnterMidRightDeath);
+        rules.Add(EvenRocksLying);
+        rules.Add(MultipleThreeRocksTruthful);
+        rules.Add(MoreShroomsRatsMiddleDeath);
     }
 
     // Randomly generates 2-4 rules to start
@@ -118,7 +122,7 @@ public class RuleBook : MonoBehaviour
             FlipOtherDoors(doorWithSign);
         }
 
-        print("before setting the room to these: " + leftSafe + ", " + middleSafe + ", " + rightSafe);
+        print("setting the room to these: " + leftSafe + ", " + middleSafe + ", " + rightSafe);
         ML.currentRoom.safeDoors[0] = leftSafe;
         ML.currentRoom.safeDoors[1] = middleSafe;
         ML.currentRoom.safeDoors[2] = rightSafe;
@@ -192,31 +196,24 @@ public class RuleBook : MonoBehaviour
 
     #region ALL RULES
 
-    /* SHORT DESCRIPTION OF EACH RULE (many more to come)
-     * Rat in room = lying
-     * Odd number of stalagmites = truth
-     * Even number of stalagmites = lying
-     * Dripping = left door not safe
-     * Came from middle = right door not safe
-     * Multiple of 3 rocks in the room = sign is truthful
-     * 
-     */
-
     // NOTE: Rules which directly change the state of the sign should occur early, so that it can be more complex with rules that mention specific doors
 
+    // If there is at least one rat, the sign is lying
     public bool LyingIfRat()
     {
-        if (ML.currentRoom.hasRat)
+        if (ML.currentRoom.numRats > 0)
         {
             signIsLying = true;
             print("There is a rat, sign is lying");
+            return true;
         }
-        return signIsLying;
+        return false;
     }
 
+    // If there is water in the room, the left door is deadly
     public bool DripLeftDeath()
     {
-        if (ML.currentRoom.hasWater)
+        if (ML.currentRoom.numWater > 0)
         {
             print("There is dripping, left is deadly");
             leftSafe = false;
@@ -226,28 +223,58 @@ public class RuleBook : MonoBehaviour
         return false;
     }
 
+    // If you just entered from the middle, the right door is deadly
     public bool EnterMidRightDeath()
     {
         if (ML.currentRoom.entranceDoor == 2)
         {
             print("Came from the middle, right is deadly");
             rightSafe = false;
+            rightTouched = true;
             return true;
         }
-        print("Didn't enter middle");
         return false;
     }
 
+    // If there is an even number of rocks, the sign is lying
+    public bool EvenRocksLying()
+    {
+        int rocks = ML.currentRoom.numRocks;
+        if (rocks > 0 && rocks % 2 == 0)
+        {
+            print("Even number of rocks, sign is lying");
+            signIsLying = true;
+            return true;
+        }
+        return false;
+    }
+
+    // If there are a multiple of three rocks in the room, then the sign is truthful
+    public bool MultipleThreeRocksTruthful()
+    {
+        int rocks = ML.currentRoom.numRocks;
+        if (rocks > 0 && rocks % 3 == 0)
+        {
+            print("Multiple of 3 rocks, sign is truthful");
+            signIsLying = false;
+            return true;
+        }
+        return false;
+    }
+
+    // If there are both mushrooms and rats, but more mushrooms, the middle is not safe
+    private bool MoreShroomsRatsMiddleDeath()
+    {
+        int rats = ML.currentRoom.numRats;
+        int shrooms = ML.currentRoom.numShrooms;
+        if (rats > 0 && shrooms > rats)
+        {
+            print("More shrooms than rats, middle is not safe");
+            middleSafe = false;
+            middleTouched = true;
+            return true;
+        }
+        return false;
+    }
     #endregion
-
-    /* Example:
-     * Rules in this game: 1, 3, 5, 6
-     * Switch statement of rule 1 = run func LyingIfRat() which checks if there's a rat, and if so, sets signlying to true
-     * Switch statement of rule 3 = run func DripRightNotSafe() which check if there's a drip, and if so, sets right room to not safe
-     * This means that the sign is lying if and only if it is marking right as safe. Adjust the bool signIsLying accordingly
-     * This script must be able to take the stats of the room in a function that decides if the sign is lying or not
-     * It also contains all the functions for the rules, which is a lot of them
-     * Functions should be short, as there are many
-     */
-
 }

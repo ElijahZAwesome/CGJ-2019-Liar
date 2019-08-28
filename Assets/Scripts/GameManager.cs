@@ -9,10 +9,10 @@ public class GameManager : MonoBehaviour
 	[SerializeField]
 	private GameObject cornerOfMap;
 	//Rocks V Stalactites V etc....
-	private string key = "0v0v0v0";
+	private string key = "0v0v0v0v0";
 	//Add more lists of the objects as needed to be spawned
 	[SerializeField]
-	private List<GameObject> rocks, mushrooms, rats, webs;
+	private List<GameObject> rocks, mushrooms, rats, webs, water;
 
     private List<List<GameObject>> allProps;
 
@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
 
 	// Start is called before the first frame update
 	void Start()
-	{
+    { 
         allProps = new List<List<GameObject>>();
 
 		if (instance == null)
@@ -37,11 +37,12 @@ public class GameManager : MonoBehaviour
         allProps.Add(mushrooms);
         allProps.Add(rats);
         allProps.Add(webs);
+        allProps.Add(water);
 
-		Debug.Log(key);
+		//Debug.Log(key);
         //KeyUpdate();
-        GenerateNewKey();
-		Debug.Log(key);
+        //GenerateNewKey();
+		//Debug.Log(key);
 	}
 	//call this on the completion of a room to update the key
 	void KeyUpdate()
@@ -61,16 +62,30 @@ public class GameManager : MonoBehaviour
     {
         int numberOfThings = Random.Range(minNumberOfThings, maxNumberOfThings + 1);
         string newKey = "";
-        foreach(List<GameObject> propList in allProps)
+        for (int i = 0; i < allProps.Count; i++)
         {
             // If we still have objects to place, then place a random number of this object
             if (numberOfThings > 0)
             {
-                int numberOfThisProp = Random.Range(0, numberOfThings + 1);
-                newKey += numberOfThisProp.ToString() + "v";
-                numberOfThings -= numberOfThisProp;
+                int numberOfThisProp;
+                if (i == allProps.Count)
+                {
+                    // This is the last spot, dump the rest of the things here
+                    numberOfThisProp = numberOfThings;
+                }
+                else
+                {
+                    numberOfThisProp = Random.Range(0, numberOfThings + 1);
+                    newKey += numberOfThisProp.ToString() + "v";
+                    numberOfThings -= numberOfThisProp;
+                }
+            }
+            else
+            {
+                newKey += 0.ToString() + "v";
             }
         }
+        print("Built Key: " + newKey);
         return newKey;
     }
 

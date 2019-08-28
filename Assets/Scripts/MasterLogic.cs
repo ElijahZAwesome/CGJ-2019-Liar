@@ -31,9 +31,7 @@ public class MasterLogic : MonoBehaviour
         // Rooms ID
         public int id;
 
-        public int numRocks, numWebs, numShrooms;
-
-        public bool hasRat, hasWater;
+        public int numRocks, numShrooms, numRats, numWebs, numWater;
 
         // Was the room trapped (QTE)?
         public bool roomTrapped;
@@ -127,10 +125,17 @@ public class MasterLogic : MonoBehaviour
 
         // ------------------------ ZACH'S CODE NEEDS TO APPLY HERE -----------------------------
 
+        // Key Order: Rocks, Shrooms, Rats, Webs (as of right now, this will grow later)
+
+        // Get the info from the new room key
+        string[] roomNums = roomKey.Split('v');
+        int.TryParse(roomNums[0], out newRoom.numRocks);
+        int.TryParse(roomNums[1], out newRoom.numShrooms);
+        int.TryParse(roomNums[2], out newRoom.numRats);
+        int.TryParse(roomNums[3], out newRoom.numWebs);
+
         // Set the ID
         newRoom.id = currentId;
-        newRoom.hasRat = true; // has a rat in the room?
-        newRoom.hasWater = true; // water dripping/flowing?
         newRoom.roomTrapped = trapped; // is it trapped?
         newRoom.signLying = false; // default value of the sign lying
         newRoom.signLocation = doorWithSign; // which door is the sign above? (0, 1, 2)
