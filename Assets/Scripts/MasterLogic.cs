@@ -22,13 +22,16 @@ public class MasterLogic : MonoBehaviour
     // Current ID of the rooms
     private int currentId;
 
+    // The game manager that will generate a key
+    private GameManager GM;
+
     // A room object containing all the info
     public struct RoomStats
     {
         // Rooms ID
         public int id;
 
-        public int numberOfRocks, numberOfStalagmites;
+        public int numRocks, numWebs, numShrooms;
 
         public bool hasRat, hasWater;
 
@@ -62,6 +65,7 @@ public class MasterLogic : MonoBehaviour
     void Start()
     {
         ruleBook = GetComponent<RuleBook>();
+        GM = GetComponent<GameManager>();
 
         truthfulSigns = new List<bool> { };
         allRooms = new List<RoomStats> { };
@@ -94,6 +98,7 @@ public class MasterLogic : MonoBehaviour
     private void CreateNewRoom()
     {
         // Call on the GameManager to get a seed
+        string roomKey = GM.GenerateNewKey();
 
         // Pick a random door to place the sign above
         int doorWithSign = Random.Range(0, 3);
