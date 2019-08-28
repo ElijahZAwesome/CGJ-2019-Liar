@@ -47,6 +47,7 @@ MonoBehaviour:
   blockInput: 0
   sceneCamera: {fileID: 0}
   fadeImage: {fileID: 0}
+  stalags: {fileID: 0}
   cameraPositions:
   - {fileID: 0}
   - {fileID: 0}
