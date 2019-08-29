@@ -33,7 +33,7 @@ public class MasterLogic : MonoBehaviour
         // Rooms ID
         public int id;
 
-        public int numRocks, numShrooms, numRats, numWebs, numWater;
+        public int numRocks, numShrooms, numRats, numWebs, numGems;
 
         // Was the room trapped (QTE)?
         public bool roomTrapped;

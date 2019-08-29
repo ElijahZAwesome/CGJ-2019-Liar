@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
 	public bool isDamaged = false;
 	public int numFlares = 0;
 
+    public string playerRules = "";
+
     public float timeRemaining;
 
 	//Rocks V Stalactites V etc....
@@ -15,12 +17,14 @@ public class GameManager : MonoBehaviour
 
 	//Add more lists of the objects as needed to be spawned
 	[SerializeField]
-	private List<GameObject> rocks, mushrooms, rats, webs, water;
+	private List<GameObject> rocks, mushrooms, rats, webs, gems;
 
     private List<List<GameObject>> allProps;
 
 	[SerializeField]
 	private List<GameObject> spawnPoints;
+
+    private List<GameObject> availableSpawnPoints;
 
     //This controlls the number of things the key will be able to generate. Decided by list of things like rocks and stalactites
     int maxNumberOfThings = 5, difficultyLevels = 1, minNumberOfThings = 0;
@@ -29,6 +33,8 @@ public class GameManager : MonoBehaviour
 	void Start()
     {
         allProps = new List<List<GameObject>>() { };
+
+        availableSpawnPoints = spawnPoints;
 
 		if (instance == null)
 		{
@@ -41,7 +47,7 @@ public class GameManager : MonoBehaviour
         allProps.Add(mushrooms);
         allProps.Add(rats);
         allProps.Add(webs);
-        allProps.Add(water);
+        allProps.Add(gems);
 
 		//Debug.Log(key);
         //KeyUpdate();
@@ -83,6 +89,8 @@ public class GameManager : MonoBehaviour
                     newKey += numberOfThisProp.ToString() + "v";
                     numberOfThings -= numberOfThisProp;
                 }
+                // Place the item in the room
+                PlaceItems(allProps[i], numberOfThisProp);
             }
             else
             {
@@ -99,10 +107,30 @@ public class GameManager : MonoBehaviour
         maxNumberOfThings += 2;
     }
 
-	/**
-	void GenTheRoom()
+    // Place items on the random spawnpoints
+	void PlaceItems(List<GameObject> propList, int howMany)
 	{
+        if (howMany > 0)
+        {
+            // Pick a random available spawn point to place it at
+            int randomPoint = Random.Range(0, availableSpawnPoints.Count);
 
+            // Pick a random prefab from the proplist
+            int randomProp = Random.Range(0, propList.Count);
+
+            // Place the item at the point
+            for (int i = 0; i < howMany; i++)
+            {
+                if (availableSpawnPoints.Count > 0)
+                {
+                    // Place the item at the point
+                    Instantiate(propList[randomProp], availableSpawnPoints[randomPoint].transform.position, Quaternion.identity);
+
+                    // Remove this spawn point from the list
+                    availableSpawnPoints.RemoveAt(randomPoint);
+                }
+            }
+        }
 	}
-	**/
+
 }
