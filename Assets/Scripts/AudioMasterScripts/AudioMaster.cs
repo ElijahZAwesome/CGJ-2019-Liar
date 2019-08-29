@@ -5,6 +5,7 @@ using UnityEngine;
 public class AudioMaster : MonoBehaviour
 {
     public AudioSource flare;
+    public AudioSource backPack;
 
     void Start()
     {
@@ -19,5 +20,10 @@ public class AudioMaster : MonoBehaviour
     public void flareToss()
     {
         flare.Play();
+    }
+
+    public void openPack()
+    {
+        backPack.Play();
     }
 }
