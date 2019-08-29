@@ -8,6 +8,7 @@ public class AudioMaster : MonoBehaviour
     public AudioSource backPack;
     public AudioSource flarePickup;
     public AudioSource healthPickup;
+    public AudioSource button;
 
     void Start()
     {
@@ -37,5 +38,10 @@ public class AudioMaster : MonoBehaviour
     public void pickupHealth()
     {
         healthPickup.Play();
+    }
+
+    public void buttonClick()
+    {
+        button.Play();
     }
 }
