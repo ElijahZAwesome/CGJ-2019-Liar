@@ -29,7 +29,7 @@ public class Buttons : MonoBehaviour
 
     public void loadGame()
     {
-        SceneManager.LoadScene("OtherSampleScene");
+        SceneManager.LoadScene("SampleScene");
     }
 
     public void exitGame()
