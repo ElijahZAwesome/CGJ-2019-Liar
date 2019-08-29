@@ -1798,6 +1798,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   handLight: {fileID: 1242785168}
+  trapHandler: {fileID: 1768522681}
 --- !u!4 &625779824
 Transform:
   m_ObjectHideFlags: 0
