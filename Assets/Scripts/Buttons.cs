@@ -59,7 +59,6 @@ public class Buttons : MonoBehaviour
     public void openPack()
     {
         closed.SetActive(false);
-        play.openPack();
         open.SetActive(true);
     }
 }
