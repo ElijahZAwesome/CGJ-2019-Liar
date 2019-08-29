@@ -6,32 +6,37 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
 	bool isPaused = false;
+	[SerializeField]
 	GameObject pausePanel;
-    // Start is called before the first frame update
-    void Start()
-    {
-		pausePanel = this.gameObject;
-		//pausePanel.Set;
-    }
+	[SerializeField]
+	GameObject trapHandler;
 
     // Update is called once per frame
     void Update()
     {
 		//Pauses the game
-		if (Input.GetKeyDown(KeyCode.Escape))
+		if (Input.GetKeyDown(KeyCode.Escape) && !trapHandler.GetComponent<TrapEvent>().isTrapped)
 		{
 			if (isPaused)//Paused to Not Paused
 			{
-				isPaused = !isPaused;
-				pausePanel.SetActive(false);
+				UnpauseTheGame();
 			}
 			else //Not Paused to Paused
 			{
-				isPaused = !isPaused;
-				pausePanel.SetActive(true);
-				//Stop Timer while the Game is paused
+				PauseTheGame();
 			}
 		}
+	}
+	void PauseTheGame()
+	{
+		isPaused = !isPaused;
+		pausePanel.SetActive(true);
+		//Stop Timer while the Game is paused
+	}
+	public void UnpauseTheGame()
+	{
+		isPaused = !isPaused;
+		pausePanel.SetActive(false);
 	}
 	public void exitGame()
 	{
