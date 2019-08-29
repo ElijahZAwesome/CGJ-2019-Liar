@@ -82,6 +82,12 @@ public class TrapEvent : MonoBehaviour
                 }
             }
         }
+        else
+        {
+            trappedAlert.SetActive(false);
+            trappedPhrase.gameObject.SetActive(false);
+            trapTimer.gameObject.SetActive(false);
+        }
     }
     
     public void StartTrap()
@@ -109,6 +115,7 @@ public class TrapEvent : MonoBehaviour
     {
         // stub, jake you do this pl0x
         print("You fucking died idiot");
+        // set state to injured TODO
     }
     
     public void UpdatePhrase()

@@ -121,7 +121,7 @@ public class GameManager : MonoBehaviour
             // Place the item at the point
             for (int i = 0; i < howMany; i++)
             {
-                if (availableSpawnPoints.Count > 0)
+                if (availableSpawnPoints.Count > 0 && propList.Count > 0)
                 {
                     // Place the item at the point
                     Instantiate(propList[randomProp], availableSpawnPoints[randomPoint].transform.position, Quaternion.identity);
