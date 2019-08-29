@@ -27,6 +27,9 @@ public class MasterLogic : MonoBehaviour
     // The game manager that will generate a key
     private GameManager GM;
 
+    // The trap event object that will handle traps
+    private TrapEvent TE;
+
     // A room object containing all the info
     public struct RoomStats
     {
@@ -62,6 +65,7 @@ public class MasterLogic : MonoBehaviour
     {
         ruleBook = GetComponent<RuleBook>();
         GM = GetComponent<GameManager>();
+        TE = FindObjectOfType<TrapEvent>();
 
         truthfulSigns = new List<bool> { };
         allRooms = new List<RoomStats> { };
@@ -119,9 +123,15 @@ public class MasterLogic : MonoBehaviour
             print("THE SIGN SAYS DEATH");
         }
 
-        // Roll to place a trap (TODO: Needs to be updated with info from the manager)
+        // Roll to place a trap
         bool trapped = false;
-
+        int aTrap = Random.Range(0, 5);
+        if (aTrap == 1)
+        {
+            trapped = true;
+            TE.StartTrap();
+        }
+        
         // Create a new room with all of this info
         RoomStats newRoom = new RoomStats();
 
@@ -139,6 +149,7 @@ public class MasterLogic : MonoBehaviour
         newRoom.roomTrapped = trapped; // is it trapped?
         newRoom.signLying = false; // default value of the sign lying
         newRoom.signLocation = doorWithSign; // which door is the sign above? (0, 1, 2)
+        newRoom.entranceDoor = doorYouCameFrom;
         newRoom.signSaysSafe = signSaysSafe_; // does the sign say safe?
         //newRoom.entranceDoor = //TODO: This needs to be solved, when you press a button it will have to pass the variable off
 
