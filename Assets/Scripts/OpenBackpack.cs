@@ -60,6 +60,7 @@ public class OpenBackpack : MonoBehaviour
                 //Add a flare
                 collected = true;
                 flarePack.SetActive(false);
+                play.pickupFlare();
                 emptyPack.SetActive(true);
             }
             else if (openedHealth)
@@ -67,6 +68,7 @@ public class OpenBackpack : MonoBehaviour
                 //Heal up missing health
                 collected = true;
                 healthPack.SetActive(false);
+                play.pickupHealth();
                 emptyPack.SetActive(true);
             }
         }
