@@ -15,9 +15,11 @@ public class Inventory : MonoBehaviour
     void Start()
     {
 		inv = this;
-		numText.text = 0.ToString(); //GameManager.instance.numFlares.ToString();
-	
-    }
+		numText.text = GameManager.instance.numFlares.ToString();
+		flareCount = GameManager.instance.numFlares;
+
+
+	}
 	public void Throw()
 	{
 		DeleteFlare();
