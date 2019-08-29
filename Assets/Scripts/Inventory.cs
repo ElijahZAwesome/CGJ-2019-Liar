@@ -22,7 +22,7 @@ public class Inventory : MonoBehaviour
 
 	}
     // Update is called once per frame
-	void AddFlare()
+	public void AddFlare()
 	{
 		flareCount++;
 		GameManager.instance.numFlares = flareCount;
