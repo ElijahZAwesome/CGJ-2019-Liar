@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine.UI;
 public class Inventory : MonoBehaviour
 {
+	public static Inventory inv;
 	[SerializeField]
 	private TextMeshProUGUI numText;
 	[SerializeField]
@@ -13,7 +14,7 @@ public class Inventory : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+		inv = this;
 		numText.text = 0.ToString(); //GameManager.instance.numFlares.ToString();
 	
     }
