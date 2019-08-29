@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -3023,6 +3023,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flare: {fileID: 1429025309}
   backPack: {fileID: 0}
+  flarePickup: {fileID: 0}
+  healthPickup: {fileID: 0}
+  button: {fileID: 0}
 --- !u!4 &1429025311
 Transform:
   m_ObjectHideFlags: 0
