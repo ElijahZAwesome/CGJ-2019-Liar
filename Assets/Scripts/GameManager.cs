@@ -38,6 +38,7 @@ public class GameManager : MonoBehaviour
 	void Start()
     {
         isDamaged = false;
+		damaged = GameObject.Find("Damage");
         damaged.SetActive(false);
         allProps = new List<List<GameObject>>() { };
 
@@ -64,7 +65,12 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        damaged.SetActive(isDamaged);
+		if(damaged == null)
+		{
+			damaged = GameObject.Find("Damage");
+		}
+		if(damaged != null)
+		 damaged.SetActive(isDamaged);
     }
     //call this on the completion of a room to update the key
     void KeyUpdate()
