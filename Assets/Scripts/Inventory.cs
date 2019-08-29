@@ -14,12 +14,12 @@ public class Inventory : MonoBehaviour
     void Start()
     {
 
-		numText.text = GameManager.instance.numFlares.ToString();
+		numText.text = 0.ToString(); //GameManager.instance.numFlares.ToString();
 	
     }
 	void Throw()
 	{
-
+		DeleteFlare();
 	}
     // Update is called once per frame
 	public void AddFlare()
