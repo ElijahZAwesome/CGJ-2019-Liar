@@ -20,6 +20,8 @@ public class CameraController : MonoBehaviour
 
     public Camera sceneCamera;
 
+    public TrapEvent trapHandler;
+
     public RawImage fadeImage;
 
     public GameObject stalags;
@@ -126,7 +128,7 @@ public class CameraController : MonoBehaviour
             }
         }
 
-        if (blockInput == false)
+        if (blockInput == false && trapHandler.isTrapped == false)
         {
 
             if (Input.GetKeyDown(KeyCode.D))

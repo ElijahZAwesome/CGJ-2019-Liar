@@ -27,7 +27,7 @@ public class RuleBook : MonoBehaviour
     {
         rules.Clear();
         rules.Add(LyingIfRat);
-        rules.Add(DripLeftDeath);
+        rules.Add(TwoGemLeftDeath);
         rules.Add(EnterMidRightDeath);
         rules.Add(EvenRocksLying);
         rules.Add(MultipleThreeRocksTruthful);
@@ -47,6 +47,11 @@ public class RuleBook : MonoBehaviour
 
     }
     */
+
+    private void Start()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
 
     public void AddNewRule()
     {
@@ -222,12 +227,12 @@ public class RuleBook : MonoBehaviour
         return false;
     }
 
-    // If there is water in the room, the left door is deadly
-    public bool DripLeftDeath()
+    // If there are more than 2 gems in the room, the left door is deadly
+    public bool TwoGemLeftDeath()
     {
-        if (ML.currentRoom.numWater > 0)
+        if (ML.currentRoom.numGems > 2)
         {
-            print("There is dripping, left is deadly");
+            print("There are more than 2 gems, left is deadly");
             leftSafe = false;
             leftTouched = true;
             return true;
