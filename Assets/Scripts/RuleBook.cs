@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RuleBook : MonoBehaviour
 {
@@ -22,6 +23,9 @@ public class RuleBook : MonoBehaviour
 
     // Rulebook containing our rules
     public List<RuleMethod> rules = new List<RuleMethod>() { };
+
+    [SerializeField]
+    private Text playerRuleSheet;
 
     // Add each rule that is defined at the bottom of this script. Use this as an example
     public void AddRules()
@@ -58,6 +62,7 @@ public class RuleBook : MonoBehaviour
 
     public void AddNewRule()
     {
+        print("Adding a rule");
         if (rules.Count > 0)
         {
             int randomRule = UnityEngine.Random.Range(0, rules.Count);
@@ -72,13 +77,20 @@ public class RuleBook : MonoBehaviour
     /// </summary>
     public void RunThroughRules()
     {
+        GM.playerRules = "";
         signIsLying = false;
         leftSafe = false; middleSafe = false; rightSafe = false;
-        for (int i = 0; i < rules.Count; i++)
+
+        for (int i = 0; i < rulesInThisGame.Count; i++)
         {
-            rules[i]();
+            print("Running a rule");
+            rulesInThisGame[i]();
         }
 
+        // Add the text to the player rule sheet
+        playerRuleSheet.text = GM.playerRules;
+
+        // Finalize the state of all rooms
         FinalizeRoomStats();
     }
 

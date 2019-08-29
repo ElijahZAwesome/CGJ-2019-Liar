@@ -92,6 +92,7 @@ public class TrapEvent : MonoBehaviour
     
     public void StartTrap()
     {
+        print("THERE IS A TRAP");
         isTrapped = true;
         trapTimeLeft = trapTimeInSeconds;
         QTEPointer = 0;
