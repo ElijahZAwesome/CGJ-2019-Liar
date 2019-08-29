@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MasterLogic : MonoBehaviour
 {
@@ -189,7 +190,8 @@ public class MasterLogic : MonoBehaviour
         if (currentRoom.safeDoors[doorNum] == true)
         {
             print("YOU PICKED A SAFE DOOR");
-        }
+			SceneManager.LoadScene("SampleScene");
+		}
         else
         {
             print("YOU ARE DEAD, WRONG DOOR");
