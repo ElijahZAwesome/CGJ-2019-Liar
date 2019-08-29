@@ -190,6 +190,7 @@ public class MasterLogic : MonoBehaviour
         if (currentRoom.safeDoors[doorNum] == true)
         {
             print("YOU PICKED A SAFE DOOR");
+			GM.UpgradeKey();
 			SceneManager.LoadScene("SampleScene");
 		}
         else
