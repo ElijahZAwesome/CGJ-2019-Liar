@@ -8,13 +8,13 @@ public class TrapEvent : MonoBehaviour
 
     public string[] QTEevents = new string[] { "ASDF", "NOUIDIOT", "THINKFAST", "EIFUHWBY", "IMOUTOFIDEAS", "MIDDLE DOOR", "LEFT DOOR", "LYING", "SAFE", "RIGHT DOOR", "ROCK", "MUSHROOM" };
 
-    public Text trappedAlert;
+    public GameObject trappedAlert;
     public Text trappedPhrase;
     public Text trapTimer;
 
-    public float trapTimeInSeconds = 5f;
+    public float trapTimeInSeconds = 4f;
     [SerializeField]
-    private float trapTimeLeft = 5f;
+    private float trapTimeLeft = 4f;
 
     [SerializeField]
     private int QTEPointer = 0;
