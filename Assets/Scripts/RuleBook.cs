@@ -104,6 +104,7 @@ public class RuleBook : MonoBehaviour
         GM.playerRules = "";
         signIsLying = false;
         leftSafe = false; middleSafe = false; rightSafe = false;
+        leftTouched = false; middleTouched = false; rightTouched = false;
 
         for (int i = 0; i < rulesInThisGame.Count; i++)
         {

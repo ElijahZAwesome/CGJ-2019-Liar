@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
     
 
     //This controlls the number of things the key will be able to generate. Decided by list of things like rocks and stalactites
-    int maxNumberOfThings = 5, difficultyLevels = 1, minNumberOfThings = 0;
+    int maxNumberOfThings = 2, difficultyLevels = 1, minNumberOfThings = 0;
 
 	// Start is called before the first frame update
 	void Start()
@@ -61,8 +61,13 @@ public class GameManager : MonoBehaviour
         //GenerateNewKey();
 		//Debug.Log(key);
 	}
-	//call this on the completion of a room to update the key
-	void KeyUpdate()
+
+    private void Update()
+    {
+        damaged.SetActive(isDamaged);
+    }
+    //call this on the completion of a room to update the key
+    void KeyUpdate()
 	{
         int numberOfThings = Random.Range(minNumberOfThings, maxNumberOfThings + 1);
 		List<int> keyPart = new List<int>();
@@ -112,8 +117,17 @@ public class GameManager : MonoBehaviour
 
     public void UpgradeKey()
     {
-        minNumberOfThings += 2;
-        maxNumberOfThings += 2;
+        minNumberOfThings += 1;
+        maxNumberOfThings += 1;
+        if (maxNumberOfThings >= spawnPoints.Count)
+        {
+            maxNumberOfThings = spawnPoints.Count;
+        }
+        if (minNumberOfThings >= maxNumberOfThings)
+        {
+            minNumberOfThings = maxNumberOfThings;
+        }
+        print("Min: " + minNumberOfThings + " Max: " + maxNumberOfThings);
     }
 
     // Place items on the random spawnpoints

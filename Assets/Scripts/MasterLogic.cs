@@ -167,9 +167,6 @@ public class MasterLogic : MonoBehaviour
         // Set this room as the current one
         currentRoom = newRoom;
 
-        // Add the rules currently active to the rulebook (needs to be called here to avoid an error with duplicates)
-        //ruleBook.AddRules();
-
         // Apply all logic to find if the sign is truthful or not
         ruleBook.RunThroughRules();
 
