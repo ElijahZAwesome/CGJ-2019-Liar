@@ -114,6 +114,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a5b85075e9008f4b8cec6ad65df0686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  correct: 1
+  flare: 1
+  correct: 0
   caveLight: {fileID: 5923150566282493406, guid: 55990f5fd2529b749a21d9795cc46bbf,
     type: 3}
+  x: {fileID: 1493323362684255995, guid: fa74d4a1bbc22914fab94cf920ccc075, type: 3}
+  o: {fileID: 537008454611069686, guid: c78ac36d88884f04388904ef726681ab, type: 3}
