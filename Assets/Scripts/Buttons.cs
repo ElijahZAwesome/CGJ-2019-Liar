@@ -34,6 +34,11 @@ public class Buttons : MonoBehaviour
         SceneManager.LoadScene("SampleScene");
     }
 
+    public void mainMenu()
+    {
+        SceneManager.LoadScene("TitleScreen");
+    }
+
     public void exitGame()
     {
 #if UNITY_EDITOR
