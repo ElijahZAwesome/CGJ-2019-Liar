@@ -128,7 +128,8 @@ public class GameManager : MonoBehaviour
 
                     // Place the item at the point
                     print("Attempting to place prop number: " + randomProp + " at spawnPoint " + randomPoint);
-                    Instantiate(propList[randomProp], availableSpawnPoints[randomPoint].transform.position, Quaternion.identity);
+                    GameObject prop = Instantiate(propList[randomProp], availableSpawnPoints[randomPoint].transform.position, Quaternion.identity);
+                    prop.transform.SetParent(gameObject.transform);
 
                     // Remove this spawn point from the list
                     availableSpawnPoints.RemoveAt(randomPoint);
@@ -137,4 +138,17 @@ public class GameManager : MonoBehaviour
         }
 	}
 
+    public void DestroyProps()
+    {
+        List<GameObject> children = new List<GameObject>() { };
+        foreach(Transform child in gameObject.transform)
+        {
+            children.Add(child.gameObject);
+        }
+
+        foreach(GameObject prop in children)
+        {
+            Destroy(prop);
+        }
+    }
 }

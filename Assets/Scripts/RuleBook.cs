@@ -24,6 +24,7 @@ public class RuleBook : MonoBehaviour
     // Rulebook containing our rules
     public List<RuleMethod> rules = new List<RuleMethod>() { };
 
+
     [SerializeField]
     private GameObject playerRuleSheet;
 
@@ -57,8 +58,9 @@ public class RuleBook : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Return))
         {
+            bool isOn = playerRuleSheet.activeSelf;
             // Toggle the rule sheet image
-            playerRuleSheet.SetActive(!playerRuleSheet.activeInHierarchy);
+            playerRuleSheet.SetActive(!isOn);
         }
     }
 
@@ -68,7 +70,7 @@ public class RuleBook : MonoBehaviour
         GM = GetComponent<GameManager>();
         ML = GetComponent<MasterLogic>();
         AddRules();
-        playerRuleSheet.SetActive(false);
+        //playerRuleSheet.SetActive(false);
     }
 
     public void AddNewRule()
@@ -272,7 +274,7 @@ public class RuleBook : MonoBehaviour
     public bool EnterMidRightDeath()
     {
         GM.playerRules += "If you just came from the Middle Door, the Right Door is not safe | ";
-        if (ML.currentRoom.entranceDoor == 2)
+        if (ML.currentRoom.entranceDoor == 1)
         {
             print("Came from the middle, right is deadly");
             rightSafe = false;

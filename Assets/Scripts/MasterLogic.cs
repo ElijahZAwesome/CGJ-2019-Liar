@@ -116,11 +116,15 @@ public class MasterLogic : MonoBehaviour
         if (randomMessage == 1)
         {
             signSaysSafe_ = true;
+            signs[doorWithSign].gameObject.transform.GetChild(0).gameObject.SetActive(false);
+            signs[doorWithSign].gameObject.transform.GetChild(1).gameObject.SetActive(true);
             print("THE SIGN SAYS SAFE");
         }
         else
         {
             signSaysSafe_ = false;
+            signs[doorWithSign].gameObject.transform.GetChild(1).gameObject.SetActive(false);
+            signs[doorWithSign].gameObject.transform.GetChild(0).gameObject.SetActive(true);
             print("THE SIGN SAYS DEATH");
         }
 
@@ -158,7 +162,7 @@ public class MasterLogic : MonoBehaviour
         currentRoom = newRoom;
 
         // Add the rules currently active to the rulebook (needs to be called here to avoid an error with duplicates)
-        ruleBook.AddRules();
+        //ruleBook.AddRules();
 
         // Apply all logic to find if the sign is truthful or not
         ruleBook.RunThroughRules();
@@ -191,14 +195,14 @@ public class MasterLogic : MonoBehaviour
         {
             print("YOU PICKED A SAFE DOOR");
 			GM.UpgradeKey();
-			SceneManager.LoadScene("SampleScene");
+            allRooms.Add(currentRoom);
+            GM.DestroyProps();
+            CreateNewRoom();
 		}
         else
         {
             print("YOU ARE DEAD, WRONG DOOR");
-        }
-
-        // Add the room to the list before you leave it
-        allRooms.Add(currentRoom);
+            SceneManager.LoadScene("TitleScreen");
+        }        
     }
 }
