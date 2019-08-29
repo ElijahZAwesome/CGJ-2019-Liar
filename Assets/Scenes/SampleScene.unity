@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -2317,7 +2317,7 @@ PrefabInstance:
     - target: {fileID: 46841839943826981, guid: 0bb9718a6e2646f41ae0feda40689413,
         type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 46841839943826981, guid: 0bb9718a6e2646f41ae0feda40689413,
         type: 3}
@@ -3023,6 +3023,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flare: {fileID: 1429025309}
   backPack: {fileID: 0}
+  flarePickup: {fileID: 0}
+  healthPickup: {fileID: 0}
 --- !u!4 &1429025311
 Transform:
   m_ObjectHideFlags: 0
@@ -3778,7 +3780,7 @@ Transform:
   - {fileID: 319594175}
   - {fileID: 392487645}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1705745505
 GameObject:

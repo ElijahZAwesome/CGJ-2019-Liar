@@ -24,12 +24,12 @@ public class GameManager : MonoBehaviour
 	[SerializeField]
 	private List<GameObject> spawnPoints;
 
+    // Spawn point remaining in this room
     private List<GameObject> availableSpawnPoints;
+    // TODO: Individual spawn points
 
     [SerializeField]
     private GameObject damaged;
-
-    
 
     //This controlls the number of things the key will be able to generate. Decided by list of things like rocks and stalactites
     int maxNumberOfThings = 2, difficultyLevels = 1, minNumberOfThings = 0;

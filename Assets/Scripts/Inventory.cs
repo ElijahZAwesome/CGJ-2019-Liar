@@ -41,8 +41,10 @@ public class Inventory : MonoBehaviour
 	}
 	void Update()
     {
+        // TODO: Remove this on release
 		if (Input.GetKeyDown(KeyCode.L)){
 			AddFlare();
 		}
+
     }
 }
