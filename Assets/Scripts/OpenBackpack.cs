@@ -49,6 +49,7 @@ public class OpenBackpack : MonoBehaviour
         {
             if (openedFlare)
             {
+				Inventory.inv.AddFlare();
                 //Add a flare
                 collected = true;
                 flarePack.SetActive(false);

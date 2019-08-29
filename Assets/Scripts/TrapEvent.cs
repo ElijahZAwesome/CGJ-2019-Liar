@@ -10,8 +10,11 @@ public class TrapEvent : MonoBehaviour
 
     public Text trappedAlert;
     public Text trappedPhrase;
+    public Text trapTimer;
 
     public float trapTimeInSeconds = 5f;
+    [SerializeField]
+    private float trapTimeLeft = 5f;
 
     [SerializeField]
     private int QTEPointer = 0;
@@ -41,6 +44,13 @@ public class TrapEvent : MonoBehaviour
     {
         if(isTrapped)
         {
+            trapTimeLeft -= Time.deltaTime;
+            trapTimer.text = System.Math.Round(trapTimeLeft, 2).ToString();
+            if(trapTimeLeft <= 0f)
+            {
+                EndTrap();
+                FailTrap();
+            }
             NeedsToBeTyped = QTEevents[QTEString][QTEPointer].ToString();
             KeyCode thisKeyCode;
             if(NeedsToBeTyped == " ")
@@ -50,13 +60,25 @@ public class TrapEvent : MonoBehaviour
             {
                 thisKeyCode = (KeyCode)System.Enum.Parse(typeof(KeyCode), NeedsToBeTyped);
             }
-            if (Input.GetKeyDown(thisKeyCode))
+            if (Input.anyKeyDown)
             {
-                QTEPointer++;
-                UpdatePhrase();
-                if(QTEPointer >= QTEevents[QTEString].Length)
+                if (Input.GetKeyDown(thisKeyCode))
+                {
+                    QTEPointer++;
+                    UpdatePhrase();
+                    if (QTEPointer >= QTEevents[QTEString].Length)
+                    {
+                        EndTrap();
+                    }
+                }
+                else if (Input.GetKeyDown(KeyCode.Escape) || Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(2))
+                {
+                    // stub
+                }
+                else
                 {
                     EndTrap();
+                    FailTrap();
                 }
             }
         }
@@ -65,11 +87,13 @@ public class TrapEvent : MonoBehaviour
     public void StartTrap()
     {
         isTrapped = true;
+        trapTimeLeft = trapTimeInSeconds;
         QTEPointer = 0;
         QTEString = Mathf.RoundToInt(UnityEngine.Random.Range(0, QTEevents.Length));
         QTEAsString = QTEevents[QTEString];
         trappedAlert.gameObject.SetActive(true);
         trappedPhrase.gameObject.SetActive(true);
+        trapTimer.gameObject.SetActive(true);
         UpdatePhrase();
     }
 
@@ -78,6 +102,13 @@ public class TrapEvent : MonoBehaviour
         isTrapped = false;
         trappedAlert.gameObject.SetActive(false);
         trappedPhrase.gameObject.SetActive(false);
+        trapTimer.gameObject.SetActive(false);
+    }
+
+    public void FailTrap()
+    {
+        // stub, jake you do this pl0x
+        print("You fucking died idiot");
     }
     
     public void UpdatePhrase()
