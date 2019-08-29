@@ -9,7 +9,7 @@ public class AnimFlare : MonoBehaviour
 
     void Start()
     {
-        caveLight = transform.GetChild(0).gameObject;
+        
     }
 
     void Update()
@@ -26,8 +26,7 @@ public class AnimFlare : MonoBehaviour
     {
         if (correct)
         {
-            caveLight.transform.parent = null;
-            caveLight.SetActive(true);
+            Instantiate(caveLight, gameObject.transform.position, Quaternion.identity);
         }
     }
 }
