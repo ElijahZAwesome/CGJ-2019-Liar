@@ -18,7 +18,7 @@ public class Inventory : MonoBehaviour
 		numText.text = 0.ToString(); //GameManager.instance.numFlares.ToString();
 	
     }
-	void Throw()
+	public void Throw()
 	{
 		DeleteFlare();
 	}

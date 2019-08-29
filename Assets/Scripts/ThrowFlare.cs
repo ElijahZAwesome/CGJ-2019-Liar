@@ -23,6 +23,7 @@ public class ThrowFlare : MonoBehaviour
       if(Input.GetMouseButtonDown(1))
         {
             Instantiate(flare, rightCave.transform.position, Quaternion.identity);
+            Inventory.inv.Throw();
 
             Debug.Log("Kool");
         }
