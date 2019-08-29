@@ -56,7 +56,7 @@ public class RuleBook : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetKeyDown(KeyCode.W))
         {
             bool isOn = playerRuleSheet.activeSelf;
             // Toggle the rule sheet image
