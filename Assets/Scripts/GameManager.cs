@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
 
 	//Rocks V Stalactites V etc....
 	private string key = "0v0v0v0v0";
+
 	//Add more lists of the objects as needed to be spawned
 	[SerializeField]
 	private List<GameObject> rocks, mushrooms, rats, webs, water;
@@ -20,6 +21,7 @@ public class GameManager : MonoBehaviour
 
 	[SerializeField]
 	private List<GameObject> spawnPoints;
+
     //This controlls the number of things the key will be able to generate. Decided by list of things like rocks and stalactites
     int maxNumberOfThings = 5, difficultyLevels = 1, minNumberOfThings = 0;
 
