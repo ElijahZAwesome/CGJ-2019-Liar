@@ -96,7 +96,7 @@ public class TrapEvent : MonoBehaviour
     
     public void StartTrap()
     {
-        print("THERE IS A TRAP");
+        //print("THERE IS A TRAP");
         isTrapped = true;
         trapTimeLeft = trapTimeInSeconds;
         QTEPointer = 0;
@@ -134,10 +134,10 @@ public class TrapEvent : MonoBehaviour
         phrase = "[";
         for(int i = 0; i < QTEevents[QTEString].Length; i++)
         {
-            print(i + " " + QTEPointer);
+            //print(i + " " + QTEPointer);
             if(i < QTEPointer)
             {
-                print("yes");
+                //print("yes");
                 phrase += "<color=green>" + QTEevents[QTEString][i].ToString() + "</color>";
             } else
             {
