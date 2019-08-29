@@ -11,6 +11,8 @@ public class Buttons : MonoBehaviour
 
     void Start()
     {
+        Cursor.visible = true;
+
         howToPlay.SetActive(false);
         open.SetActive(false);
     }
