@@ -29,7 +29,7 @@ public class Inventory : MonoBehaviour
 		GameManager.instance.numFlares = flareCount;
 		numText.text = GameManager.instance.numFlares.ToString();
 	}
-	void DeleteFlare()
+	public void DeleteFlare()
 	{
 		flareCount--;
 		if(flareCount < 0)
