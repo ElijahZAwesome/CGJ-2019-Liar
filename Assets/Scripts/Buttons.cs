@@ -9,33 +9,41 @@ public class Buttons : MonoBehaviour
     public GameObject closed;
     public GameObject open;
 
+    AudioMaster play;
+
     void Start()
     {
         Cursor.visible = true;
 
         howToPlay.SetActive(false);
         open.SetActive(false);
+
+        play = GameObject.Find("AudioManager").GetComponent<AudioMaster>();
     }
 
     public void openRules()
     {
         howToPlay.SetActive(true);
+        play.buttonClick();
     }
 
     public void closeRules()
     {
         howToPlay.SetActive(false);
         open.SetActive(false);
+        play.buttonClick();
         closed.SetActive(true);
     }
 
     public void loadGame()
     {
+        play.buttonClick();
         SceneManager.LoadScene("SampleScene");
     }
 
     public void mainMenu()
     {
+        play.buttonClick();
         SceneManager.LoadScene("TitleScreen");
     }
 
@@ -51,6 +59,7 @@ public class Buttons : MonoBehaviour
     public void openPack()
     {
         closed.SetActive(false);
+        play.openPack();
         open.SetActive(true);
     }
 }
