@@ -17,7 +17,7 @@ public class RuleBook : MonoBehaviour
     public delegate bool RuleMethod();
 
     // Which rules are in this game
-    public List<int> rulesInThisGame;
+    public List<RuleMethod> rulesInThisGame = new List<RuleMethod>() { };
 
     // Rulebook containing our rules
     public List<RuleMethod> rules = new List<RuleMethod>() { };
@@ -34,6 +34,7 @@ public class RuleBook : MonoBehaviour
         rules.Add(MoreShroomsRatsMiddleDeath);
     }
 
+    /*
     // Randomly generates 2-4 rules to start
     public void StartRules()
     {
@@ -44,6 +45,17 @@ public class RuleBook : MonoBehaviour
             rulesInThisGame.Add(Mathf.RoundToInt(UnityEngine.Random.Range(0, rules.Count)));
         }
 
+    }
+    */
+
+    public void AddNewRule()
+    {
+        if (rules.Count > 0)
+        {
+            int randomRule = UnityEngine.Random.Range(0, rules.Count);
+            rulesInThisGame.Add(rules[randomRule]);
+            rules.RemoveAt(randomRule);
+        }
     }
 
     /// <summary>
