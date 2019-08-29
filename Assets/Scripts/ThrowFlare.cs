@@ -8,9 +8,11 @@ public class ThrowFlare : MonoBehaviour
     public Transform leftCave, midCave, rightCave;
     public int caveNum;
 
+    AudioMaster toss;
+
     void Start()
     {
-        
+        toss = GameObject.Find("AudioManager").GetComponent<AudioMaster>();
     }
 
     void Update()
@@ -25,16 +27,19 @@ public class ThrowFlare : MonoBehaviour
             if (Input.GetMouseButtonDown(1) && caveNum == 3)
             {
                 Instantiate(flare, rightCave.transform.position, Quaternion.identity);
+                toss.flareToss();
                 Inventory.inv.Throw();
             }
             else if (Input.GetMouseButtonDown(1) && caveNum == 2)
             {
                 Instantiate(flare, midCave.transform.position, Quaternion.identity);
+                toss.flareToss();
                 Inventory.inv.Throw();
             }
             else if (Input.GetMouseButtonDown(1) && caveNum == 1)
             {
                 Instantiate(flare, leftCave.transform.position, Quaternion.identity);
+                toss.flareToss();
                 Inventory.inv.Throw();
             }
         }
