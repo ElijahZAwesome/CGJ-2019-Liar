@@ -26,6 +26,9 @@ public class GameManager : MonoBehaviour
 
     private List<GameObject> availableSpawnPoints;
 
+    [SerializeField]
+    private GameObject damaged;
+
     
 
     //This controlls the number of things the key will be able to generate. Decided by list of things like rocks and stalactites
@@ -34,6 +37,8 @@ public class GameManager : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
     {
+        isDamaged = false;
+        damaged.SetActive(false);
         allProps = new List<List<GameObject>>() { };
 
         availableSpawnPoints = spawnPoints;
@@ -101,6 +106,7 @@ public class GameManager : MonoBehaviour
             }
         }
         print("Built Key: " + newKey);
+        availableSpawnPoints = spawnPoints;
         return newKey;
     }
 

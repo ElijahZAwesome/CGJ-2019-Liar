@@ -61,6 +61,9 @@ public class MasterLogic : MonoBehaviour
     // The room the player is in
     public RoomStats currentRoom;
 
+    // When you press a number, this prevents the "door you came from" from being changeable while transitioning
+    private bool canSelectRoom;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -79,23 +82,26 @@ public class MasterLogic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.Alpha1) && canSelectRoom)
         {
             // Select left door
-            EnterDoor(0);
+            //EnterDoor(0);
             doorYouCameFrom = 0;
+            canSelectRoom = false;
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        else if (Input.GetKeyDown(KeyCode.Alpha2) && canSelectRoom)
         {
             // Select middle door
-            EnterDoor(1);
+            //EnterDoor(1);
             doorYouCameFrom = 1;
+            canSelectRoom = false;
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha3))
+        else if (Input.GetKeyDown(KeyCode.Alpha3) && canSelectRoom)
         {
             // Select right door
-            EnterDoor(2);
+            //EnterDoor(2);
             doorYouCameFrom = 2;
+            canSelectRoom = false;
         }
     }
 
@@ -174,6 +180,8 @@ public class MasterLogic : MonoBehaviour
         truthfulSigns.Add(!currentRoom.signLying);
 
         print(currentRoom.safeDoors[0] + ", " + currentRoom.safeDoors[1] + ", " + currentRoom.safeDoors[2]);
+
+        canSelectRoom = true;
     }
 
     // Place the sign sprite above the corresponding door
@@ -189,19 +197,24 @@ public class MasterLogic : MonoBehaviour
     }
 
     // Called when you enter a door
-    private void EnterDoor(int doorNum)
+    public void EnterDoor(int doorNum)
     {
         if (currentRoom.safeDoors[doorNum] == true)
         {
             print("YOU PICKED A SAFE DOOR");
 			GM.UpgradeKey();
             allRooms.Add(currentRoom);
+            if (allRooms.Count % 5 == 0)
+            {
+                ruleBook.AddNewRule();
+            }
             GM.DestroyProps();
             CreateNewRoom();
 		}
         else
         {
             print("YOU ARE DEAD, WRONG DOOR");
+            // Kill everything
             SceneManager.LoadScene("TitleScreen");
         }        
     }

@@ -15,6 +15,9 @@ public class RuleBook : MonoBehaviour
     private MasterLogic ML;
     private GameManager GM;
 
+    // To prevent spamming
+    private float ruleCooldown = 1f;
+
     // Delegate so we can store methods
     public delegate bool RuleMethod();
 
@@ -56,11 +59,18 @@ public class RuleBook : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKey(KeyCode.W))
         {
+            /*
             bool isOn = playerRuleSheet.activeSelf;
             // Toggle the rule sheet image
             playerRuleSheet.SetActive(!isOn);
+            */
+            playerRuleSheet.SetActive(true);
+        }
+        else
+        {
+            playerRuleSheet.SetActive(false);
         }
     }
 

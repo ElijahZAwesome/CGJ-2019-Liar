@@ -26,6 +26,8 @@ public class CameraController : MonoBehaviour
 
     public GameObject stalags;
 
+    private MasterLogic ML;
+
     public Transform[] cameraPositions;
     public Transform[] doorPositions;
 
@@ -43,6 +45,7 @@ public class CameraController : MonoBehaviour
     {
         cameraSizeStart = sceneCamera.orthographicSize;
         fadeImage.CrossFadeAlpha(0, 0, true);
+        ML = GameObject.Find("LogicHandler").GetComponent<MasterLogic>();
     }
 
     public void MoveCam(int position)
@@ -111,6 +114,8 @@ public class CameraController : MonoBehaviour
         fadeImage.canvasRenderer.SetAlpha(1);
         fadeImage.CrossFadeAlpha(1, 0, true);
         yield return new WaitForSeconds(transitionTime);
+        // Call the GM func here
+        ML.EnterDoor(position);
         Reset();
         fadeImage.CrossFadeAlpha(0, timeToFade, false);
         blockInput = false;

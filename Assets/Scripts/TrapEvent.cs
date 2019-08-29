@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class TrapEvent : MonoBehaviour
 {
 
     public string[] QTEevents = new string[] { "ASDF", "NOUIDIOT", "THINKFAST", "EIFUHWBY", "IMOUTOFIDEAS", "MIDDLE DOOR", "LEFT DOOR", "LYING", "SAFE", "RIGHT DOOR", "ROCK", "MUSHROOM" };
+
+    private GameManager GM;
 
     public GameObject trappedAlert;
     public Text trappedPhrase;
@@ -37,6 +40,7 @@ public class TrapEvent : MonoBehaviour
     void Start()
     {
         //StartTrap();
+        GM = GameObject.Find("LogicHandler").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -114,9 +118,15 @@ public class TrapEvent : MonoBehaviour
 
     public void FailTrap()
     {
-        // stub, jake you do this pl0x
-        print("You fucking died idiot");
-        // set state to injured TODO
+        if (GM.isDamaged == true)
+        {
+            // Kill player
+            SceneManager.LoadScene("TitleScreen");
+        }
+        else
+        {
+            GM.isDamaged = true;
+        }
     }
     
     public void UpdatePhrase()
