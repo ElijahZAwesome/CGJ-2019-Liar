@@ -690,8 +690,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -226529425
-  m_SortingLayer: 1
+  m_SortingLayerID: 1833880881
+  m_SortingLayer: 4
   m_SortingOrder: 1
   m_Sprite: {fileID: 3450198159081859876, guid: c910e7588ca3f18479818623571ee870,
     type: 3}
@@ -969,6 +969,7 @@ MonoBehaviour:
   webs: []
   gems: []
   spawnPoints: []
+  damaged: {fileID: 0}
 --- !u!4 &1215188566
 Transform:
   m_ObjectHideFlags: 0
