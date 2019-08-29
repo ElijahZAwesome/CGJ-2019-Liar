@@ -25,7 +25,7 @@ public class RuleBook : MonoBehaviour
     public List<RuleMethod> rules = new List<RuleMethod>() { };
 
     [SerializeField]
-    private Text playerRuleSheet;
+    private GameObject playerRuleSheet;
 
     // Add each rule that is defined at the bottom of this script. Use this as an example
     public void AddRules()
@@ -53,11 +53,22 @@ public class RuleBook : MonoBehaviour
     }
     */
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            // Toggle the rule sheet image
+            playerRuleSheet.SetActive(!playerRuleSheet.activeInHierarchy);
+        }
+    }
+
     private void Start()
     {
         //DontDestroyOnLoad(gameObject);
         GM = GetComponent<GameManager>();
         ML = GetComponent<MasterLogic>();
+        AddRules();
+        playerRuleSheet.SetActive(false);
     }
 
     public void AddNewRule()
@@ -67,6 +78,7 @@ public class RuleBook : MonoBehaviour
         {
             int randomRule = UnityEngine.Random.Range(0, rules.Count);
             rulesInThisGame.Add(rules[randomRule]);
+            print("Adding rule at: " + randomRule);
             rules.RemoveAt(randomRule);
         }
     }
@@ -88,7 +100,7 @@ public class RuleBook : MonoBehaviour
         }
 
         // Add the text to the player rule sheet
-        playerRuleSheet.text = GM.playerRules;
+        playerRuleSheet.GetComponentInChildren<Text>().text = GM.playerRules;
 
         // Finalize the state of all rooms
         FinalizeRoomStats();
