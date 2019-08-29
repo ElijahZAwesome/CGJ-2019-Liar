@@ -20,12 +20,23 @@ public class ThrowFlare : MonoBehaviour
 
     private void OnMouseOver()
     {
-      if(Input.GetMouseButtonDown(1))
+        if(Inventory.inv.flareCount > 0)
         {
-            Instantiate(flare, rightCave.transform.position, Quaternion.identity);
-            Inventory.inv.Throw();
-
-            Debug.Log("Kool");
+            if (Input.GetMouseButtonDown(1) && caveNum == 3)
+            {
+                Instantiate(flare, rightCave.transform.position, Quaternion.identity);
+                Inventory.inv.Throw();
+            }
+            else if (Input.GetMouseButtonDown(1) && caveNum == 2)
+            {
+                Instantiate(flare, midCave.transform.position, Quaternion.identity);
+                Inventory.inv.Throw();
+            }
+            else if (Input.GetMouseButtonDown(1) && caveNum == 1)
+            {
+                Instantiate(flare, leftCave.transform.position, Quaternion.identity);
+                Inventory.inv.Throw();
+            }
         }
     }
 }
