@@ -13,4 +13,9 @@ public class ThrowFlare : MonoBehaviour
     {
         
     }
+
+    private void OnMouseDown()
+    {
+        
+    }
 }
