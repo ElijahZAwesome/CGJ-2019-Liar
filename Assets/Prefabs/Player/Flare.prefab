@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6135317875822043927}
   - component: {fileID: 6135317875822043926}
   - component: {fileID: 6135317875822043929}
+  - component: {fileID: 788529983}
   m_Layer: 0
   m_Name: Flare
   m_TagString: Untagged
@@ -101,3 +102,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &788529983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6135317875822043928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a5b85075e9008f4b8cec6ad65df0686, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  correct: 1
+  caveLight: {fileID: 5923150566282493406, guid: 55990f5fd2529b749a21d9795cc46bbf,
+    type: 3}
