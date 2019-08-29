@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1750,7 +1750,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1768,10 +1768,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 570013231
-  m_SortingLayer: 2
+  m_SortingLayerID: -226529425
+  m_SortingLayer: 1
   m_SortingOrder: 2
-  m_Sprite: {fileID: 3450198159081859876, guid: c910e7588ca3f18479818623571ee870,
+  m_Sprite: {fileID: 1276135269831500529, guid: 0fcf5c912ada2f84d8714e7120342adc,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1849,8 +1849,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 570013231
-  m_SortingLayer: 2
+  m_SortingLayerID: -226529425
+  m_SortingLayer: 1
   m_SortingOrder: 3
   m_Sprite: {fileID: 2846385447485985070, guid: c910e7588ca3f18479818623571ee870,
     type: 3}
@@ -3333,11 +3333,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 195044010}
     m_Modifications:
-    - target: {fileID: 4544144420819448836, guid: c84595386f8c8774baa465ac8c1066b2,
-        type: 3}
-      propertyPath: m_Name
-      value: Backpack
-      objectReference: {fileID: 0}
     - target: {fileID: 4544144420819448838, guid: c84595386f8c8774baa465ac8c1066b2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3392,6 +3387,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 5.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 4544144420819448836, guid: c84595386f8c8774baa465ac8c1066b2,
+        type: 3}
+      propertyPath: m_Name
+      value: Backpack
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c84595386f8c8774baa465ac8c1066b2, type: 3}

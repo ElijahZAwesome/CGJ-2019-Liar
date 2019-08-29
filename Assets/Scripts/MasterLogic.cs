@@ -16,6 +16,8 @@ public class MasterLogic : MonoBehaviour
     [SerializeField]
     private List<GameObject> signs;
 
+    private int doorYouCameFrom = -1;
+
     // All rooms the player has traversed
     private List<RoomStats> allRooms;
 
@@ -55,10 +57,6 @@ public class MasterLogic : MonoBehaviour
     // The room the player is in
     public RoomStats currentRoom;
 
-    // The sign object placed above the door
-    [SerializeField]
-    private GameObject signObject;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -69,6 +67,7 @@ public class MasterLogic : MonoBehaviour
         allRooms = new List<RoomStats> { };
 
         // Make a new room with some stats. This will have to read back info from the manager object with room generation
+        ruleBook.AddNewRule();
         CreateNewRoom();
     }
 
@@ -79,16 +78,19 @@ public class MasterLogic : MonoBehaviour
         {
             // Select left door
             EnterDoor(0);
+            doorYouCameFrom = 0;
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             // Select middle door
             EnterDoor(1);
+            doorYouCameFrom = 1;
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             // Select right door
             EnterDoor(2);
+            doorYouCameFrom = 2;
         }
     }
 
@@ -122,8 +124,6 @@ public class MasterLogic : MonoBehaviour
 
         // Create a new room with all of this info
         RoomStats newRoom = new RoomStats();
-
-        // ------------------------ ZACH'S CODE NEEDS TO APPLY HERE -----------------------------
 
         // Key Order: Rocks, Shrooms, Rats, Webs (as of right now, this will grow later)
 
@@ -163,6 +163,7 @@ public class MasterLogic : MonoBehaviour
     // Place the sign sprite above the corresponding door
     private void PlaceSign(int doorNum)
     {
+        print("Placing sign");
         // Turn off all signs, then turn on the correct sign
         foreach(GameObject sign in signs)
         {
