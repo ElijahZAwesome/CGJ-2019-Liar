@@ -4268,7 +4268,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 1da1f1dbebcc7014984d19b93f471bcc, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 0831586b24c75164185a4ba44dbc34d5, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.1
   m_Pitch: 1
@@ -4366,7 +4366,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: f4e4622836614224183d97a0409a7cc2, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -4922,7 +4922,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: -5794061000383340717, guid: 2665d0797b6d1ff4c93ebf33117cff21,
+  m_Sprite: {fileID: -2704960362735575193, guid: b23a3f032b25f8d46aeeef0be777a75a,
     type: 3}
   m_Type: 0
   m_PreserveAspect: 0
