@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class ThrowFlare : MonoBehaviour
 {
+    public GameObject flare;
+    public Transform leftCave, midCave, rightCave;
+    public int caveNum;
+
     void Start()
     {
         
@@ -14,8 +18,14 @@ public class ThrowFlare : MonoBehaviour
         
     }
 
-    private void OnMouseDown()
+    private void OnMouseOver()
     {
-        
+      if(Input.GetMouseButtonDown(1))
+        {
+            Instantiate(flare, rightCave.transform.position, Quaternion.identity);
+            Inventory.inv.Throw();
+
+            Debug.Log("Kool");
+        }
     }
 }

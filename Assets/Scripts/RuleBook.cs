@@ -55,7 +55,7 @@ public class RuleBook : MonoBehaviour
 
     private void Start()
     {
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
         GM = GetComponent<GameManager>();
         ML = GetComponent<MasterLogic>();
     }
