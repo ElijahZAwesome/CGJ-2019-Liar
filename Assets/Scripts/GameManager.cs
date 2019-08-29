@@ -5,6 +5,8 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
 	public static GameManager instance;
+	public bool isDamaged = false;
+	public int numFlares = 0;
 	//Records corner of map which will be split off from and used to get the total size of the room so you can place things at (x,y)
 	[SerializeField]
 	private GameObject cornerOfMap;

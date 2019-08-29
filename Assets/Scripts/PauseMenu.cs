@@ -26,6 +26,7 @@ public class PauseMenu : MonoBehaviour
 	}
 	public void loadMainMenu()
 	{
+		GameManager.instance.numFlares = 0;
 		SceneManager.LoadScene("TitleScreen");
 	}
 }
