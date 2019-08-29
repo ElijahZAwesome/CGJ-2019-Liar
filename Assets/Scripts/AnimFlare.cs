@@ -24,9 +24,15 @@ public class AnimFlare : MonoBehaviour
 
     void addLight()
     {
+        Instantiate(caveLight, gameObject.transform.position, Quaternion.identity);
+
         if (correct)
         {
-            Instantiate(caveLight, gameObject.transform.position, Quaternion.identity);
+            // put check on door
+        }
+        else
+        {
+            // put X on door
         }
     }
 }
