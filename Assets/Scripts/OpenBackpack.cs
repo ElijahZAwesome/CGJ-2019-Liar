@@ -8,6 +8,8 @@ public class OpenBackpack : MonoBehaviour
 
     private bool openedFlare = false, openedHealth = false, unopened = true, collected = false;
 
+    AudioMaster play;
+
     void Start()
     {
         //Keeps the backpack closed at the start
@@ -15,6 +17,8 @@ public class OpenBackpack : MonoBehaviour
         healthPack.SetActive(false);
         emptyPack.SetActive(false);
         closedPack.SetActive(true);
+
+        play = GameObject.Find("AudioManager").GetComponent<AudioMaster>();
     }
 
     private void OnMouseDown()
@@ -30,16 +34,19 @@ public class OpenBackpack : MonoBehaviour
 
             if (item == 1)
             {
+                play.openPack();
                 flarePack.SetActive(true);
                 openedFlare = true;
             }
             else if (item == 2)
             {
+                play.openPack();
                 healthPack.SetActive(true);
                 openedHealth = true;
             }
             else
             {
+                play.openPack();
                 emptyPack.SetActive(true);
             }
         }
