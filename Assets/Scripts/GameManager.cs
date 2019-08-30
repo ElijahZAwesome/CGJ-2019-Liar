@@ -204,7 +204,7 @@ public class GameManager : MonoBehaviour
 			if (numberOfThings > 0)
 			{
 				int numberOfThisProp;
-				if (i == allProps.Count)
+				if (i == allProps.Count - 1)
 				{
 					// This is the last prop, dump the rest of the things here
 					numberOfThisProp = numberOfThings;

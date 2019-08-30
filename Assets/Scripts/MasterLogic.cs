@@ -39,7 +39,7 @@ public class MasterLogic : MonoBehaviour
         // Rooms ID
         public int id;
 
-        public int numRocks, numShrooms, numRats, numWebs, numGems;
+        public int numRocks, numShrooms, numRats, numWebs, numGems, numStalags, numCracks;
 
         // Was the room trapped (QTE)?
         public bool roomTrapped;
@@ -125,7 +125,6 @@ public class MasterLogic : MonoBehaviour
         PlaceSign(doorWithSign);
 	
         // Pick random thing for sign to say
-        // TODO: This will have to spawn the correct sign sprite object above the door
         bool signSaysSafe_;
         int randomMessage = Random.Range(0, 2);
         if (randomMessage == 1)
@@ -163,6 +162,9 @@ public class MasterLogic : MonoBehaviour
         int.TryParse(roomNums[1], out newRoom.numShrooms);
         int.TryParse(roomNums[2], out newRoom.numRats);
         int.TryParse(roomNums[3], out newRoom.numWebs);
+        int.TryParse(roomNums[4], out newRoom.numGems);
+        int.TryParse(roomNums[5], out newRoom.numStalags);
+        int.TryParse(roomNums[6], out newRoom.numCracks);
 
         // Set the ID
         newRoom.id = currentId;
@@ -171,7 +173,6 @@ public class MasterLogic : MonoBehaviour
         newRoom.signLocation = doorWithSign; // which door is the sign above? (0, 1, 2)
         newRoom.entranceDoor = doorYouCameFrom;
         newRoom.signSaysSafe = signSaysSafe_; // does the sign say safe?
-        //newRoom.entranceDoor = //TODO: This needs to be solved, when you press a button it will have to pass the variable off
 
         // Set this room as the current one
         currentRoom = newRoom;

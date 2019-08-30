@@ -134,6 +134,7 @@ public class TrapEvent : MonoBehaviour
         }
         else
         {
+            // Damage player
             GM.isDamaged = true;
         }
         GM.currentlyTrapped = false;
@@ -144,10 +145,8 @@ public class TrapEvent : MonoBehaviour
         phrase = "[";
         for(int i = 0; i < QTEevents[QTEString].Length; i++)
         {
-            //print(i + " " + QTEPointer);
             if(i < QTEPointer)
             {
-                //print("yes");
                 phrase += "<color=green>" + QTEevents[QTEString][i].ToString() + "</color>";
             } else
             {
