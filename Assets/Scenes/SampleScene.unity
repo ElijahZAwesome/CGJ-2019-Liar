@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -3440,7 +3440,7 @@ PrefabInstance:
     - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
         type: 3}
       propertyPath: gems.Array.size
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
         type: 3}
@@ -3634,8 +3634,7 @@ PrefabInstance:
         type: 3}
       propertyPath: gems.Array.data[4]
       value: 
-      objectReference: {fileID: 1552492176597740568, guid: 9e15845e6e5d65d49a3a1c48d64748c9,
-        type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
         type: 3}
       propertyPath: spawnPoints.Array.data[0]
