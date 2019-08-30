@@ -24,9 +24,10 @@ public class GameManager : MonoBehaviour
 	[SerializeField]
 	private List<GameObject> spawnPoints;
 	[SerializeField]
-	List<Transform> TransformPoints;
-    // Spawn point remaining in this room
-    private List<GameObject> availableSpawnPoints = new List<GameObject>();
+	List<Vector2> TransformPoints;
+	List<Vector2> availableTransformPoints = new List<Vector2>();
+	// Spawn point remaining in this room
+	private List<GameObject> availableSpawnPoints = new List<GameObject>();
     // TODO: Individual spawn points
 
     [SerializeField]
@@ -52,8 +53,15 @@ public class GameManager : MonoBehaviour
 		{
 			availableSpawnPoints.Add(spawnPoints[i]);
 		}
-        
-        foreach (GameObject point in availableSpawnPoints)
+		for (int i = 0; i < spawnPoints.Count; i++)
+		{
+			TransformPoints.Add(spawnPoints[i].transform.position);
+		}
+		for (int i = 0; i < TransformPoints.Count; i++)
+		{
+			availableTransformPoints.Add(spawnPoints[i].transform.position);
+		}
+		foreach (GameObject point in availableSpawnPoints)
         {
             DontDestroyOnLoad(point);
         }
@@ -137,9 +145,9 @@ public class GameManager : MonoBehaviour
 			}
 		}
 		print("Built Key: " + newKey);
-		for (int i = 0; i < spawnPoints.Count; i++)
+		for (int i = 0; i < TransformPoints.Count; i++)
 		{
-			availableSpawnPoints.Add(spawnPoints[i]);
+			availableTransformPoints.Add(TransformPoints[i]);
 		}
 			
 
@@ -206,11 +214,11 @@ public class GameManager : MonoBehaviour
 
                     // Place the item at the point
                     print("Attempting to place prop number: " + randomProp + " at spawnPoint " + randomPoint);
-                    GameObject prop = Instantiate(propList[randomProp], availableSpawnPoints[randomPoint].transform.position, Quaternion.identity);
+                    GameObject prop = Instantiate(propList[randomProp], availableTransformPoints[randomPoint], Quaternion.identity);
                     prop.transform.SetParent(gameObject.transform);
 
                     // Remove this spawn point from the list
-                    availableSpawnPoints.RemoveAt(randomPoint);
+                    availableTransformPoints.RemoveAt(randomPoint);
                 }
             }
         }
