@@ -181,7 +181,7 @@ public class GameManager : MonoBehaviour
         if (itemsToSpawn > 0)
         {
             // Pick a random spawn point and place a pack there
-            GameObject pack = Instantiate(backPackObject, backpackTransformPoints[Random.Range(0, backpackTransformPoints.Count - 1)], Quaternion.identity);
+            GameObject pack = Instantiate(backPackObject, backpackTransformPoints[Random.Range(0, backpackTransformPoints.Count)], Quaternion.identity);
             pack.transform.SetParent(gameObject.transform);
         }
     }
