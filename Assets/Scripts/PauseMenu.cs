@@ -48,7 +48,8 @@ public class PauseMenu : MonoBehaviour
 	}
 	public void loadMainMenu() //Loads Title Screen Setting the amount of flares to zero.
 	{
-		GameManager.instance.numFlares = 0;
+		//GameManager.instance.numFlares = 0;
+		Destroy(GameManager.instance.gameObject);
 		SceneManager.LoadScene("TitleScreen");
 	}
 }

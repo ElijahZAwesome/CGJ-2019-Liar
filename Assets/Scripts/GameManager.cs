@@ -248,7 +248,11 @@ public class GameManager : MonoBehaviour
     // Method for placing backpacks
     public void CheckSpawnItems()
     {
-        List<Vector2> tempBackPackSpawn = backpackTransformPoints;
+		List<Vector2> tempBackPackSpawn = new List<Vector2>();
+		for (int i = 0; i < backpackTransformPoints.Count; i++)
+		{
+			tempBackPackSpawn.Add(backpackTransformPoints[i]);
+		}
         int rollItem = Random.Range(1, 11);
         int itemsToSpawn = 0;
         // 1-2 spawns one backpack (20%)
