@@ -41,6 +41,9 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private GameObject damaged;
 
+    // The player is currently in a trap QTE
+    public bool currentlyTrapped;
+
     //This controlls the number of things the key will be able to generate. Decided by list of things like rocks and stalactites
     int maxNumberOfThings = 2, difficultyLevels = 1, minNumberOfThings = 0;
 
@@ -48,6 +51,7 @@ public class GameManager : MonoBehaviour
 	void Start()
     {
         isDamaged = false;
+        currentlyTrapped = false;
 		damaged = GameObject.Find("Damage");
         damaged.SetActive(false);
         allProps = new List<List<GameObject>>() { };
@@ -210,7 +214,7 @@ public class GameManager : MonoBehaviour
             // Place the item at the point
             for (int i = 0; i < howMany; i++)
             {
-                if (availableSpawnPoints.Count > 0 && propList.Count > 0)
+                if (availableTransformPoints.Count > 0 && propList.Count > 0)
                 {
                     // Pick a random available spawn point to place it at
                     int randomPoint = Random.Range(0, availableSpawnPoints.Count);

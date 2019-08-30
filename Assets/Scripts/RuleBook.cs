@@ -59,7 +59,7 @@ public class RuleBook : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.W) && GM.currentlyTrapped == false)
         {
             /*
             bool isOn = playerRuleSheet.activeSelf;

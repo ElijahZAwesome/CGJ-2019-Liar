@@ -7,7 +7,8 @@ using UnityEngine.SceneManagement;
 public class TrapEvent : MonoBehaviour
 {
 
-    public string[] QTEevents = new string[] { "ASDF", "NOUIDIOT", "THINKFAST", "EIFUHWKY", "IMOUTOFIDEAS", "MIDDLE DOOR", "LEFT DOOR", "LYING", "SAFE", "RIGHT DOOR", "ROCK", "MUSHROOM", "SIGN IS LYING", "CAN U RAED", "JEFFGOESLEFT" };
+    //public string[] QTEevents = new string[] { "ASDF", "NOUIDIOT", "THINKFAST", "EIFUHWKY", "IMOUTOFIDEAS", "MIDDLE DOOR", "LEFT DOOR", "LYING", "SAFE", "RIGHT DOOR", "ROCK", "MUSHROOM", "SIGN IS LYING", "CAN U RAED", "JEFFWENTLEFT", "WWVWWV" };
+    public string[] QTEevents = new string[] { "WWWWW" };
 
     private GameManager GM;
 
@@ -40,12 +41,17 @@ public class TrapEvent : MonoBehaviour
     void Start()
     {
         //StartTrap();
-        GM = GameObject.Find("LogicHandler").GetComponent<GameManager>();
+        GM = GameManager.instance;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (GM == null)
+        {
+            GM = GameManager.instance;
+        }
+
         if(isTrapped)
         {
             trapTimeLeft -= Time.deltaTime;
@@ -97,6 +103,7 @@ public class TrapEvent : MonoBehaviour
     public void StartTrap()
     {
         //print("THERE IS A TRAP");
+        GM.currentlyTrapped = true;
         isTrapped = true;
         trapTimeLeft = trapTimeInSeconds;
         QTEPointer = 0;
@@ -111,6 +118,7 @@ public class TrapEvent : MonoBehaviour
     public void EndTrap()
     {
         isTrapped = false;
+        GM.currentlyTrapped = false;
         trappedAlert.gameObject.SetActive(false);
         trappedPhrase.gameObject.SetActive(false);
         trapTimer.gameObject.SetActive(false);
@@ -127,6 +135,7 @@ public class TrapEvent : MonoBehaviour
         {
             GM.isDamaged = true;
         }
+        GM.currentlyTrapped = false;
     }
     
     public void UpdatePhrase()
