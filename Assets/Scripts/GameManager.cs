@@ -20,91 +20,67 @@ public class GameManager : MonoBehaviour
 
     //Add more lists of the objects as needed to be spawned
     [SerializeField]
-	private List<GameObject> rocks, mushrooms, rats, webs, gems;
+	private List<GameObject> rocks, mushrooms, rats, webs, gems, stalagmites, cracks;
 
     private List<List<GameObject>> allProps;
-
+    /*
 	[SerializeField]
 	private List<GameObject> spawnPoints;
+    */
 	[SerializeField]
-	List<Vector2> TransformPoints;
-	List<Vector2> availableTransformPoints = new List<Vector2>();
+	private List<List<Vector2>> transformPoints;
 
     // Spawn point remaining in this room
     private List<GameObject> availableSpawnPoints = new List<GameObject>();
-    // TODO: Individual spawn points
 
     // Backpack Spawn
-    [SerializeField]
-    List<Vector2> backpackTransformPoints = new List<Vector2>();
+    private List<Vector2> backpackTransformPoints = new List<Vector2>();
 
     [SerializeField]
     private List<GameObject> backPackSpawnPoints;
     [SerializeField]
     private GameObject backPackObject;
 
-    // Rat Spawn
-    [SerializeField]
-    List<Vector2> ratTransformPoints = new List<Vector2>();
-
-    [SerializeField]
-    private List<GameObject> ratSpawn;
-    [SerializeField]
-    private GameObject donavan;
-
-    // Stalagmite Spawn
-    [SerializeField]
-    List<Vector2> stalagmiteTransformPoints = new List<Vector2>();
-
-    [SerializeField]
-    private List<GameObject> stalagmiteSpawn;
-    [SerializeField]
-    private List<GameObject> stalagmite;
-
-    // Crack Spawn
-    [SerializeField]
-    List<Vector2> crackTransformPoints = new List<Vector2>();
-
-    [SerializeField]
-    private List<GameObject> crackSpawn;
-    [SerializeField]
-    private List<GameObject> crack;
-
-    // Mushroom Spawn
-    [SerializeField]
-    List<Vector2> shroomTransfromPoints = new List<Vector2>();
-
-    [SerializeField]
-    private List<GameObject> shroomSpawn;
-    [SerializeField]
-    private List<GameObject> shrooms;
-
-    // Gem Spawn
-    [SerializeField]
-    List<Vector2> gemTransformPoints = new List<Vector2>();
-
-    [SerializeField]
-    private List<GameObject> gemSpawn;
-    [SerializeField]
-    private List<GameObject> gem;
+    #region PROP SPAWNING
 
     // Rock Spawn
-    [SerializeField]
-    List<Vector2> rockTransformPoints = new List<Vector2>();
-
+    private List<Vector2> rockTransformPoints = new List<Vector2>();
     [SerializeField]
     private List<GameObject> rockSpawn;
+
+    // Mushroom Spawn
+    private List<Vector2> shroomTransformPoints = new List<Vector2>();
     [SerializeField]
-    private List<GameObject> rock;
+    private List<GameObject> shroomSpawn;
+
+    // Rat Spawn
+    private List<Vector2> ratTransformPoints = new List<Vector2>();
+    [SerializeField]
+    private List<GameObject> ratSpawn;
 
     // Web Spawn
-    [SerializeField]
-    List<Vector2> webTransformPoints = new List<Vector2>();
-
+    private List<Vector2> webTransformPoints = new List<Vector2>();
     [SerializeField]
     private List<GameObject> webSpawn;
+
+    // Gem Spawn
+    private List<Vector2> gemTransformPoints = new List<Vector2>();
     [SerializeField]
-    private GameObject web;
+    private List<GameObject> gemSpawn;
+
+    // Stalagmite Spawn
+    private List<Vector2> stalagmiteTransformPoints = new List<Vector2>();
+    [SerializeField]
+    private List<GameObject> stalagmiteSpawn;
+
+    // Crack Spawn
+    private List<Vector2> crackTransformPoints = new List<Vector2>();
+    [SerializeField]
+    private List<GameObject> crackSpawn;
+
+
+
+    #endregion
 
     // The player is currently in a trap QTE
     public bool currentlyTrapped;
@@ -120,75 +96,59 @@ public class GameManager : MonoBehaviour
 		damaged = GameObject.Find("Damage");
         damaged.SetActive(false);
         allProps = new List<List<GameObject>>() { };
-		//for(int i = 0; i < spawnPoints.Count;i++)
-		//{
-		//	availableSpawnPoints.Add(spawnPoints[i]);
-		//}
-		for (int i = 0; i < spawnPoints.Count; i++)
+        transformPoints = new List<List<Vector2>>() { };
+        /*
+		for(int i = 0; i < spawnPoints.Count;i++)
 		{
-			TransformPoints.Add(spawnPoints[i].transform.position);
+			availableSpawnPoints.Add(spawnPoints[i]);
 		}
-		for (int i = 0; i < TransformPoints.Count; i++)
+        */
+		foreach (GameObject r in rockSpawn)
 		{
-			availableTransformPoints.Add(spawnPoints[i].transform.position);
+            rockTransformPoints.Add(r.transform.position);
 		}
-		for (int i = 0; i < backPackSpawnPoints.Count; i++)
-		{
-			backpackTransformPoints.Add(backPackSpawnPoints[i].transform.position);
-		}
+        transformPoints.Add(rockTransformPoints);
 
-        // Donavan spawns
-        for (int i = 0; i < ratSpawn.Count; i++)
+        foreach (GameObject s in shroomSpawn)
         {
-            ratTransformPoints.Add(ratSpawn[i].transform.position);
+            shroomTransformPoints.Add(s.transform.position);
         }
+        transformPoints.Add(shroomTransformPoints);
 
-        // Stalagmite spawns
-        for(int i = 0; i < stalagmiteSpawn.Count; i++)
+        foreach (GameObject r in ratSpawn)
         {
-            stalagmiteTransformPoints.Add(stalagmiteSpawn[i].transform.position);
+            ratTransformPoints.Add(r.transform.position);
         }
+        transformPoints.Add(ratTransformPoints);
 
-        // Crack spawns
-        for(int i = 0; i < crackSpawn.Count; i++)
+        foreach (GameObject w in webSpawn)
         {
-            crackTransformPoints.Add(crackSpawn[i].transform.position);
+            webTransformPoints.Add(w.transform.position);
         }
+        transformPoints.Add(webTransformPoints);
 
-        // Shroom spawns
-        for(int i = 0; i < shroomSpawn.Count; i++)
+        foreach (GameObject g in gemSpawn)
         {
-            shroomTransfromPoints.Add(shroomSpawn[i].transform.position);
+            gemTransformPoints.Add(g.transform.position);
         }
+        transformPoints.Add(gemTransformPoints);
 
-        // Gem spawns
-        for(int i = 0; i < gemSpawn.Count; i++)
+        foreach (GameObject s in stalagmiteSpawn)
         {
-            gemTransformPoints.Add(gemSpawn[i].transform.position);
+            stalagmiteTransformPoints.Add(s.transform.position);
         }
+        transformPoints.Add(stalagmiteTransformPoints);
 
-        // Rock spawns
-        for(int i = 0; i < rockSpawn.Count; i++)
+        foreach (GameObject c in crackSpawn)
         {
-            rockTransformPoints.Add(rockSpawn[i].transform.position);
+            crackTransformPoints.Add(c.transform.position);
         }
+        transformPoints.Add(crackTransformPoints);
 
-        // Web spawns
-        for(int i = 0; i < webSpawn.Count; i++)
+        foreach (GameObject b in backPackSpawnPoints)
         {
-            webTransformPoints.Add(webSpawn[i].transform.position);
+            backpackTransformPoints.Add(b.transform.position);
         }
-
-        //	foreach (GameObject point in availableSpawnPoints)
-        //   {
-        //       DontDestroyOnLoad(point);
-        //   }
-
-        //   foreach(GameObject itemPoint in backPackSpwnPoints)
-        //   {
-        //       DontDestroyOnLoad(itemPoint);
-        // }
-
 
         if (instance == null)
 		{
@@ -202,11 +162,8 @@ public class GameManager : MonoBehaviour
         allProps.Add(rats);
         allProps.Add(webs);
         allProps.Add(gems);
-
-		//Debug.Log(key);
-        //KeyUpdate();
-        //GenerateNewKey();
-		//Debug.Log(key);
+        allProps.Add(stalagmites);
+        allProps.Add(cracks);
 	}
 
     private void Update()
@@ -234,8 +191,13 @@ public class GameManager : MonoBehaviour
 
 	public string GenerateNewKey()
 	{
+        // How many props will be placed in this room (excludes backpacks)
+        print("Rolling between: " + minNumberOfThings + " and " + maxNumberOfThings);
 		int numberOfThings = Random.Range(minNumberOfThings, maxNumberOfThings + 1);
+        print("This many props: " + numberOfThings);
 		string newKey = "";
+
+        // For each type of prop
 		for (int i = 0; i < allProps.Count; i++)
 		{
 			// If we still have objects to place, then place a random number of this object
@@ -244,18 +206,31 @@ public class GameManager : MonoBehaviour
 				int numberOfThisProp;
 				if (i == allProps.Count)
 				{
-					// This is the last spot, dump the rest of the things here
+					// This is the last prop, dump the rest of the things here
 					numberOfThisProp = numberOfThings;
+                    if (numberOfThings > transformPoints[i].Count)
+                    {
+                        numberOfThings = transformPoints[i].Count;
+                    }
 				}
 				else
 				{
-					numberOfThisProp = Random.Range(0, numberOfThings + 1);
+                    // Place random number of this prop, up to a max of number of spawns for this proptype
+					numberOfThisProp = Random.Range(0, transformPoints[i].Count);
+                    // Ensure we still can place that many props
+                    if (numberOfThisProp > numberOfThings)
+                    {
+                        numberOfThisProp = numberOfThings;
+                    }
+                    // Add this info to the room key
 					newKey += numberOfThisProp.ToString() + "v";
+                    // Subtract from the total number of items remaining
 					numberOfThings -= numberOfThisProp;
 				}
 				// Place the item in the room
 				print("Attempting to place with key: " + newKey);
-				PlaceItems(allProps[i], numberOfThisProp);
+                // Pick the correct list of prefabs from all props, then places that many at random points made for that prop type
+                PlaceProps(allProps[i], numberOfThisProp, transformPoints[i]);
 			}
 			else
 			{
@@ -263,11 +238,6 @@ public class GameManager : MonoBehaviour
 			}
 		}
 		print("Built Key: " + newKey);
-		for (int i = 0; i < TransformPoints.Count; i++)
-		{
-			availableTransformPoints.Add(TransformPoints[i]);
-		}
-			
 
         // Will an item spawn in this room?
         CheckSpawnItems();
@@ -275,8 +245,10 @@ public class GameManager : MonoBehaviour
         return newKey;
     }
 
+    // Method for placing backpacks
     public void CheckSpawnItems()
     {
+        List<Vector2> tempBackPackSpawn = backpackTransformPoints;
         int rollItem = Random.Range(1, 11);
         int itemsToSpawn = 0;
         // 1-2 spawns one backpack (20%)
@@ -293,72 +265,63 @@ public class GameManager : MonoBehaviour
         if (itemsToSpawn > 0)
         {
             // Pick a random spawn point and place a pack there
-            GameObject pack = Instantiate(backPackObject, backpackTransformPoints[Random.Range(0, backpackTransformPoints.Count)], Quaternion.identity);
-            pack.transform.SetParent(gameObject.transform);
-
-            // Probably not the right spot to put these...
-            GameObject rat = Instantiate(donavan, ratTransformPoints[Random.Range(0, ratTransformPoints.Count)], Quaternion.identity);
-            rat.transform.SetParent(gameObject.transform);
-
-            GameObject spike = Instantiate(stalagmite[Random.Range(0, stalagmite.Count)], stalagmiteTransformPoints[Random.Range(0, stalagmiteTransformPoints.Count)], Quaternion.identity);
-            spike.transform.SetParent(gameObject.transform);
-
-            GameObject wallCrack = Instantiate(crack[Random.Range(0, crack.Count)], crackTransformPoints[Random.Range(0, crackTransformPoints.Count)], Quaternion.identity);
-            wallCrack.transform.SetParent(gameObject.transform);
-
-            GameObject fungi = Instantiate(shrooms[Random.Range(0, shrooms.Count)], shroomTransfromPoints[Random.Range(0, shroomTransfromPoints.Count)], Quaternion.identity);
-            fungi.transform.SetParent(gameObject.transform);
-
-            GameObject gemz = Instantiate(gem[Random.Range(0, gem.Count)], gemTransformPoints[Random.Range(0, gemTransformPoints.Count)], Quaternion.identity);
-            gemz.transform.SetParent(gameObject.transform);
-
-            GameObject rok = Instantiate(rock[Random.Range(0, rock.Count)], rockTransformPoints[Random.Range(0, rockTransformPoints.Count)], Quaternion.identity);
-            rok.transform.SetParent(gameObject.transform);
-
-            GameObject webz = Instantiate(web, webTransformPoints[Random.Range(0, webTransformPoints.Count)], Quaternion.identity);
-            webz.transform.SetParent(gameObject.transform);
+            for (int i = 0; i < itemsToSpawn; i++)
+            {
+                int randBackPackSpawn = Random.Range(0, tempBackPackSpawn.Count);
+                GameObject pack = Instantiate(backPackObject, tempBackPackSpawn[randBackPackSpawn], Quaternion.identity);
+                pack.transform.SetParent(gameObject.transform);
+                tempBackPackSpawn.RemoveAt(randBackPackSpawn);
+            }
         }
     }
 
     public void UpgradeKey()
     {
+        int totalSpawnPointCount = 0;
+
+        foreach (List<Vector2> points in transformPoints)
+        {
+            totalSpawnPointCount += points.Count;
+        }
+
         minNumberOfThings += 1;
         maxNumberOfThings += 1;
-        if (maxNumberOfThings >= spawnPoints.Count)
+        if (maxNumberOfThings >= transformPoints.Count)
         {
-            maxNumberOfThings = spawnPoints.Count;
+            maxNumberOfThings = transformPoints.Count;
         }
         if (minNumberOfThings >= maxNumberOfThings)
         {
             minNumberOfThings = maxNumberOfThings;
         }
         print("Min: " + minNumberOfThings + " Max: " + maxNumberOfThings);
-        print("Number of things in spawnPoints is: " + spawnPoints.Count);
+        print("Number of things in spawnPoints is: " + transformPoints.Count);
     }
 
-    // Place items on the random spawnpoints
-	void PlaceItems(List<GameObject> propList, int howMany)
+    // Place props on the random spawnpoints, these are props in the room logic
+	void PlaceProps(List<GameObject> propList, int howMany, List<Vector2> location)
 	{
+        List<Vector2> temp = location;
         if (howMany > 0)
         {
             // Place the item at the point
             for (int i = 0; i < howMany; i++)
             {
-                if (availableTransformPoints.Count > 0 && propList.Count > 0)
+                if (temp.Count > 0 && propList.Count > 0)
                 {
                     // Pick a random available spawn point to place it at
-                    int randomPoint = Random.Range(0, availableSpawnPoints.Count);
+                    int randomPoint = Random.Range(0, temp.Count);
 
                     // Pick a random prefab from the proplist
                     int randomProp = Random.Range(0, propList.Count);
 
                     // Place the item at the point
                     print("Attempting to place prop number: " + randomProp + " at spawnPoint " + randomPoint);
-                    GameObject prop = Instantiate(propList[randomProp], availableTransformPoints[randomPoint], Quaternion.identity);
+                    GameObject prop = Instantiate(propList[randomProp], temp[randomPoint], Quaternion.identity);
                     prop.transform.SetParent(gameObject.transform);
 
                     // Remove this spawn point from the list
-                    availableTransformPoints.RemoveAt(randomPoint);
+                    temp.RemoveAt(randomPoint);
                 }
             }
         }

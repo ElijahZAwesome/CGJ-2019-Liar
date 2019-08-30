@@ -39,7 +39,7 @@ public class TrapEvent : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        QTEevents = new string[] { "ASDF", "NOUIDIOT", "THINKFAST", "EIFUHWKY", "IMOUTOFIDEAS", "MIDDLE DOOR", "LEFT DOOR", "LYING", "SAFE", "RIGHT DOOR", "ROCK", "MUSHROOM", "SIGN IS LYING", "CAN U RAED", "JEFFWENTLEFT", "WWVWWV" };
+        QTEevents = new string[] { "ASDF", "NOUIDIOT", "THINKFAST", "EIFUHWKY", "IMOUTOFIDEAS", "MIDDLEDOOR", "LEFTDOOR", "LYING", "SAFE", "RIGHTDOOR", "ROCK", "MUSHROOM", "SIGNISLYING", "CANURAED", "JEFFWENTLEFT", "WWVWWV" };
         //StartTrap();
         GM = GameManager.instance;
     }

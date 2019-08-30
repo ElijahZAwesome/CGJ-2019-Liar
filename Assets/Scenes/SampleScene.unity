@@ -2279,7 +2279,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &920225303
 Transform:
   m_ObjectHideFlags: 0
@@ -3603,6 +3603,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
         type: 3}
+      propertyPath: stalagmites.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
+        type: 3}
+      propertyPath: cracks.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
+        type: 3}
       propertyPath: rocks.Array.data[0]
       value: 
       objectReference: {fileID: 911604137706880309, guid: f63ace86b80429941af5c6f5cbb12f8f,
@@ -4138,6 +4148,36 @@ PrefabInstance:
       propertyPath: web
       value: 
       objectReference: {fileID: 4376859226830939172, guid: bc89455de224b254499d46cbcd470d3f,
+        type: 3}
+    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
+        type: 3}
+      propertyPath: stalagmites.Array.data[0]
+      value: 
+      objectReference: {fileID: 4205144639954410562, guid: c6348de9a69760c44bd1a250453791f1,
+        type: 3}
+    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
+        type: 3}
+      propertyPath: stalagmites.Array.data[1]
+      value: 
+      objectReference: {fileID: 3074692409125681157, guid: 28aced6374e23b44398ee3d4448e7cc0,
+        type: 3}
+    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
+        type: 3}
+      propertyPath: cracks.Array.data[0]
+      value: 
+      objectReference: {fileID: 8245833287012215612, guid: 8ec37ef2b1236bc4ab616f9b0ce1ae9f,
+        type: 3}
+    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
+        type: 3}
+      propertyPath: cracks.Array.data[1]
+      value: 
+      objectReference: {fileID: 4558616868333431855, guid: 47c9c7a7e372b08429015fb0227850f0,
+        type: 3}
+    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
+        type: 3}
+      propertyPath: cracks.Array.data[2]
+      value: 
+      objectReference: {fileID: 4342240589486765641, guid: e6760abf91c0fc84786f7055a1042846,
         type: 3}
     - target: {fileID: 46841839943826978, guid: 0bb9718a6e2646f41ae0feda40689413,
         type: 3}

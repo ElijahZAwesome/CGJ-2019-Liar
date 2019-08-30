@@ -28,7 +28,7 @@ public class OpenBackpack : MonoBehaviour
             //Picks what is inside the backpack
             closedPack.SetActive(false);
             unopened = false;
-            int item = Random.Range(1, 5);
+            int item = Random.Range(1, 5); // 1 = flare, 2 = medkit, 3-4 = empty
 
             //Debug.Log(item);
 
