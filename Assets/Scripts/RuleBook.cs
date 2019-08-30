@@ -61,18 +61,20 @@ public class RuleBook : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.W))
         {
-			/*
+            /*
             bool isOn = playerRuleSheet.activeSelf;
             // Toggle the rule sheet image
             playerRuleSheet.SetActive(!isOn);
             */
-			if (playerRuleSheet == null)
-			{
-				playerRuleSheet = GameObject.Find("Rule Sheet");
+            if (playerRuleSheet == null)
+            {
+                playerRuleSheet = GameObject.Find("Rule Sheet");
 
-			}
-			else
-				playerRuleSheet.SetActive(true);
+            }
+            else
+            { 
+                playerRuleSheet.SetActive(true);
+            }
         }
         else
         {
