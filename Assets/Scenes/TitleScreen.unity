@@ -948,6 +948,10 @@ MonoBehaviour:
   howToPlay: {fileID: 1003060819}
   closed: {fileID: 64636894}
   open: {fileID: 1973003151}
+  playButton: {fileID: 115779710}
+  rulesButton: {fileID: 824860124}
+  exitButton: {fileID: 2134719296}
+  title: {fileID: 432053118}
   transitionPos: {fileID: 1687313266}
 --- !u!1 &322885961
 GameObject:
@@ -2877,7 +2881,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1003060820
 RectTransform:
   m_ObjectHideFlags: 0

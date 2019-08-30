@@ -882,7 +882,11 @@ MonoBehaviour:
   howToPlay: {fileID: 549216197}
   closed: {fileID: 549216197}
   open: {fileID: 549216197}
-  transitionPos: {fileID: 0}
+  playButton: {fileID: 549216197}
+  rulesButton: {fileID: 549216197}
+  exitButton: {fileID: 549216197}
+  title: {fileID: 549216197}
+  transitionPos: {fileID: 549216198}
 --- !u!1 &687252797
 GameObject:
   m_ObjectHideFlags: 0

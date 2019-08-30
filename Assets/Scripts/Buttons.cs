@@ -8,6 +8,11 @@ public class Buttons : MonoBehaviour
     public GameObject howToPlay;
     public GameObject closed;
     public GameObject open;
+    public GameObject playButton;
+    public GameObject rulesButton;
+    public GameObject exitButton;
+    public GameObject title;
+
 
     AudioMaster play;
 
@@ -21,6 +26,11 @@ public class Buttons : MonoBehaviour
 
         howToPlay.SetActive(false);
         open.SetActive(false);
+
+        playButton.SetActive(true);
+        rulesButton.SetActive(true);
+        exitButton.SetActive(true);
+        title.SetActive(true);
 
         play = GameObject.Find("AudioManager").GetComponent<AudioMaster>();
         mainCam = Camera.main;
@@ -43,6 +53,10 @@ public class Buttons : MonoBehaviour
     public void loadGame()
     {
         play.buttonClick();
+        playButton.SetActive(false);
+        rulesButton.SetActive(false);
+        exitButton.SetActive(false);
+        title.SetActive(false);
         StartCoroutine(ZoomCam());
     }
 
