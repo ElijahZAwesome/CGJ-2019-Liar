@@ -74,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1137102351
   m_SortingLayer: 3
-  m_SortingOrder: 1
+  m_SortingOrder: 4
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -118,8 +118,6 @@ MonoBehaviour:
   flarePack: {fileID: 4366507861134911396}
   healthPack: {fileID: 1515211641338296279}
   emptyPack: {fileID: 7846783007330129015}
-  openedFlare: 0
-  openedHealth: 0
 --- !u!1001 &3544408580157935791
 PrefabInstance:
   m_ObjectHideFlags: 0
