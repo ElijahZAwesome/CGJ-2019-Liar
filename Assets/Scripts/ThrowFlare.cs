@@ -17,30 +17,42 @@ public class ThrowFlare : MonoBehaviour
 
     void Update()
     {
-        
+
     }
 
     private void OnMouseOver()
     {
         if(Inventory.inv.flareCount > 0)
         {
-            if (Input.GetMouseButtonDown(1) && caveNum == 3)
+            if (Input.GetMouseButtonDown(1) && caveNum == 2)
             {
-                Instantiate(flare, rightCave.transform.position, Quaternion.identity);
+                GameObject newFlare = Instantiate(flare, rightCave.transform.position, Quaternion.identity);
                 toss.flareToss();
                 Inventory.inv.Throw();
-            }
-            else if (Input.GetMouseButtonDown(1) && caveNum == 2)
-            {
-                Instantiate(flare, midCave.transform.position, Quaternion.identity);
-                toss.flareToss();
-                Inventory.inv.Throw();
+                if (MasterLogic.MLInstance.currentRoom.safeDoors[caveNum] == true)
+                {
+                    newFlare.GetComponent<AnimFlare>().correct = true;
+                }
             }
             else if (Input.GetMouseButtonDown(1) && caveNum == 1)
             {
-                Instantiate(flare, leftCave.transform.position, Quaternion.identity);
+                GameObject newFlare = Instantiate(flare, midCave.transform.position, Quaternion.identity);
                 toss.flareToss();
                 Inventory.inv.Throw();
+                if (MasterLogic.MLInstance.currentRoom.safeDoors[caveNum] == true)
+                {
+                    newFlare.GetComponent<AnimFlare>().correct = true;
+                }
+            }
+            else if (Input.GetMouseButtonDown(1) && caveNum == 0)
+            {
+                GameObject newFlare = Instantiate(flare, leftCave.transform.position, Quaternion.identity);
+                toss.flareToss();
+                Inventory.inv.Throw();
+                if (MasterLogic.MLInstance.currentRoom.safeDoors[caveNum] == true)
+                {
+                    newFlare.GetComponent<AnimFlare>().correct = true;
+                }
             }
         }
     }

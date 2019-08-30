@@ -27,12 +27,14 @@ public class AnimFlare : MonoBehaviour
             if (correct)
             {
                 // put check on door
-                Instantiate(o, transform.position, Quaternion.identity);
+                GameObject mark = Instantiate(o, transform.position, Quaternion.identity);
+                mark.transform.SetParent(GameManager.instance.transform);
             }
             else
             {
                 // put X on door
-                Instantiate(x, transform.position, Quaternion.identity);
+                GameObject mark = Instantiate(x, transform.position, Quaternion.identity);
+                mark.transform.SetParent(GameManager.instance.transform);
             }
         }
         Destroy(gameObject);

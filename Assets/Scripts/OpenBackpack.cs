@@ -28,7 +28,7 @@ public class OpenBackpack : MonoBehaviour
             //Picks what is inside the backpack
             closedPack.SetActive(false);
             unopened = false;
-            int item = Random.Range(1, 4);
+            int item = Random.Range(1, 5);
 
             //Debug.Log(item);
 
@@ -70,6 +70,7 @@ public class OpenBackpack : MonoBehaviour
                 healthPack.SetActive(false);
                 play.pickupHealth();
                 emptyPack.SetActive(true);
+                GameManager.instance.isDamaged = false;
             }
         }
     }

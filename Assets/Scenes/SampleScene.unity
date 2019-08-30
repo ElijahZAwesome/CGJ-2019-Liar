@@ -150,6 +150,36 @@ Transform:
   m_Father: {fileID: 233857028}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &17169409
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 17169410}
+  m_Layer: 0
+  m_Name: BackPackSpawnPoint (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &17169410
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 17169409}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.18, y: -4.36, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 348882263}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &25888320
 GameObject:
   m_ObjectHideFlags: 0
@@ -208,6 +238,66 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1988835678}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &97138666
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 97138667}
+  m_Layer: 0
+  m_Name: BackPackSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &97138667
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 97138666}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -22.03, y: -4.27, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 348882263}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &129879564
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 129879565}
+  m_Layer: 0
+  m_Name: BackPackSpawnPoint (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &129879565
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 129879564}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.78, y: -4.3, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 348882263}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &130657455
@@ -831,6 +921,42 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1202100891}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &348882262
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 348882263}
+  m_Layer: 0
+  m_Name: BackPackSpawns
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &348882263
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 348882262}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 97138667}
+  - {fileID: 1259505056}
+  - {fileID: 129879565}
+  - {fileID: 17169410}
+  - {fileID: 2095161592}
+  - {fileID: 912208402}
+  m_Father: {fileID: 0}
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &351369432
 GameObject:
@@ -1913,7 +2039,7 @@ MonoBehaviour:
   leftCave: {fileID: 1143832263}
   midCave: {fileID: 219048141}
   rightCave: {fileID: 708908872}
-  caveNum: 3
+  caveNum: 2
 --- !u!58 &769504868
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2027,6 +2153,36 @@ Transform:
   - {fileID: 1033977125}
   - {fileID: 722547197}
   m_Father: {fileID: 1181540240}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &912208401
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 912208402}
+  m_Layer: 0
+  m_Name: BackPackSpawnPoint (5)
+  m_TagString: Untagged
+  m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &912208402
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 912208401}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 24.54, y: -4.45, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 348882263}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &920225302
@@ -3086,6 +3242,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Backpack (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1017901018790503304, guid: 0357a1bfcfd8fb44ab0bcc8d6093bcab,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1017901018790503306, guid: 0357a1bfcfd8fb44ab0bcc8d6093bcab,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3262,6 +3423,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
         type: 3}
+      propertyPath: backPackSpwnPoints.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
+        type: 3}
       propertyPath: rocks.Array.data[0]
       value: 
       objectReference: {fileID: 911604137706880309, guid: f63ace86b80429941af5c6f5cbb12f8f,
@@ -3429,6 +3595,42 @@ PrefabInstance:
       propertyPath: damaged
       value: 
       objectReference: {fileID: 1139192922}
+    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
+        type: 3}
+      propertyPath: backPackSpwnPoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 97138666}
+    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
+        type: 3}
+      propertyPath: backPackSpwnPoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 1259505055}
+    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
+        type: 3}
+      propertyPath: backPackSpwnPoints.Array.data[2]
+      value: 
+      objectReference: {fileID: 129879564}
+    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
+        type: 3}
+      propertyPath: backPackSpwnPoints.Array.data[3]
+      value: 
+      objectReference: {fileID: 17169409}
+    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
+        type: 3}
+      propertyPath: backPackSpwnPoints.Array.data[4]
+      value: 
+      objectReference: {fileID: 2095161591}
+    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
+        type: 3}
+      propertyPath: backPackSpwnPoints.Array.data[5]
+      value: 
+      objectReference: {fileID: 912208401}
+    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
+        type: 3}
+      propertyPath: backPackObject
+      value: 
+      objectReference: {fileID: 1017901018790503304, guid: 0357a1bfcfd8fb44ab0bcc8d6093bcab,
+        type: 3}
     - target: {fileID: 46841839943826978, guid: 0bb9718a6e2646f41ae0feda40689413,
         type: 3}
       propertyPath: playerRuleSheet
@@ -3436,6 +3638,36 @@ PrefabInstance:
       objectReference: {fileID: 1429911569}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0bb9718a6e2646f41ae0feda40689413, type: 3}
+--- !u!1 &1259505055
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1259505056}
+  m_Layer: 0
+  m_Name: BackPackSpawnPoint (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1259505056
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1259505055}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -13.15, y: -4.42, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 348882263}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1276530473
 GameObject:
   m_ObjectHideFlags: 0
@@ -3630,7 +3862,7 @@ MonoBehaviour:
   leftCave: {fileID: 1354964851}
   midCave: {fileID: 1962717127}
   rightCave: {fileID: 769504866}
-  caveNum: 1
+  caveNum: 0
 --- !u!58 &1354964853
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -3722,6 +3954,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Backpack
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017901018790503304, guid: 0357a1bfcfd8fb44ab0bcc8d6093bcab,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1017901018790503306, guid: 0357a1bfcfd8fb44ab0bcc8d6093bcab,
         type: 3}
@@ -5119,7 +5356,7 @@ MonoBehaviour:
   leftCave: {fileID: 1143832263}
   midCave: {fileID: 219048141}
   rightCave: {fileID: 708908872}
-  caveNum: 2
+  caveNum: 1
 --- !u!58 &1962717129
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -5486,6 +5723,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2095161591
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2095161592}
+  m_Layer: 0
+  m_Name: BackPackSpawnPoint (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2095161592
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2095161591}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 16.14, y: -4.42, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 348882263}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2121030002
 GameObject:

@@ -7,6 +7,8 @@ public class MasterLogic : MonoBehaviour
 {
     // Handles the overall GameLogic of which door ends up being safe
 
+    public static MasterLogic MLInstance;
+
     // The rulebook script attached to this object
     private RuleBook ruleBook;
 
@@ -67,9 +69,16 @@ public class MasterLogic : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        MLInstance = this;
+
         ruleBook = GetComponent<RuleBook>();
         GM = GetComponent<GameManager>();
         TE = FindObjectOfType<TrapEvent>();
+
+        foreach(GameObject sign in signs)
+        {
+            DontDestroyOnLoad(sign);
+        }
 
         truthfulSigns = new List<bool> { };
         allRooms = new List<RoomStats> { };

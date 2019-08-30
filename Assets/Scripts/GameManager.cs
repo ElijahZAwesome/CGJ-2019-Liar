@@ -29,6 +29,12 @@ public class GameManager : MonoBehaviour
     // TODO: Individual spawn points
 
     [SerializeField]
+    private List<GameObject> backPackSpwnPoints;
+
+    [SerializeField]
+    private GameObject backPackObject;
+
+    [SerializeField]
     private GameObject damaged;
 
     //This controlls the number of things the key will be able to generate. Decided by list of things like rocks and stalactites
@@ -43,6 +49,17 @@ public class GameManager : MonoBehaviour
         allProps = new List<List<GameObject>>() { };
 
         availableSpawnPoints = spawnPoints;
+
+        foreach (GameObject point in availableSpawnPoints)
+        {
+            DontDestroyOnLoad(point);
+        }
+
+        foreach(GameObject itemPoint in backPackSpwnPoints)
+        {
+            DontDestroyOnLoad(itemPoint);
+        }
+
 
 		if (instance == null)
 		{
@@ -118,7 +135,34 @@ public class GameManager : MonoBehaviour
         }
         print("Built Key: " + newKey);
         availableSpawnPoints = spawnPoints;
+
+        // Will an item spawn in this room?
+        CheckSpawnItems();
+
         return newKey;
+    }
+
+    public void CheckSpawnItems()
+    {
+        int rollItem = Random.Range(1, 11);
+        int itemsToSpawn = 0;
+        // 1-2 spawns one backpack (20%)
+        if (rollItem < 3)
+        {
+            itemsToSpawn = 1;
+        }
+        // 10 spawns 2 backpacks (10%)
+        else if (rollItem == 10)
+        {
+            itemsToSpawn = 2;
+        }
+
+        if (itemsToSpawn > 0)
+        {
+            // Pick a random spawn point and place a pack there
+            GameObject pack = Instantiate(backPackObject, backPackSpwnPoints[Random.Range(0, backPackSpwnPoints.Count)].transform.position, Quaternion.identity);
+            pack.transform.SetParent(gameObject.transform);
+        }
     }
 
     public void UpgradeKey()
@@ -134,6 +178,7 @@ public class GameManager : MonoBehaviour
             minNumberOfThings = maxNumberOfThings;
         }
         print("Min: " + minNumberOfThings + " Max: " + maxNumberOfThings);
+        print("Number of things in spawnPoints is: " + spawnPoints.Count);
     }
 
     // Place items on the random spawnpoints
