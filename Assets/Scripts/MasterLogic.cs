@@ -221,7 +221,7 @@ public class MasterLogic : MonoBehaviour
         {
             print("YOU ARE DEAD, WRONG DOOR");
             // Kill everything
-            SceneManager.LoadScene("TitleScreen");
+            SceneManager.LoadScene("Death");
         }        
     }
 }
