@@ -5442,19 +5442,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4435b674a7ca4b41a0885f001cf87fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  QTEevents:
-  - ASDF
-  - NOUIDIOT
-  - THINKFAST
-  - EIFUHWBY
-  - IMOUTOFIDEAS
-  - MIDDLE DOOR
-  - LEFT DOOR
-  - LYING
-  - SAFE
-  - RIGHT DOOR
-  - ROCK
-  - MUSHROOM
+  QTEevents: []
   trappedAlert: {fileID: 2127637510}
   trappedPhrase: {fileID: 1661314974}
   trapTimer: {fileID: 368603595}

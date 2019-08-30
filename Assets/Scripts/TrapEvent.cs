@@ -7,8 +7,7 @@ using UnityEngine.SceneManagement;
 public class TrapEvent : MonoBehaviour
 {
 
-    //public string[] QTEevents = new string[] { "ASDF", "NOUIDIOT", "THINKFAST", "EIFUHWKY", "IMOUTOFIDEAS", "MIDDLE DOOR", "LEFT DOOR", "LYING", "SAFE", "RIGHT DOOR", "ROCK", "MUSHROOM", "SIGN IS LYING", "CAN U RAED", "JEFFWENTLEFT", "WWVWWV" };
-    public string[] QTEevents = new string[] { "WWWWW" };
+    public string[] QTEevents;
 
     private GameManager GM;
 
@@ -40,6 +39,7 @@ public class TrapEvent : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        QTEevents = new string[] { "ASDF", "NOUIDIOT", "THINKFAST", "EIFUHWKY", "IMOUTOFIDEAS", "MIDDLE DOOR", "LEFT DOOR", "LYING", "SAFE", "RIGHT DOOR", "ROCK", "MUSHROOM", "SIGN IS LYING", "CAN U RAED", "JEFFWENTLEFT", "WWVWWV" };
         //StartTrap();
         GM = GameManager.instance;
     }
@@ -107,7 +107,8 @@ public class TrapEvent : MonoBehaviour
         isTrapped = true;
         trapTimeLeft = trapTimeInSeconds;
         QTEPointer = 0;
-        QTEString = Mathf.RoundToInt(UnityEngine.Random.Range(0, QTEevents.Length));
+        QTEString = Random.Range(0, QTEevents.Length);
+        print("Selecting phrase: " + QTEString);
         QTEAsString = QTEevents[QTEString];
         trappedAlert.gameObject.SetActive(true);
         trappedPhrase.gameObject.SetActive(true);
