@@ -11,6 +11,10 @@ public class Buttons : MonoBehaviour
 
     AudioMaster play;
 
+    Camera mainCam;
+
+    public Transform transitionPos;
+
     void Start()
     {
         Cursor.visible = true;
@@ -19,6 +23,7 @@ public class Buttons : MonoBehaviour
         open.SetActive(false);
 
         play = GameObject.Find("AudioManager").GetComponent<AudioMaster>();
+        mainCam = Camera.main;
     }
 
     public void openRules()
@@ -38,6 +43,26 @@ public class Buttons : MonoBehaviour
     public void loadGame()
     {
         play.buttonClick();
+        StartCoroutine(ZoomCam());
+    }
+
+    private IEnumerator ZoomCam()
+    {
+        float elapsedTime = 0;
+        float time = 1f;
+        Vector3 startingPos = mainCam.transform.position;
+        Vector3 newPos = transitionPos.position;
+        float origSize = mainCam.orthographicSize;
+        while (elapsedTime < time)
+        {
+            mainCam.transform.position = Vector3.Lerp(startingPos, newPos, (elapsedTime / time));
+            mainCam.orthographicSize = Mathf.Lerp(origSize, 0.001f, (elapsedTime / time));
+            elapsedTime += Time.deltaTime;
+            yield return 1;
+        }
+        mainCam.transform.position = newPos;
+        mainCam.orthographicSize = 0.001f;
+        yield return new WaitForSeconds(0.5f);
         SceneManager.LoadScene("SampleScene");
     }
 
