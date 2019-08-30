@@ -75,10 +75,10 @@ public class MasterLogic : MonoBehaviour
         GM = GetComponent<GameManager>();
         TE = FindObjectOfType<TrapEvent>();
 
-        foreach(GameObject sign in signs)
-        {
-            DontDestroyOnLoad(sign);
-        }
+        //foreach(GameObject sign in signs)
+        //{
+         //   DontDestroyOnLoad(sign);
+        //}
 
         truthfulSigns = new List<bool> { };
         allRooms = new List<RoomStats> { };
