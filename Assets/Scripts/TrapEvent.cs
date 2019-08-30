@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class TrapEvent : MonoBehaviour
 {
 
-    public string[] QTEevents = new string[] { "ASDF", "NOUIDIOT", "THINKFAST", "EIFUHWBY", "IMOUTOFIDEAS", "MIDDLE DOOR", "LEFT DOOR", "LYING", "SAFE", "RIGHT DOOR", "ROCK", "MUSHROOM" };
+    public string[] QTEevents = new string[] { "ASDF", "NOUIDIOT", "THINKFAST", "EIFUHWKY", "IMOUTOFIDEAS", "MIDDLE DOOR", "LEFT DOOR", "LYING", "SAFE", "RIGHT DOOR", "ROCK", "MUSHROOM", "SIGN IS LYING", "CAN U RAED", "JEFFGOESLEFT" };
 
     private GameManager GM;
 
