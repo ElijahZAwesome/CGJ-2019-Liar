@@ -121,6 +121,8 @@ public class RuleBook : MonoBehaviour
         {
             print("Running a rule");
             rulesInThisGame[i]();
+            GM.playerRules += '\n';
+            GM.playerRules += '\n';
         }
 
         // Add the text to the player rule sheet
@@ -268,7 +270,7 @@ public class RuleBook : MonoBehaviour
     // If there is at least one rat, the sign is lying
     public bool LyingIfRat()
     {
-        GM.playerRules += "If rats are present, the Sign is Lying" + '\n';
+        GM.playerRules += "If rats are present, the Sign is Lying";
         if (ML.currentRoom.numRats > 0)
         {
             signIsLying = true;
@@ -281,7 +283,7 @@ public class RuleBook : MonoBehaviour
     // If there are more than 2 gems in the room, the left door is deadly
     public bool TwoGemLeftDeath()
     {
-        GM.playerRules += "If there are more than 2 gems, the Left Door is not safe" + '\n';
+        GM.playerRules += "If there are more than 2 gems, the Left Door is not safe";
         if (ML.currentRoom.numGems > 2)
         {
             print("There are more than 2 gems, left is deadly");
@@ -295,7 +297,7 @@ public class RuleBook : MonoBehaviour
     // If you just entered from the middle, the right door is deadly
     public bool EnterMidRightDeath()
     {
-        GM.playerRules += "If you just came from the Middle Door, the Right Door is not safe" + '\n';
+        GM.playerRules += "If you just came from the Middle Door, the Right Door is not safe";
         if (ML.currentRoom.entranceDoor == 1)
         {
             print("Came from the middle, right is deadly");
@@ -309,7 +311,7 @@ public class RuleBook : MonoBehaviour
     // If there is an even number of rocks, the sign is lying
     public bool EvenRocksLying()
     {
-        GM.playerRules += "If there is an even number of rocks in the room, the Sign is Lying" + '\n';
+        GM.playerRules += "If there is an even number of rocks in the room, the Sign is Lying";
         int rocks = ML.currentRoom.numRocks;
         if (rocks > 0 && rocks % 2 == 0)
         {
@@ -323,7 +325,7 @@ public class RuleBook : MonoBehaviour
     // If there are a multiple of three rocks in the room, then the sign is truthful
     public bool MultipleThreeRocksTruthful()
     {
-        GM.playerRules += "If there is a multiple of three rocks in the room, the Sign is Truthful" + '\n';
+        GM.playerRules += "If there is a multiple of three rocks in the room, the Sign is Truthful";
         int rocks = ML.currentRoom.numRocks;
         if (rocks > 0 && rocks % 3 == 0)
         {
@@ -337,7 +339,7 @@ public class RuleBook : MonoBehaviour
     // If there are both mushrooms and rats, but more mushrooms, the middle is not safe
     private bool MoreShroomsRatsMiddleDeath()
     {
-        GM.playerRules += "If there's at least 1 rat in the room, but more mushrooms, the Middle Door is not Safe" + '\n';
+        GM.playerRules += "If there's at least 1 rat in the room, but more mushrooms, the Middle Door is not Safe";
         int rats = ML.currentRoom.numRats;
         int shrooms = ML.currentRoom.numShrooms;
         if (rats > 0 && shrooms > rats)

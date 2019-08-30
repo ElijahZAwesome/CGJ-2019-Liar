@@ -22,7 +22,7 @@ public class MasterLogic : MonoBehaviour
     private int doorYouCameFrom = -1;
 
     // All rooms the player has traversed
-    private List<RoomStats> allRooms;
+    public List<RoomStats> allRooms;
 
     // Current ID of the rooms
     private int currentId;
@@ -145,8 +145,7 @@ public class MasterLogic : MonoBehaviour
 
         // Roll to place a trap
         bool trapped = false;
-        //int aTrap = Random.Range(1, 5);
-        int aTrap = 1;
+        int aTrap = Random.Range(1, 5);
         if (aTrap == 1 && allRooms.Count > 0) // 25%, first room cannot be trapped
         {
             trapped = true;
@@ -223,7 +222,6 @@ public class MasterLogic : MonoBehaviour
             print("YOU ARE DEAD, WRONG DOOR");
             // Kill everything
             SceneManager.LoadScene("Death");
-            Destroy(gameObject);
         }        
     }
 }

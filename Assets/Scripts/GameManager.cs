@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
 {
 	public static GameManager instance;
 	public bool isDamaged = false;
-	public int numFlares = 0;
+	public int numFlares = 2;
 
     public string playerRules = "";
 

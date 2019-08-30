@@ -130,7 +130,7 @@ public class TrapEvent : MonoBehaviour
         if (GM.isDamaged == true)
         {
             // Kill player
-            SceneManager.LoadScene("TitleScreen");
+            SceneManager.LoadScene("Death");
         }
         else
         {
