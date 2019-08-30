@@ -69,9 +69,10 @@ public class RuleBook : MonoBehaviour
 			if (playerRuleSheet == null)
 			{
 				playerRuleSheet = GameObject.Find("Rule Sheet");
-				playerRuleSheet.SetActive(true);
+
 			}
-			playerRuleSheet.SetActive(true);
+			else
+				playerRuleSheet.SetActive(true);
         }
         else
         {
