@@ -26,12 +26,14 @@ public class GameManager : MonoBehaviour
 	[SerializeField]
 	List<Vector2> TransformPoints;
 	List<Vector2> availableTransformPoints = new List<Vector2>();
+	[SerializeField]
+	List<Vector2> backpackTransformPoints = new List<Vector2>();
 	// Spawn point remaining in this room
 	private List<GameObject> availableSpawnPoints = new List<GameObject>();
     // TODO: Individual spawn points
 
     [SerializeField]
-    private List<GameObject> backPackSpwnPoints;
+    private List<GameObject> backPackSpawnPoints;
 
     [SerializeField]
     private GameObject backPackObject;
@@ -49,10 +51,10 @@ public class GameManager : MonoBehaviour
 		damaged = GameObject.Find("Damage");
         damaged.SetActive(false);
         allProps = new List<List<GameObject>>() { };
-		for(int i = 0; i < spawnPoints.Count;i++)
-		{
-			availableSpawnPoints.Add(spawnPoints[i]);
-		}
+		//for(int i = 0; i < spawnPoints.Count;i++)
+		//{
+		//	availableSpawnPoints.Add(spawnPoints[i]);
+		//}
 		for (int i = 0; i < spawnPoints.Count; i++)
 		{
 			TransformPoints.Add(spawnPoints[i].transform.position);
@@ -61,15 +63,19 @@ public class GameManager : MonoBehaviour
 		{
 			availableTransformPoints.Add(spawnPoints[i].transform.position);
 		}
-		foreach (GameObject point in availableSpawnPoints)
-        {
-            DontDestroyOnLoad(point);
-        }
+		for (int i = 0; i < backPackSpawnPoints.Count; i++)
+		{
+			backpackTransformPoints.Add(backPackSpawnPoints[i].transform.position);
+		}
+		//	foreach (GameObject point in availableSpawnPoints)
+		//   {
+		//       DontDestroyOnLoad(point);
+		//   }
 
-        foreach(GameObject itemPoint in backPackSpwnPoints)
-        {
-            DontDestroyOnLoad(itemPoint);
-        }
+		//   foreach(GameObject itemPoint in backPackSpwnPoints)
+		//   {
+		//       DontDestroyOnLoad(itemPoint);
+		// }
 
 
 		if (instance == null)
@@ -175,7 +181,7 @@ public class GameManager : MonoBehaviour
         if (itemsToSpawn > 0)
         {
             // Pick a random spawn point and place a pack there
-            GameObject pack = Instantiate(backPackObject, backPackSpwnPoints[Random.Range(0, backPackSpwnPoints.Count)].transform.position, Quaternion.identity);
+            GameObject pack = Instantiate(backPackObject, backpackTransformPoints[Random.Range(0, backpackTransformPoints.Count - 1)], Quaternion.identity);
             pack.transform.SetParent(gameObject.transform);
         }
     }

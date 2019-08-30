@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -3428,6 +3428,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
         type: 3}
+      propertyPath: backPackSpawnPoints.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
+        type: 3}
       propertyPath: rocks.Array.data[0]
       value: 
       objectReference: {fileID: 911604137706880309, guid: f63ace86b80429941af5c6f5cbb12f8f,
@@ -3631,6 +3636,41 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1017901018790503304, guid: 0357a1bfcfd8fb44ab0bcc8d6093bcab,
         type: 3}
+    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
+        type: 3}
+      propertyPath: backPackSpawnPoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 97138666}
+    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
+        type: 3}
+      propertyPath: backPackSpawnPoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 1259505055}
+    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
+        type: 3}
+      propertyPath: backPackSpawnPoints.Array.data[2]
+      value: 
+      objectReference: {fileID: 129879564}
+    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
+        type: 3}
+      propertyPath: backPackSpawnPoints.Array.data[3]
+      value: 
+      objectReference: {fileID: 17169409}
+    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
+        type: 3}
+      propertyPath: backPackSpawnPoints.Array.data[4]
+      value: 
+      objectReference: {fileID: 2095161591}
+    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
+        type: 3}
+      propertyPath: backPackSpawnPoints.Array.data[5]
+      value: 
+      objectReference: {fileID: 912208401}
+    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
+        type: 3}
+      propertyPath: backPackSpawnPoints.Array.data[6]
+      value: 
+      objectReference: {fileID: 912208401}
     - target: {fileID: 46841839943826978, guid: 0bb9718a6e2646f41ae0feda40689413,
         type: 3}
       propertyPath: playerRuleSheet
