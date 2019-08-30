@@ -23,9 +23,10 @@ public class GameManager : MonoBehaviour
 
 	[SerializeField]
 	private List<GameObject> spawnPoints;
-
+	[SerializeField]
+	List<Transform> TransformPoints;
     // Spawn point remaining in this room
-    private List<GameObject> availableSpawnPoints;
+    private List<GameObject> availableSpawnPoints = new List<GameObject>();
     // TODO: Individual spawn points
 
     [SerializeField]
@@ -47,9 +48,11 @@ public class GameManager : MonoBehaviour
 		damaged = GameObject.Find("Damage");
         damaged.SetActive(false);
         allProps = new List<List<GameObject>>() { };
-
-        availableSpawnPoints = spawnPoints;
-
+		for(int i = 0; i < spawnPoints.Count;i++)
+		{
+			availableSpawnPoints.Add(spawnPoints[i]);
+		}
+        
         foreach (GameObject point in availableSpawnPoints)
         {
             DontDestroyOnLoad(point);
@@ -103,38 +106,42 @@ public class GameManager : MonoBehaviour
 		key = keyPart[0].ToString() + 'v' + keyPart[1].ToString();
 	}
 
-    public string GenerateNewKey()
-    {
-        int numberOfThings = Random.Range(minNumberOfThings, maxNumberOfThings + 1);
-        string newKey = "";
-        for (int i = 0; i < allProps.Count; i++)
-        {
-            // If we still have objects to place, then place a random number of this object
-            if (numberOfThings > 0)
-            {
-                int numberOfThisProp;
-                if (i == allProps.Count)
-                {
-                    // This is the last spot, dump the rest of the things here
-                    numberOfThisProp = numberOfThings;
-                }
-                else
-                {
-                    numberOfThisProp = Random.Range(0, numberOfThings + 1);
-                    newKey += numberOfThisProp.ToString() + "v";
-                    numberOfThings -= numberOfThisProp;
-                }
-                // Place the item in the room
-                print("Attempting to place with key: " + newKey);
-                PlaceItems(allProps[i], numberOfThisProp);
-            }
-            else
-            {
-                newKey += 0.ToString() + "v";
-            }
-        }
-        print("Built Key: " + newKey);
-        availableSpawnPoints = spawnPoints;
+	public string GenerateNewKey()
+	{
+		int numberOfThings = Random.Range(minNumberOfThings, maxNumberOfThings + 1);
+		string newKey = "";
+		for (int i = 0; i < allProps.Count; i++)
+		{
+			// If we still have objects to place, then place a random number of this object
+			if (numberOfThings > 0)
+			{
+				int numberOfThisProp;
+				if (i == allProps.Count)
+				{
+					// This is the last spot, dump the rest of the things here
+					numberOfThisProp = numberOfThings;
+				}
+				else
+				{
+					numberOfThisProp = Random.Range(0, numberOfThings + 1);
+					newKey += numberOfThisProp.ToString() + "v";
+					numberOfThings -= numberOfThisProp;
+				}
+				// Place the item in the room
+				print("Attempting to place with key: " + newKey);
+				PlaceItems(allProps[i], numberOfThisProp);
+			}
+			else
+			{
+				newKey += 0.ToString() + "v";
+			}
+		}
+		print("Built Key: " + newKey);
+		for (int i = 0; i < spawnPoints.Count; i++)
+		{
+			availableSpawnPoints.Add(spawnPoints[i]);
+		}
+			
 
         // Will an item spawn in this room?
         CheckSpawnItems();
