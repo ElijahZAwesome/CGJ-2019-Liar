@@ -15,8 +15,11 @@ public class GameManager : MonoBehaviour
 	//Rocks V Stalactites V etc....
 	private string key = "0v0v0v0v0";
 
-	//Add more lists of the objects as needed to be spawned
-	[SerializeField]
+    [SerializeField]
+    private GameObject damaged;
+
+    //Add more lists of the objects as needed to be spawned
+    [SerializeField]
 	private List<GameObject> rocks, mushrooms, rats, webs, gems;
 
     private List<List<GameObject>> allProps;
@@ -26,20 +29,82 @@ public class GameManager : MonoBehaviour
 	[SerializeField]
 	List<Vector2> TransformPoints;
 	List<Vector2> availableTransformPoints = new List<Vector2>();
-	[SerializeField]
-	List<Vector2> backpackTransformPoints = new List<Vector2>();
-	// Spawn point remaining in this room
-	private List<GameObject> availableSpawnPoints = new List<GameObject>();
+
+    // Spawn point remaining in this room
+    private List<GameObject> availableSpawnPoints = new List<GameObject>();
     // TODO: Individual spawn points
+
+    // Backpack Spawn
+    [SerializeField]
+    List<Vector2> backpackTransformPoints = new List<Vector2>();
 
     [SerializeField]
     private List<GameObject> backPackSpawnPoints;
-
     [SerializeField]
     private GameObject backPackObject;
 
+    // Rat Spawn
     [SerializeField]
-    private GameObject damaged;
+    List<Vector2> ratTransformPoints = new List<Vector2>();
+
+    [SerializeField]
+    private List<GameObject> ratSpawn;
+    [SerializeField]
+    private GameObject donavan;
+
+    // Stalagmite Spawn
+    [SerializeField]
+    List<Vector2> stalagmiteTransformPoints = new List<Vector2>();
+
+    [SerializeField]
+    private List<GameObject> stalagmiteSpawn;
+    [SerializeField]
+    private List<GameObject> stalagmite;
+
+    // Crack Spawn
+    [SerializeField]
+    List<Vector2> crackTransformPoints = new List<Vector2>();
+
+    [SerializeField]
+    private List<GameObject> crackSpawn;
+    [SerializeField]
+    private List<GameObject> crack;
+
+    // Mushroom Spawn
+    [SerializeField]
+    List<Vector2> shroomTransfromPoints = new List<Vector2>();
+
+    [SerializeField]
+    private List<GameObject> shroomSpawn;
+    [SerializeField]
+    private List<GameObject> shrooms;
+
+    // Gem Spawn
+    [SerializeField]
+    List<Vector2> gemTransformPoints = new List<Vector2>();
+
+    [SerializeField]
+    private List<GameObject> gemSpawn;
+    [SerializeField]
+    private List<GameObject> gem;
+
+    // Rock Spawn
+    [SerializeField]
+    List<Vector2> rockTransformPoints = new List<Vector2>();
+
+    [SerializeField]
+    private List<GameObject> rockSpawn;
+    [SerializeField]
+    private List<GameObject> rock;
+
+    // Web Spawn
+    [SerializeField]
+    List<Vector2> webTransformPoints = new List<Vector2>();
+
+    [SerializeField]
+    private List<GameObject> webSpawn;
+    [SerializeField]
+    private GameObject web;
 
     // The player is currently in a trap QTE
     public bool currentlyTrapped;
@@ -71,18 +136,61 @@ public class GameManager : MonoBehaviour
 		{
 			backpackTransformPoints.Add(backPackSpawnPoints[i].transform.position);
 		}
-		//	foreach (GameObject point in availableSpawnPoints)
-		//   {
-		//       DontDestroyOnLoad(point);
-		//   }
 
-		//   foreach(GameObject itemPoint in backPackSpwnPoints)
-		//   {
-		//       DontDestroyOnLoad(itemPoint);
-		// }
+        // Donavan spawns
+        for (int i = 0; i < ratSpawn.Count; i++)
+        {
+            ratTransformPoints.Add(ratSpawn[i].transform.position);
+        }
+
+        // Stalagmite spawns
+        for(int i = 0; i < stalagmiteSpawn.Count; i++)
+        {
+            stalagmiteTransformPoints.Add(stalagmiteSpawn[i].transform.position);
+        }
+
+        // Crack spawns
+        for(int i = 0; i < crackSpawn.Count; i++)
+        {
+            crackTransformPoints.Add(crackSpawn[i].transform.position);
+        }
+
+        // Shroom spawns
+        for(int i = 0; i < shroomSpawn.Count; i++)
+        {
+            shroomTransfromPoints.Add(shroomSpawn[i].transform.position);
+        }
+
+        // Gem spawns
+        for(int i = 0; i < gemSpawn.Count; i++)
+        {
+            gemTransformPoints.Add(gemSpawn[i].transform.position);
+        }
+
+        // Rock spawns
+        for(int i = 0; i < rockSpawn.Count; i++)
+        {
+            rockTransformPoints.Add(rockSpawn[i].transform.position);
+        }
+
+        // Web spawns
+        for(int i = 0; i < webSpawn.Count; i++)
+        {
+            webTransformPoints.Add(webSpawn[i].transform.position);
+        }
+
+        //	foreach (GameObject point in availableSpawnPoints)
+        //   {
+        //       DontDestroyOnLoad(point);
+        //   }
+
+        //   foreach(GameObject itemPoint in backPackSpwnPoints)
+        //   {
+        //       DontDestroyOnLoad(itemPoint);
+        // }
 
 
-		if (instance == null)
+        if (instance == null)
 		{
 			instance = this;
 		}
@@ -187,6 +295,28 @@ public class GameManager : MonoBehaviour
             // Pick a random spawn point and place a pack there
             GameObject pack = Instantiate(backPackObject, backpackTransformPoints[Random.Range(0, backpackTransformPoints.Count)], Quaternion.identity);
             pack.transform.SetParent(gameObject.transform);
+
+            // Probably not the right spot to put these...
+            GameObject rat = Instantiate(donavan, ratTransformPoints[Random.Range(0, ratTransformPoints.Count)], Quaternion.identity);
+            rat.transform.SetParent(gameObject.transform);
+
+            GameObject spike = Instantiate(stalagmite[Random.Range(0, stalagmite.Count)], stalagmiteTransformPoints[Random.Range(0, stalagmiteTransformPoints.Count)], Quaternion.identity);
+            spike.transform.SetParent(gameObject.transform);
+
+            GameObject wallCrack = Instantiate(crack[Random.Range(0, crack.Count)], crackTransformPoints[Random.Range(0, crackTransformPoints.Count)], Quaternion.identity);
+            wallCrack.transform.SetParent(gameObject.transform);
+
+            GameObject fungi = Instantiate(shrooms[Random.Range(0, shrooms.Count)], shroomTransfromPoints[Random.Range(0, shroomTransfromPoints.Count)], Quaternion.identity);
+            fungi.transform.SetParent(gameObject.transform);
+
+            GameObject gemz = Instantiate(gem[Random.Range(0, gem.Count)], gemTransformPoints[Random.Range(0, gemTransformPoints.Count)], Quaternion.identity);
+            gemz.transform.SetParent(gameObject.transform);
+
+            GameObject rok = Instantiate(rock[Random.Range(0, rock.Count)], rockTransformPoints[Random.Range(0, rockTransformPoints.Count)], Quaternion.identity);
+            rok.transform.SetParent(gameObject.transform);
+
+            GameObject webz = Instantiate(web, webTransformPoints[Random.Range(0, webTransformPoints.Count)], Quaternion.identity);
+            webz.transform.SetParent(gameObject.transform);
         }
     }
 
