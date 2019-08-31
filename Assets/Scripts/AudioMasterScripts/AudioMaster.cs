@@ -14,8 +14,19 @@ public class AudioMaster : MonoBehaviour
     public AudioSource fuse;
     public AudioSource boom;
 
-    private void Start()
+    public static AudioMaster instance;
+
+    private void Awake()
     {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
         DontDestroyOnLoad(gameObject);
     }
 
