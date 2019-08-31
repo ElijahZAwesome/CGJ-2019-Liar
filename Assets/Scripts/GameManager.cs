@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     public float timeRemaining;
 
 	//Rocks V Stalactites V etc....
-	private string key = "0v0v0v0v0";
+	private string key = "";
 
     [SerializeField]
     private GameObject damaged;
