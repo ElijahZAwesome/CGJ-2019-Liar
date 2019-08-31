@@ -9,16 +9,10 @@ public class AudioMaster : MonoBehaviour
     public AudioSource flarePickup;
     public AudioSource healthPickup;
     public AudioSource button;
-
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
-    }
+    public AudioSource death;
+    public AudioSource heart;
+    public AudioSource fuse;
+    public AudioSource boom;
 
     public void flareToss()
     {
@@ -43,5 +37,25 @@ public class AudioMaster : MonoBehaviour
     public void buttonClick()
     {
         button.Play();
+    }
+
+    public void youLose()
+    {
+        death.Play();
+    }
+
+    public void lowHealth()
+    {
+        heart.Play();
+    }
+
+    public void fuseSound()
+    {
+        fuse.Play();
+    }
+
+    public void bigBoom()
+    {
+        boom.Play();
     }
 }
