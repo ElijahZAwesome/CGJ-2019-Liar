@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class MasterLogic : MonoBehaviour
@@ -66,6 +67,10 @@ public class MasterLogic : MonoBehaviour
     // When you press a number, this prevents the "door you came from" from being changeable while transitioning
     private bool canSelectRoom;
 
+    // How to tell the player a new rule is in affect
+    public Image newRuleHint;
+    public Text hintText;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -77,7 +82,7 @@ public class MasterLogic : MonoBehaviour
 
         //foreach(GameObject sign in signs)
         //{
-         //   DontDestroyOnLoad(sign);
+        //   DontDestroyOnLoad(sign);
         //}
 
         truthfulSigns = new List<bool> { };
@@ -214,6 +219,15 @@ public class MasterLogic : MonoBehaviour
             if (allRooms.Count % 5 == 0)
             {
                 ruleBook.AddNewRule();
+                // show hint
+                newRuleHint.gameObject.SetActive(true);
+                if (allRooms.Count == 5) hintText.text = "Check your rulebook. New rules appear every 5 tunnels. \t[W]";
+                else hintText.text = "The cave has gotten more complex.";
+            }
+            else
+            {
+                // hide hint
+                newRuleHint.gameObject.SetActive(false);
             }
 			GM.AddToTimer();
             GM.DestroyProps();
