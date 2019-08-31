@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class MasterLogic : MonoBehaviour
 {
+    AudioMaster AM;
+
     // Handles the overall GameLogic of which door ends up being safe
 
     public static MasterLogic MLInstance;
@@ -75,6 +77,8 @@ public class MasterLogic : MonoBehaviour
     void Start()
     {
         MLInstance = this;
+
+        AM = GameObject.Find("AudioManager").GetComponent<AudioMaster>();
 
         ruleBook = GetComponent<RuleBook>();
         GM = GetComponent<GameManager>();
@@ -236,8 +240,10 @@ public class MasterLogic : MonoBehaviour
         else
         {
             print("YOU ARE DEAD, WRONG DOOR");
-			// Kill everything
+            // Kill everything
+            AM.youLose();
 			GM.isTiming = false;
+            
             SceneManager.LoadScene("Death");
         }        
     }

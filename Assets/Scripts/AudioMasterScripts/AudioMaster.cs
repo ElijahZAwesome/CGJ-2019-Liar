@@ -63,4 +63,14 @@ public class AudioMaster : MonoBehaviour
     {
         boom.Play();
     }
+
+    public void stopHeart()
+    {
+        heart.Stop();
+    }
+
+    public void stopFuse()
+    {
+        fuse.Stop();
+    }
 }

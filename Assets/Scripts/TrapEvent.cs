@@ -109,6 +109,7 @@ public class TrapEvent : MonoBehaviour
         //print("THERE IS A TRAP");
         GM.currentlyTrapped = true;
         AM.lowHealth();
+        AM.fuseSound();
         isTrapped = true;
         trapTimeLeft = trapTimeInSeconds;
         QTEPointer = 0;
@@ -124,6 +125,8 @@ public class TrapEvent : MonoBehaviour
     public void EndTrap()
     {
         isTrapped = false;
+        AM.stopFuse();
+        AM.stopHeart();
         GM.currentlyTrapped = false;
         trappedAlert.gameObject.SetActive(false);
         trappedPhrase.gameObject.SetActive(false);
@@ -132,10 +135,13 @@ public class TrapEvent : MonoBehaviour
 
     public void FailTrap()
     {
+        AM.bigBoom();
+
         if (GM.isDamaged == true)
         {
 			// Kill player
 			GM.isTiming = false;
+            AM.youLose();
 			SceneManager.LoadScene("Death");
         }
         else
