@@ -38,6 +38,7 @@ public class MasterLogic : MonoBehaviour
 
 	private float UIwaitTime = 5;
 	private bool TutorialActivated = true;
+	private bool Tutorial2Activated = false;
 	// A room object containing all the info
 	public struct RoomStats
     {
@@ -139,14 +140,25 @@ public class MasterLogic : MonoBehaviour
 			}
 			else
 			{
+				if (Tutorial2Activated)
+				{
+					print("Gave Hint");
+					newRuleHint.gameObject.SetActive(true);
+					hintText.text = "Press '1', '2', or '3' to enter each respective cave numbered left to right. \n[1][2][3]";
+					TutorialActivated = false;
+					Tutorial2Activated = false;
+					UIwaitTime = 5;
+				}
 				if (TutorialActivated)
 				{
 					print("Gave Hint");
 					newRuleHint.gameObject.SetActive(true);
 					hintText.text = "Press 'A' or 'D' to check out your environment. \n[A][D]";
 					TutorialActivated = false;
+					Tutorial2Activated = true;
 					UIwaitTime = 5;
 				}
+				
 			}
 		}
 		
