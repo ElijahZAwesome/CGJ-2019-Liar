@@ -57,7 +57,7 @@ public class TrapEvent : MonoBehaviour
 
         if(isTrapped)
         {
-            AM.lowHealth();
+            
             trapTimeLeft -= Time.deltaTime;
             trapTimer.text = System.Math.Round(trapTimeLeft, 2).ToString();
             if(trapTimeLeft <= 0f)
@@ -108,6 +108,7 @@ public class TrapEvent : MonoBehaviour
     {
         //print("THERE IS A TRAP");
         GM.currentlyTrapped = true;
+        AM.lowHealth();
         isTrapped = true;
         trapTimeLeft = trapTimeInSeconds;
         QTEPointer = 0;

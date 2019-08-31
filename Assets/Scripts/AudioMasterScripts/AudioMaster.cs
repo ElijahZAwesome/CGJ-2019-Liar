@@ -14,6 +14,11 @@ public class AudioMaster : MonoBehaviour
     public AudioSource fuse;
     public AudioSource boom;
 
+    private void Start()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
+
     public void flareToss()
     {
         flare.Play();
