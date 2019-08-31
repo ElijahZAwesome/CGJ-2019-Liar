@@ -36,8 +36,10 @@ public class MasterLogic : MonoBehaviour
     // The trap event object that will handle traps
     private TrapEvent TE;
 
-    // A room object containing all the info
-    public struct RoomStats
+	private float UIwaitTime = 5;
+	private bool TutorialActivated = true;
+	// A room object containing all the info
+	public struct RoomStats
     {
         // Rooms ID
         public int id;
@@ -95,7 +97,9 @@ public class MasterLogic : MonoBehaviour
         // Make a new room with some stats. This will have to read back info from the manager object with room generation
         ruleBook.AddNewRule();
         CreateNewRoom();
-    }
+		newRuleHint.gameObject.SetActive(true);
+		if (allRooms.Count == 0) hintText.text = "Check your rulebook. New rules appear every 5 tunnels. \n[W]";
+	}
 
     // Update is called once per frame
     void Update()
@@ -121,7 +125,32 @@ public class MasterLogic : MonoBehaviour
             doorYouCameFrom = 2;
             canSelectRoom = false;
         }
-    }
+		
+		if (newRuleHint != null)
+		{
+			if (newRuleHint.gameObject.activeSelf)
+			{
+				UIwaitTime -= Time.deltaTime;
+				if (UIwaitTime < 0)
+				{
+					UIwaitTime = 5;
+					newRuleHint.gameObject.SetActive(false);
+				}
+			}
+			else
+			{
+				if (TutorialActivated)
+				{
+					print("Gave Hint");
+					newRuleHint.gameObject.SetActive(true);
+					hintText.text = "Press 'A' or 'D' to check out your environment. \n[A][D]";
+					TutorialActivated = false;
+					UIwaitTime = 5;
+				}
+			}
+		}
+		
+	}
 
     // Creates a new RoomStats object with the info, should be called at the start of each room
     private void CreateNewRoom()
@@ -225,7 +254,7 @@ public class MasterLogic : MonoBehaviour
                 ruleBook.AddNewRule();
                 // show hint
                 newRuleHint.gameObject.SetActive(true);
-                if (allRooms.Count == 5) hintText.text = "Check your rulebook. New rules appear every 5 tunnels. \n[W]";
+                if (allRooms.Count == 0) hintText.text = "Check your rulebook. New rules appear every 5 tunnels. \n[W]";
                 else hintText.text = "The cave has gotten more complex.";
             }
             else
