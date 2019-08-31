@@ -35,6 +35,7 @@ public class RuleBook : MonoBehaviour
     public void AddRules()
     {
         rules.Clear();
+
         rules.Add(LyingIfRat);
         rules.Add(TwoGemLeftDeath);
         rules.Add(EnterMidRightDeath);
@@ -44,6 +45,7 @@ public class RuleBook : MonoBehaviour
         rules.Add(LyingIfCracks);
         rules.Add(WebsEnterRightLeftDeath);
         rules.Add(StalagTrapLying);
+        rules.Add(GemsEnterLeftLying);
     }
 
     private void Update()
@@ -79,13 +81,13 @@ public class RuleBook : MonoBehaviour
         //DontDestroyOnLoad(gameObject);
         GM = GetComponent<GameManager>();
         ML = GetComponent<MasterLogic>();
-        
+        AddRules();
         //playerRuleSheet.SetActive(false);
     }
 
     private void Start()
     {
-        AddRules();
+        //AddRules();
     }
 
     public void AddNewRule()
@@ -264,7 +266,7 @@ public class RuleBook : MonoBehaviour
     // If there is at least one rat, the sign is lying
     public bool LyingIfRat()
     {
-        GM.playerRules += "If rats are present, the Sign is Lying";
+        GM.playerRules += "If there's at least 1 Rat, the Sign is Lying";
         if (ML.currentRoom.numRats > 0)
         {
             signIsLying = true;
@@ -277,7 +279,7 @@ public class RuleBook : MonoBehaviour
     // If there are more than 2 gems in the room, the left door is deadly
     public bool TwoGemLeftDeath()
     {
-        GM.playerRules += "If there are more than 2 gems, the Left Door is not safe";
+        GM.playerRules += "If there are more than 2 Gems, the Left Door is not safe";
         if (ML.currentRoom.numGems > 2)
         {
             print("There are more than 2 gems, left is deadly");
@@ -305,7 +307,7 @@ public class RuleBook : MonoBehaviour
     // If there is an even number of rocks, the sign is lying
     public bool EvenRocksLying()
     {
-        GM.playerRules += "If there is an even number of rocks in the room, the Sign is Lying";
+        GM.playerRules += "If there is an even number of Rocks in the room, the Sign is Lying";
         int rocks = ML.currentRoom.numRocks;
         if (rocks > 0 && rocks % 2 == 0)
         {
@@ -333,7 +335,7 @@ public class RuleBook : MonoBehaviour
     // If there are both mushrooms and rats, but more mushrooms, the middle is not safe
     private bool MoreShroomsRatsMiddleDeath()
     {
-        GM.playerRules += "If there's at least 1 rat in the room, but more mushrooms, the Middle Door is not Safe";
+        GM.playerRules += "If there's at least 1 Rat, but more Mushrooms, the Middle Door is not Safe";
         int rats = ML.currentRoom.numRats;
         int shrooms = ML.currentRoom.numShrooms;
         if (rats > 0 && shrooms > rats)
@@ -349,7 +351,7 @@ public class RuleBook : MonoBehaviour
     // If cracks are present, the sign is lying
     private bool LyingIfCracks()
     {
-        GM.playerRules += "If cracks are present, the sign is lying";
+        GM.playerRules += "If there are Cracks, the Sign is Lying";
         if (ML.currentRoom.numCracks > 0)
         {
             signIsLying = true;
@@ -361,7 +363,7 @@ public class RuleBook : MonoBehaviour
     // Webs and came from right door, left door not safe
     private bool WebsEnterRightLeftDeath()
     {
-        GM.playerRules += "If there are webs, and you just came from the Right Door, the Left Door is not safe";
+        GM.playerRules += "If there are Webs, and you just came from the Right Door, the Left Door is not safe";
         if (ML.currentRoom.entranceDoor == 2 && ML.currentRoom.numWebs > 0)
         {
             leftSafe = false;
@@ -374,8 +376,20 @@ public class RuleBook : MonoBehaviour
     // If the room is trapped and there are stalagmites, the sign is lying
     private bool StalagTrapLying()
     {
-        GM.playerRules += "If there are Stalagmites present and the room is Trapped, the Sign is Lying";
+        GM.playerRules += "If there are Stalagmites and the room is Trapped, the Sign is Lying";
         if (ML.currentRoom.numStalags > 0 && ML.currentRoom.roomTrapped == true)
+        {
+            signIsLying = true;
+            return true;
+        }
+        return false;
+    }
+
+    // You just came through the left door and there's gems, the sign is lying
+    private bool GemsEnterLeftLying()
+    {
+        GM.playerRules += "If there are Gems present, and and you just came from the Left Door, the Sign is Lying";
+        if (ML.currentRoom.entranceDoor == 0 && ML.currentRoom.numGems > 0)
         {
             signIsLying = true;
             return true;

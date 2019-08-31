@@ -36,6 +36,7 @@ public class PauseMenu : MonoBehaviour
 	}
 	void PauseTheGame()
 	{
+        Cursor.visible = true;
 		isPaused = !isPaused;
 		pausePanel.SetActive(true);
 		//Stop Timer while the Game is paused
@@ -43,7 +44,8 @@ public class PauseMenu : MonoBehaviour
 	}
 	public void UnpauseTheGame()
 	{
-		GM.isTiming = true;
+        Cursor.visible = false;
+        GM.isTiming = true;
 		isPaused = !isPaused;
 		pausePanel.SetActive(false);
 	}

@@ -9,9 +9,9 @@ public class GameManager : MonoBehaviour
     private MasterLogic ML;
 
 	public bool isDamaged = false;
-	public int numFlares = 2;
+	public int numFlares = 0;
 
-    public string playerRules = "";
+    public string playerRules = "Hi There";
 
     public float timeRemaining;
 
@@ -306,7 +306,7 @@ public class GameManager : MonoBehaviour
             {
                 int randBackPackSpawn = Random.Range(0, tempBackPackSpawn.Count);
                 //GameObject pack = Instantiate(backPackObject, tempBackPackSpawn[randBackPackSpawn], Quaternion.identity);
-                GameObject pack = Instantiate(backPackObject, tempBackPackSpawn[0], Quaternion.identity);
+                GameObject pack = Instantiate(backPackObject, tempBackPackSpawn[randBackPackSpawn], Quaternion.identity);
                 pack.transform.SetParent(gameObject.transform);
                 tempBackPackSpawn.RemoveAt(randBackPackSpawn);
             }

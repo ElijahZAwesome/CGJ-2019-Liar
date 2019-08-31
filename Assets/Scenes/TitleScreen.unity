@@ -2469,7 +2469,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: You have found yourself in the Cave of Uncertainty. Three pathways stand
-    before you, and only one of them might get you out of here alive...
+    before you, but some may lead to certain death...
 --- !u!222 &873967253
 CanvasRenderer:
   m_ObjectHideFlags: 0

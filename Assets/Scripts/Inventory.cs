@@ -10,7 +10,7 @@ public class Inventory : MonoBehaviour
 	private TextMeshProUGUI numText;
 	[SerializeField]
 	private GameObject flare;
-	public int flareCount = 0;
+	public int flareCount = 2;
 
     private GameManager GM;
 
