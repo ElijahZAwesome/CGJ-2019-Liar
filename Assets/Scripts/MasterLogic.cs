@@ -149,8 +149,7 @@ public class MasterLogic : MonoBehaviour
 
         // Roll to place a trap
         bool trapped = false;
-        //int aTrap = Random.Range(1, 5);
-        int aTrap = 1;
+        int aTrap = Random.Range(1, 5);
         if (aTrap == 1 && allRooms.Count > 0) // 25%, first room cannot be trapped
         {
             trapped = true;
