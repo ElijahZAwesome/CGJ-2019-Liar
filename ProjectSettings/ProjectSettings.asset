@@ -14,7 +14,7 @@ PlayerSettings:
   accelerometerFrequency: 60
   companyName: GamerBois
   productName: Cave Of Uncertainty?
-  defaultCursor: {fileID: 0}
+  defaultCursor: {fileID: 2800000, guid: cc1be6f661e73cb4ebb20ecb2c999e9d, type: 3}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
   m_ShowUnitySplashScreen: 1
@@ -280,7 +280,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: 16f5df98eb984eb4b81247705a5ba698, type: 3}
+      m_Icon: {fileID: 2800000, guid: c982b36d6e02e594fbb758eee0cb0cfd, type: 3}
       m_Width: 128
       m_Height: 128
       m_Kind: 0
@@ -510,7 +510,7 @@ PlayerSettings:
   ps4attribEyeToEyeDistanceSettingVR: 0
   ps4IncludedModules: []
   monoEnv: 
-  splashScreenBackgroundSourceLandscape: {fileID: 21300000, guid: 56a1693c800311a4085ed3c711e70e10,
+  splashScreenBackgroundSourceLandscape: {fileID: 21300000, guid: a0a62fce855b1244a987d17714762483,
     type: 3}
   splashScreenBackgroundSourcePortrait: {fileID: 0}
   blurSplashScreenBackground: 1
