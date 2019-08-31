@@ -325,11 +325,11 @@ public class RuleBook : MonoBehaviour
     // If there are a multiple of three rocks in the room, then the sign is truthful
     public bool MultipleThreeRocksTruthful()
     {
-        GM.playerRules += "If there is a multiple of three rocks in the room, the Sign is Truthful";
+        GM.playerRules += "If there are 3 or 6 rocks in the room and the Sign is Lying, the Sign is no longer Lying";
         int rocks = ML.currentRoom.numRocks;
-        if (rocks > 0 && rocks % 3 == 0)
+        if ((rocks == 3 || rocks == 6) && signIsLying == true)
         {
-            print("Multiple of 3 rocks, sign is truthful");
+            print("3 or 6 rocks, sign is now truthful");
             signIsLying = false;
             return true;
         }
