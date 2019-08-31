@@ -221,7 +221,7 @@ public class MasterLogic : MonoBehaviour
                 ruleBook.AddNewRule();
                 // show hint
                 newRuleHint.gameObject.SetActive(true);
-                if (allRooms.Count == 5) hintText.text = "Check your rulebook. New rules appear every 5 tunnels. \t[W]";
+                if (allRooms.Count == 5) hintText.text = "Check your rulebook. New rules appear every 5 tunnels. \n[W]";
                 else hintText.text = "The cave has gotten more complex.";
             }
             else
