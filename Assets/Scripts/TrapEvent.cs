@@ -36,12 +36,15 @@ public class TrapEvent : MonoBehaviour
 
     public bool isTrapped = false;
 
+    AudioMaster AM;
+
     // Start is called before the first frame update
     void Start()
     {
         QTEevents = new string[] { "ASDF", "NOUIDIOT", "THINKFAST", "EIFUHWKY", "IMOUTOFIDEAS", "MIDDLEDOOR", "LEFTDOOR", "LYING", "SAFE", "RIGHTDOOR", "ROCK", "MUSHROOM", "SIGNISLYING", "CANURAED", "JEFFWENTLEFT", "WWVWWV" };
         //StartTrap();
         GM = GameManager.instance;
+        AM = GameObject.Find("AudioManager").GetComponent<AudioMaster>();
     }
 
     // Update is called once per frame
@@ -54,6 +57,7 @@ public class TrapEvent : MonoBehaviour
 
         if(isTrapped)
         {
+            AM.lowHealth();
             trapTimeLeft -= Time.deltaTime;
             trapTimer.text = System.Math.Round(trapTimeLeft, 2).ToString();
             if(trapTimeLeft <= 0f)
