@@ -41,6 +41,9 @@ public class RuleBook : MonoBehaviour
         rules.Add(EvenRocksLying);
         rules.Add(MultipleThreeRocksTruthful);
         rules.Add(MoreShroomsRatsMiddleDeath);
+        rules.Add(LyingIfCracks);
+        rules.Add(WebsEnterRightLeftDeath);
+        rules.Add(StalagTrapLying);
     }
 
     private void Update()
@@ -332,5 +335,43 @@ public class RuleBook : MonoBehaviour
         }
         return false;
     }
+
+    // If cracks are present, the sign is lying
+    private bool LyingIfCracks()
+    {
+        GM.playerRules += "If cracks are present, the sign is lying";
+        if (ML.currentRoom.numCracks > 0)
+        {
+            signIsLying = true;
+            return true;
+        }
+        return false;
+    }
+
+    // Webs and came from right door, left door not safe
+    private bool WebsEnterRightLeftDeath()
+    {
+        GM.playerRules += "If there are webs, and you just came from the Right Door, the Left Door is not safe";
+        if (ML.currentRoom.entranceDoor == 2 && ML.currentRoom.numWebs > 0)
+        {
+            leftSafe = false;
+            leftTouched = true;
+            return true;
+        }
+        return false;
+    }
+
+    // If the room is trapped and there are stalagmites, the sign is lying
+    private bool StalagTrapLying()
+    {
+        GM.playerRules += "If there are Stalagmites present and the room is Trapped, the Sign is Lying";
+        if (ML.currentRoom.numStalags > 0 && ML.currentRoom.roomTrapped == true)
+        {
+            signIsLying = true;
+            return true;
+        }
+        return false;
+    }
+
     #endregion
 }

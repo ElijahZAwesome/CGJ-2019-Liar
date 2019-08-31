@@ -201,9 +201,9 @@ public class GameManager : MonoBehaviour
         int roomsCleared = MasterLogic.MLInstance.allRooms.Count;
         if (roomsCleared % 5 == 0)
         {
-            timer += timeAdd * 2;
+            timer += timeAdd;
         }
-        timer += 3 * (roomsCleared / 5);
+        timer += 1 * (roomsCleared / 5);
 	}
     //call this on the completion of a room to update the key
     void KeyUpdate()
