@@ -129,8 +129,9 @@ public class TrapEvent : MonoBehaviour
     {
         if (GM.isDamaged == true)
         {
-            // Kill player
-            SceneManager.LoadScene("Death");
+			// Kill player
+			GM.isTiming = false;
+			SceneManager.LoadScene("Death");
         }
         else
         {

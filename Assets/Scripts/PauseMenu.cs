@@ -32,9 +32,11 @@ public class PauseMenu : MonoBehaviour
 		isPaused = !isPaused;
 		pausePanel.SetActive(true);
 		//Stop Timer while the Game is paused
+		GameManager.instance.isTiming = false;
 	}
 	public void UnpauseTheGame()
 	{
+		GameManager.instance.isTiming = true;
 		isPaused = !isPaused;
 		pausePanel.SetActive(false);
 	}
