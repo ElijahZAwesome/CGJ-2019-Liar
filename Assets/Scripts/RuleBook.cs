@@ -43,29 +43,10 @@ public class RuleBook : MonoBehaviour
         rules.Add(MoreShroomsRatsMiddleDeath);
     }
 
-    /*
-    // Randomly generates 2-4 rules to start
-    public void StartRules()
-    {
-        //int howMany = Mathf.RoundToInt(UnityEngine.Random.Range(2, 4));
-        int howMany = UnityEngine.Random.Range(2, 5);
-        for (int i = 0; i < howMany; i++)
-        {
-            rulesInThisGame.Add(Mathf.RoundToInt(UnityEngine.Random.Range(0, rules.Count)));
-        }
-
-    }
-    */
-
     private void Update()
     {
         if (Input.GetKey(KeyCode.W) && GM.currentlyTrapped == false)
         {
-            /*
-            bool isOn = playerRuleSheet.activeSelf;
-            // Toggle the rule sheet image
-            playerRuleSheet.SetActive(!isOn);
-            */
             if (playerRuleSheet == null)
             {
                 playerRuleSheet = GameObject.Find("Rule Sheet");
