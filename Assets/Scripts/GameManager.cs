@@ -88,7 +88,7 @@ public class GameManager : MonoBehaviour
 
     //This controlls the number of things the key will be able to generate. Decided by list of things like rocks and stalactites
     int maxNumberOfThings = 2, difficultyLevels = 1, minNumberOfThings = 0;
-	private float timer = 30;
+	private float timer = 40;
 	private float timeAdd = 5;
 	public bool isTiming = true;
 	[SerializeField]

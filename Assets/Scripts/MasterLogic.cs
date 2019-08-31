@@ -99,7 +99,7 @@ public class MasterLogic : MonoBehaviour
         ruleBook.AddNewRule();
         CreateNewRoom();
 		newRuleHint.gameObject.SetActive(true);
-		if (allRooms.Count == 0) hintText.text = "Check your rulebook. New rules appear every 5 tunnels. \n[W]";
+		if (allRooms.Count == 0) hintText.text = "Press 'A' or 'D' to check out your environment. \n[A][D]";
 	}
 
     // Update is called once per frame
@@ -153,7 +153,7 @@ public class MasterLogic : MonoBehaviour
 				{
 					print("Gave Hint");
 					newRuleHint.gameObject.SetActive(true);
-					hintText.text = "Press 'A' or 'D' to check out your environment. \n[A][D]";
+					hintText.text = "Check your rulebook. New rules appear every 5 tunnels. \n[W]";
 					TutorialActivated = false;
 					Tutorial2Activated = true;
 					UIwaitTime = 5;
