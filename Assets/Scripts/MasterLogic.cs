@@ -215,13 +215,15 @@ public class MasterLogic : MonoBehaviour
             {
                 ruleBook.AddNewRule();
             }
+			GM.AddToTimer();
             GM.DestroyProps();
             CreateNewRoom();
 		}
         else
         {
             print("YOU ARE DEAD, WRONG DOOR");
-            // Kill everything
+			// Kill everything
+			GM.isTiming = false;
             SceneManager.LoadScene("Death");
         }        
     }

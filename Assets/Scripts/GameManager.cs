@@ -1,7 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
+using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
 	public static GameManager instance;
@@ -87,7 +88,11 @@ public class GameManager : MonoBehaviour
 
     //This controlls the number of things the key will be able to generate. Decided by list of things like rocks and stalactites
     int maxNumberOfThings = 2, difficultyLevels = 1, minNumberOfThings = 0;
-
+	private float timer = 30;
+	private float timeAdd = 5;
+	public bool isTiming = true;
+	[SerializeField]
+	TextMeshProUGUI timerText;
 	// Start is called before the first frame update
 	void Start()
     {
@@ -144,7 +149,7 @@ public class GameManager : MonoBehaviour
             crackTransformPoints.Add(c.transform.position);
         }
         transformPoints.Add(crackTransformPoints);
-
+		
         foreach (GameObject b in backPackSpawnPoints)
         {
             backpackTransformPoints.Add(b.transform.position);
@@ -168,13 +173,32 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-		if(damaged == null)
+		if (isTiming && !currentlyTrapped)
 		{
-			damaged = GameObject.Find("Damage");
+			StartTimer();
+		}
+		if (damaged == null)
+		{
+			damaged = GameObject.Find("Dam" +
+				"age");
 		}
 		if(damaged != null)
 		 damaged.SetActive(isDamaged);
     }
+	void StartTimer()
+	{
+		timer -= Time.deltaTime;
+		timerText.text = Mathf.Round(timer).ToString();
+		if(timer <= 0)
+		{
+			isTiming = false;
+			SceneManager.LoadScene("Death");
+		}
+	}
+	public void AddToTimer()
+	{
+		timer += timeAdd;
+	}
     //call this on the completion of a room to update the key
     void KeyUpdate()
 	{
