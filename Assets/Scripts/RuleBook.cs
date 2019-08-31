@@ -48,6 +48,11 @@ public class RuleBook : MonoBehaviour
 
     private void Update()
     {
+        if (GM == null)
+        {
+            GM = GetComponent<GameManager>();
+        }
+
         if (Input.GetKey(KeyCode.W) && GM.currentlyTrapped == false)
         {
             if (playerRuleSheet == null)
@@ -69,13 +74,18 @@ public class RuleBook : MonoBehaviour
         }
     }
 
-    private void Start()
+    private void Awake()
     {
         //DontDestroyOnLoad(gameObject);
         GM = GetComponent<GameManager>();
         ML = GetComponent<MasterLogic>();
-        AddRules();
+        
         //playerRuleSheet.SetActive(false);
+    }
+
+    private void Start()
+    {
+        AddRules();
     }
 
     public void AddNewRule()

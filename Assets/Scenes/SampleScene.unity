@@ -2913,798 +2913,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0357a1bfcfd8fb44ab0bcc8d6093bcab, type: 3}
---- !u!1001 &1220601261
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 46841839943826983, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: m_Name
-      value: LogicHandler
-      objectReference: {fileID: 0}
-    - target: {fileID: 46841839943826981, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 46841839943826981, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 46841839943826981, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 46841839943826981, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 46841839943826981, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 46841839943826981, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 46841839943826981, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 46841839943826981, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 46841839943826981, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 46841839943826981, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 46841839943826981, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 46841839943826980, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: signs.Array.data[0]
-      value: 
-      objectReference: {fileID: 159130674}
-    - target: {fileID: 46841839943826980, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: signs.Array.data[2]
-      value: 
-      objectReference: {fileID: 303997846}
-    - target: {fileID: 46841839943826980, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: signs.Array.data[1]
-      value: 
-      objectReference: {fileID: 2056789736}
-    - target: {fileID: 46841839943826980, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: newRuleHint
-      value: 
-      objectReference: {fileID: 2051381300}
-    - target: {fileID: 46841839943826980, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: hintText
-      value: 
-      objectReference: {fileID: 1363506892}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: rocks.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: mushrooms.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: rats.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: webs.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: water.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: gems.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: spawnPoints.Array.size
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: backPackSpwnPoints.Array.size
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: backPackSpawnPoints.Array.size
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: ratSpawn.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: stalagmiteSpawn.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: stalagmite.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: crackSpawn.Array.size
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: crack.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: shroomSpawn.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: shrooms.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: gemSpawn.Array.size
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: gem.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: rockSpawn.Array.size
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: rock.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: webSpawn.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: web.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: stalagmites.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: cracks.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: rocks.Array.data[0]
-      value: 
-      objectReference: {fileID: 911604137706880309, guid: f63ace86b80429941af5c6f5cbb12f8f,
-        type: 3}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: rocks.Array.data[1]
-      value: 
-      objectReference: {fileID: 6873672507537649811, guid: 0fd1825f87d2833448dd91fa43c26459,
-        type: 3}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: rocks.Array.data[2]
-      value: 
-      objectReference: {fileID: 462786178714428909, guid: 3066585211a1b8348a8e3bbe1bd77bd7,
-        type: 3}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: rocks.Array.data[3]
-      value: 
-      objectReference: {fileID: 8458777893267944006, guid: 1273340fab1ec624c8b5dc77aeb7a3ea,
-        type: 3}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: rocks.Array.data[4]
-      value: 
-      objectReference: {fileID: 3076319871975480958, guid: d209ae54fa32fd14487eb7e4034fd668,
-        type: 3}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: mushrooms.Array.data[0]
-      value: 
-      objectReference: {fileID: 6936758369993577693, guid: bd56a1a2a2198e141873aa40a9251f7a,
-        type: 3}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: mushrooms.Array.data[1]
-      value: 
-      objectReference: {fileID: 7832038166633247903, guid: cede5263b05440248869d0ec2bbcef79,
-        type: 3}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: rats.Array.data[0]
-      value: 
-      objectReference: {fileID: 9060256100958017025, guid: d2230495afaa057439038c0b361f3d96,
-        type: 3}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: webs.Array.data[0]
-      value: 
-      objectReference: {fileID: 4376859226830939172, guid: bc89455de224b254499d46cbcd470d3f,
-        type: 3}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: water.Array.data[0]
-      value: 
-      objectReference: {fileID: 6581314014766252320, guid: 92372c41d20fea7409d1081bfea3fe34,
-        type: 3}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: water.Array.data[1]
-      value: 
-      objectReference: {fileID: 7350457360823894242, guid: 9f2b5d7f85c38be4b89a8a9dea37e86d,
-        type: 3}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: water.Array.data[2]
-      value: 
-      objectReference: {fileID: 1456649847847553657, guid: 86e1b86578b0a7743b9127f877cecfaf,
-        type: 3}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: water.Array.data[3]
-      value: 
-      objectReference: {fileID: 783896167658464450, guid: 32918b50b515f404bbf191763063d371,
-        type: 3}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: water.Array.data[4]
-      value: 
-      objectReference: {fileID: 1552492176597740568, guid: 9e15845e6e5d65d49a3a1c48d64748c9,
-        type: 3}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: gems.Array.data[0]
-      value: 
-      objectReference: {fileID: 6581314014766252320, guid: 92372c41d20fea7409d1081bfea3fe34,
-        type: 3}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: gems.Array.data[1]
-      value: 
-      objectReference: {fileID: 7350457360823894242, guid: 9f2b5d7f85c38be4b89a8a9dea37e86d,
-        type: 3}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: gems.Array.data[2]
-      value: 
-      objectReference: {fileID: 1456649847847553657, guid: 86e1b86578b0a7743b9127f877cecfaf,
-        type: 3}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: gems.Array.data[3]
-      value: 
-      objectReference: {fileID: 783896167658464450, guid: 32918b50b515f404bbf191763063d371,
-        type: 3}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: gems.Array.data[4]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: spawnPoints.Array.data[0]
-      value: 
-      objectReference: {fileID: 1850375602}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: spawnPoints.Array.data[1]
-      value: 
-      objectReference: {fileID: 1504937374}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: spawnPoints.Array.data[2]
-      value: 
-      objectReference: {fileID: 1639164010}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: spawnPoints.Array.data[3]
-      value: 
-      objectReference: {fileID: 395417405}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: spawnPoints.Array.data[4]
-      value: 
-      objectReference: {fileID: 1705745505}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: spawnPoints.Array.data[5]
-      value: 
-      objectReference: {fileID: 1493712027}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: spawnPoints.Array.data[6]
-      value: 
-      objectReference: {fileID: 1899133504}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: spawnPoints.Array.data[7]
-      value: 
-      objectReference: {fileID: 284316100}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: spawnPoints.Array.data[8]
-      value: 
-      objectReference: {fileID: 1139548412}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: playerRuleSheet
-      value: 
-      objectReference: {fileID: 1429911569}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: damaged
-      value: 
-      objectReference: {fileID: 1139192922}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: backPackSpwnPoints.Array.data[0]
-      value: 
-      objectReference: {fileID: 97138666}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: backPackSpwnPoints.Array.data[1]
-      value: 
-      objectReference: {fileID: 1259505055}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: backPackSpwnPoints.Array.data[2]
-      value: 
-      objectReference: {fileID: 129879564}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: backPackSpwnPoints.Array.data[3]
-      value: 
-      objectReference: {fileID: 17169409}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: backPackSpwnPoints.Array.data[4]
-      value: 
-      objectReference: {fileID: 2095161591}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: backPackSpwnPoints.Array.data[5]
-      value: 
-      objectReference: {fileID: 912208401}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: backPackObject
-      value: 
-      objectReference: {fileID: 1017901018790503304, guid: 0357a1bfcfd8fb44ab0bcc8d6093bcab,
-        type: 3}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: backPackSpawnPoints.Array.data[0]
-      value: 
-      objectReference: {fileID: 97138666}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: backPackSpawnPoints.Array.data[1]
-      value: 
-      objectReference: {fileID: 1259505055}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: backPackSpawnPoints.Array.data[2]
-      value: 
-      objectReference: {fileID: 129879564}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: backPackSpawnPoints.Array.data[3]
-      value: 
-      objectReference: {fileID: 17169409}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: backPackSpawnPoints.Array.data[4]
-      value: 
-      objectReference: {fileID: 2095161591}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: backPackSpawnPoints.Array.data[5]
-      value: 
-      objectReference: {fileID: 912208401}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: backPackSpawnPoints.Array.data[6]
-      value: 
-      objectReference: {fileID: 912208401}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: ratSpawn.Array.data[0]
-      value: 
-      objectReference: {fileID: 448321334}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: ratSpawn.Array.data[1]
-      value: 
-      objectReference: {fileID: 1903028240}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: ratSpawn.Array.data[2]
-      value: 
-      objectReference: {fileID: 1424545058}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: ratSpawn.Array.data[3]
-      value: 
-      objectReference: {fileID: 1558183527}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: ratSpawn.Array.data[4]
-      value: 
-      objectReference: {fileID: 248705212}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: donavan
-      value: 
-      objectReference: {fileID: 9060256100958017025, guid: d2230495afaa057439038c0b361f3d96,
-        type: 3}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: stalagmiteSpawn.Array.data[0]
-      value: 
-      objectReference: {fileID: 11401678}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: stalagmiteSpawn.Array.data[1]
-      value: 
-      objectReference: {fileID: 153359964}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: stalagmiteSpawn.Array.data[2]
-      value: 
-      objectReference: {fileID: 1941750386}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: stalagmiteSpawn.Array.data[3]
-      value: 
-      objectReference: {fileID: 1360064676}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: stalagmiteSpawn.Array.data[4]
-      value: 
-      objectReference: {fileID: 1382860772}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: stalagmite.Array.data[0]
-      value: 
-      objectReference: {fileID: 4205144639954410562, guid: c6348de9a69760c44bd1a250453791f1,
-        type: 3}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: stalagmite.Array.data[1]
-      value: 
-      objectReference: {fileID: 3074692409125681157, guid: 28aced6374e23b44398ee3d4448e7cc0,
-        type: 3}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: crackSpawn.Array.data[0]
-      value: 
-      objectReference: {fileID: 200934360}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: crackSpawn.Array.data[1]
-      value: 
-      objectReference: {fileID: 1987589934}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: crackSpawn.Array.data[2]
-      value: 
-      objectReference: {fileID: 35453903}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: crackSpawn.Array.data[3]
-      value: 
-      objectReference: {fileID: 1504698795}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: crackSpawn.Array.data[4]
-      value: 
-      objectReference: {fileID: 761531108}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: crackSpawn.Array.data[5]
-      value: 
-      objectReference: {fileID: 1769220977}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: crack.Array.data[0]
-      value: 
-      objectReference: {fileID: 8245833287012215612, guid: 8ec37ef2b1236bc4ab616f9b0ce1ae9f,
-        type: 3}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: crack.Array.data[1]
-      value: 
-      objectReference: {fileID: 4342240589486765641, guid: e6760abf91c0fc84786f7055a1042846,
-        type: 3}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: crack.Array.data[2]
-      value: 
-      objectReference: {fileID: 4558616868333431855, guid: 47c9c7a7e372b08429015fb0227850f0,
-        type: 3}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: shroomSpawn.Array.data[0]
-      value: 
-      objectReference: {fileID: 1063943359}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: shroomSpawn.Array.data[1]
-      value: 
-      objectReference: {fileID: 364792248}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: shroomSpawn.Array.data[2]
-      value: 
-      objectReference: {fileID: 628499554}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: shroomSpawn.Array.data[3]
-      value: 
-      objectReference: {fileID: 512769202}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: shroomSpawn.Array.data[4]
-      value: 
-      objectReference: {fileID: 731526979}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: shrooms.Array.data[0]
-      value: 
-      objectReference: {fileID: 6936758369993577693, guid: bd56a1a2a2198e141873aa40a9251f7a,
-        type: 3}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: shrooms.Array.data[1]
-      value: 
-      objectReference: {fileID: 7832038166633247903, guid: cede5263b05440248869d0ec2bbcef79,
-        type: 3}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: gemSpawn.Array.data[0]
-      value: 
-      objectReference: {fileID: 1710180495}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: gemSpawn.Array.data[1]
-      value: 
-      objectReference: {fileID: 1045579171}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: gemSpawn.Array.data[2]
-      value: 
-      objectReference: {fileID: 710688300}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: gemSpawn.Array.data[3]
-      value: 
-      objectReference: {fileID: 879019602}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: gemSpawn.Array.data[4]
-      value: 
-      objectReference: {fileID: 351369432}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: gemSpawn.Array.data[5]
-      value: 
-      objectReference: {fileID: 1044775778}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: gem.Array.data[0]
-      value: 
-      objectReference: {fileID: 783896167658464450, guid: 32918b50b515f404bbf191763063d371,
-        type: 3}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: gem.Array.data[1]
-      value: 
-      objectReference: {fileID: 6581314014766252320, guid: 92372c41d20fea7409d1081bfea3fe34,
-        type: 3}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: gem.Array.data[2]
-      value: 
-      objectReference: {fileID: 7350457360823894242, guid: 9f2b5d7f85c38be4b89a8a9dea37e86d,
-        type: 3}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: gem.Array.data[3]
-      value: 
-      objectReference: {fileID: 1456649847847553657, guid: 86e1b86578b0a7743b9127f877cecfaf,
-        type: 3}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: gem.Array.data[4]
-      value: 
-      objectReference: {fileID: 3968587931654697317, guid: 6ffa67cea3daf8548acd2e303d518311,
-        type: 3}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: rockSpawn.Array.data[0]
-      value: 
-      objectReference: {fileID: 2121030002}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: rockSpawn.Array.data[1]
-      value: 
-      objectReference: {fileID: 674442953}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: rockSpawn.Array.data[2]
-      value: 
-      objectReference: {fileID: 1746903736}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: rockSpawn.Array.data[3]
-      value: 
-      objectReference: {fileID: 201029332}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: rockSpawn.Array.data[4]
-      value: 
-      objectReference: {fileID: 1033977124}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: rockSpawn.Array.data[5]
-      value: 
-      objectReference: {fileID: 722547196}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: rock.Array.data[0]
-      value: 
-      objectReference: {fileID: 911604137706880309, guid: f63ace86b80429941af5c6f5cbb12f8f,
-        type: 3}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: rock.Array.data[1]
-      value: 
-      objectReference: {fileID: 6873672507537649811, guid: 0fd1825f87d2833448dd91fa43c26459,
-        type: 3}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: rock.Array.data[2]
-      value: 
-      objectReference: {fileID: 462786178714428909, guid: 3066585211a1b8348a8e3bbe1bd77bd7,
-        type: 3}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: rock.Array.data[3]
-      value: 
-      objectReference: {fileID: 8458777893267944006, guid: 1273340fab1ec624c8b5dc77aeb7a3ea,
-        type: 3}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: webSpawn.Array.data[0]
-      value: 
-      objectReference: {fileID: 1803148224}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: webSpawn.Array.data[1]
-      value: 
-      objectReference: {fileID: 766255480}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: webSpawn.Array.data[2]
-      value: 
-      objectReference: {fileID: 1835460745}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: webSpawn.Array.data[3]
-      value: 
-      objectReference: {fileID: 1285084941}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: web.Array.data[0]
-      value: 
-      objectReference: {fileID: 4376859226830939172, guid: bc89455de224b254499d46cbcd470d3f,
-        type: 3}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: web
-      value: 
-      objectReference: {fileID: 4376859226830939172, guid: bc89455de224b254499d46cbcd470d3f,
-        type: 3}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: stalagmites.Array.data[0]
-      value: 
-      objectReference: {fileID: 4205144639954410562, guid: c6348de9a69760c44bd1a250453791f1,
-        type: 3}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: stalagmites.Array.data[1]
-      value: 
-      objectReference: {fileID: 3074692409125681157, guid: 28aced6374e23b44398ee3d4448e7cc0,
-        type: 3}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: cracks.Array.data[0]
-      value: 
-      objectReference: {fileID: 8245833287012215612, guid: 8ec37ef2b1236bc4ab616f9b0ce1ae9f,
-        type: 3}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: cracks.Array.data[1]
-      value: 
-      objectReference: {fileID: 4558616868333431855, guid: 47c9c7a7e372b08429015fb0227850f0,
-        type: 3}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: cracks.Array.data[2]
-      value: 
-      objectReference: {fileID: 4342240589486765641, guid: e6760abf91c0fc84786f7055a1042846,
-        type: 3}
-    - target: {fileID: 46841839943826979, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: timerText
-      value: 
-      objectReference: {fileID: 1579123937}
-    - target: {fileID: 46841839943826978, guid: 0bb9718a6e2646f41ae0feda40689413,
-        type: 3}
-      propertyPath: playerRuleSheet
-      value: 
-      objectReference: {fileID: 1429911569}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 0bb9718a6e2646f41ae0feda40689413, type: 3}
 --- !u!1 &1259505055
 GameObject:
   m_ObjectHideFlags: 0
@@ -6358,3 +5566,165 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2127637510}
   m_CullTransparentMesh: 0
+--- !u!4 &46841840887585672
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 46841840887585674}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &46841840887585673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 46841840887585674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61bb3284ba747be4c8d52203576888a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  signs:
+  - {fileID: 159130674}
+  - {fileID: 2056789736}
+  - {fileID: 303997846}
+  newRuleHint: {fileID: 2051381300}
+  hintText: {fileID: 1363506892}
+--- !u!1 &46841840887585674
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 46841840887585672}
+  - component: {fileID: 46841840887585673}
+  - component: {fileID: 46841840887585679}
+  - component: {fileID: 46841840887585678}
+  m_Layer: 0
+  m_Name: LogicHandler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &46841840887585678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 46841840887585674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7c11af47b10938409fe8c2aa0cba06f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDamaged: 0
+  numFlares: 0
+  playerRules: 
+  timeRemaining: 0
+  damaged: {fileID: 1139192922}
+  rocks:
+  - {fileID: 911604137706880309, guid: f63ace86b80429941af5c6f5cbb12f8f, type: 3}
+  - {fileID: 6873672507537649811, guid: 0fd1825f87d2833448dd91fa43c26459, type: 3}
+  - {fileID: 462786178714428909, guid: 3066585211a1b8348a8e3bbe1bd77bd7, type: 3}
+  - {fileID: 8458777893267944006, guid: 1273340fab1ec624c8b5dc77aeb7a3ea, type: 3}
+  - {fileID: 3076319871975480958, guid: d209ae54fa32fd14487eb7e4034fd668, type: 3}
+  mushrooms:
+  - {fileID: 6936758369993577693, guid: bd56a1a2a2198e141873aa40a9251f7a, type: 3}
+  - {fileID: 7832038166633247903, guid: cede5263b05440248869d0ec2bbcef79, type: 3}
+  rats:
+  - {fileID: 9060256100958017025, guid: d2230495afaa057439038c0b361f3d96, type: 3}
+  webs:
+  - {fileID: 4376859226830939172, guid: bc89455de224b254499d46cbcd470d3f, type: 3}
+  gems:
+  - {fileID: 6581314014766252320, guid: 92372c41d20fea7409d1081bfea3fe34, type: 3}
+  - {fileID: 7350457360823894242, guid: 9f2b5d7f85c38be4b89a8a9dea37e86d, type: 3}
+  - {fileID: 1456649847847553657, guid: 86e1b86578b0a7743b9127f877cecfaf, type: 3}
+  - {fileID: 783896167658464450, guid: 32918b50b515f404bbf191763063d371, type: 3}
+  stalagmites:
+  - {fileID: 4205144639954410562, guid: c6348de9a69760c44bd1a250453791f1, type: 3}
+  - {fileID: 3074692409125681157, guid: 28aced6374e23b44398ee3d4448e7cc0, type: 3}
+  cracks:
+  - {fileID: 8245833287012215612, guid: 8ec37ef2b1236bc4ab616f9b0ce1ae9f, type: 3}
+  - {fileID: 4558616868333431855, guid: 47c9c7a7e372b08429015fb0227850f0, type: 3}
+  - {fileID: 4342240589486765641, guid: e6760abf91c0fc84786f7055a1042846, type: 3}
+  backPackSpawnPoints:
+  - {fileID: 97138666}
+  - {fileID: 1259505055}
+  - {fileID: 129879564}
+  - {fileID: 17169409}
+  - {fileID: 2095161591}
+  - {fileID: 912208401}
+  backPackObject: {fileID: 1017901018790503304, guid: 0357a1bfcfd8fb44ab0bcc8d6093bcab,
+    type: 3}
+  rockSpawn:
+  - {fileID: 2121030002}
+  - {fileID: 674442953}
+  - {fileID: 1746903736}
+  - {fileID: 201029332}
+  - {fileID: 1033977124}
+  - {fileID: 722547196}
+  shroomSpawn:
+  - {fileID: 1063943359}
+  - {fileID: 364792248}
+  - {fileID: 628499554}
+  - {fileID: 512769202}
+  - {fileID: 731526979}
+  ratSpawn:
+  - {fileID: 448321334}
+  - {fileID: 1903028240}
+  - {fileID: 1424545058}
+  - {fileID: 1558183527}
+  - {fileID: 248705212}
+  webSpawn:
+  - {fileID: 1803148224}
+  - {fileID: 766255480}
+  - {fileID: 1835460745}
+  - {fileID: 1285084941}
+  gemSpawn:
+  - {fileID: 1710180495}
+  - {fileID: 1045579171}
+  - {fileID: 710688300}
+  - {fileID: 879019602}
+  - {fileID: 351369432}
+  - {fileID: 1044775778}
+  stalagmiteSpawn:
+  - {fileID: 11401678}
+  - {fileID: 153359964}
+  - {fileID: 1941750386}
+  - {fileID: 1360064676}
+  - {fileID: 1382860772}
+  crackSpawn:
+  - {fileID: 200934360}
+  - {fileID: 1987589934}
+  - {fileID: 35453903}
+  - {fileID: 1504698795}
+  - {fileID: 761531108}
+  - {fileID: 1769220977}
+  currentlyTrapped: 0
+  isTiming: 1
+  timerText: {fileID: 1579123937}
+--- !u!114 &46841840887585679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 46841840887585674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: effb39b891e277d41b8fe6082ce66bf8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerRuleSheet: {fileID: 1429911569}

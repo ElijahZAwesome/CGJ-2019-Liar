@@ -13,11 +13,14 @@ public class DeathScreen : MonoBehaviour
     [SerializeField]
     private Button menuButton, quitButton;
 
+    private GameObject theManager;
+
     // Start is called before the first frame update
     void Start()
     {
         num.text = "-missing-";
         Cursor.visible = true;
+        theManager = GameObject.Find("LogicHandler");
     }
 
     // Update is called once per frame
@@ -25,13 +28,13 @@ public class DeathScreen : MonoBehaviour
     {
         if (num.text == "-missing-")
         {
-            num.text = MasterLogic.MLInstance.allRooms.Count.ToString();
+            num.text = theManager.GetComponent<MasterLogic>().allRooms.Count.ToString();
         }
     }
 
     public void ExitToMenu()
     {
-        Destroy(MasterLogic.MLInstance.gameObject);
+        Destroy(theManager);
         SceneManager.LoadScene("TitleScreen");
     }
 

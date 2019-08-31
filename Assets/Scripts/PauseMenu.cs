@@ -11,6 +11,13 @@ public class PauseMenu : MonoBehaviour
 	[SerializeField]
 	GameObject trapHandler;
 
+    private GameManager GM;
+
+    private void Start()
+    {
+        GM = GameObject.Find("LogicHandler").GetComponent<GameManager>();
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -32,11 +39,11 @@ public class PauseMenu : MonoBehaviour
 		isPaused = !isPaused;
 		pausePanel.SetActive(true);
 		//Stop Timer while the Game is paused
-		GameManager.instance.isTiming = false;
+		GM.isTiming = false;
 	}
 	public void UnpauseTheGame()
 	{
-		GameManager.instance.isTiming = true;
+		GM.isTiming = true;
 		isPaused = !isPaused;
 		pausePanel.SetActive(false);
 	}
@@ -50,8 +57,8 @@ public class PauseMenu : MonoBehaviour
 	}
 	public void loadMainMenu() //Loads Title Screen Setting the amount of flares to zero.
 	{
-		//GameManager.instance.numFlares = 0;
-		Destroy(GameManager.instance.gameObject);
+		//GM.numFlares = 0;
+		Destroy(GM.gameObject);
 		SceneManager.LoadScene("TitleScreen");
 	}
 }

@@ -10,8 +10,6 @@ public class MasterLogic : MonoBehaviour
 
     // Handles the overall GameLogic of which door ends up being safe
 
-    public static MasterLogic MLInstance;
-
     // The rulebook script attached to this object
     private RuleBook ruleBook;
 
@@ -79,8 +77,6 @@ public class MasterLogic : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        MLInstance = this;
-
         AM = GameObject.Find("AudioManager").GetComponent<AudioMaster>();
 
         ruleBook = GetComponent<RuleBook>();

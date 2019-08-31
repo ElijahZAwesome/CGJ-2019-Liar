@@ -8,10 +8,13 @@ public class ThrowFlare : MonoBehaviour
     public Transform leftCave, midCave, rightCave;
     public int caveNum;
 
+    private MasterLogic ML;
+
     AudioMaster toss;
 
     void Start()
     {
+        ML = GameObject.Find("LogicHandler").GetComponent<MasterLogic>();
         toss = GameObject.Find("AudioManager").GetComponent<AudioMaster>();
     }
 
@@ -29,7 +32,7 @@ public class ThrowFlare : MonoBehaviour
                 GameObject newFlare = Instantiate(flare, rightCave.transform.position, Quaternion.identity);
                 toss.flareToss();
                 Inventory.inv.Throw();
-                if (MasterLogic.MLInstance.currentRoom.safeDoors[caveNum] == true)
+                if (ML.currentRoom.safeDoors[caveNum] == true)
                 {
                     newFlare.GetComponent<AnimFlare>().correct = true;
                 }
@@ -39,7 +42,7 @@ public class ThrowFlare : MonoBehaviour
                 GameObject newFlare = Instantiate(flare, midCave.transform.position, Quaternion.identity);
                 toss.flareToss();
                 Inventory.inv.Throw();
-                if (MasterLogic.MLInstance.currentRoom.safeDoors[caveNum] == true)
+                if (ML.currentRoom.safeDoors[caveNum] == true)
                 {
                     newFlare.GetComponent<AnimFlare>().correct = true;
                 }
@@ -49,7 +52,7 @@ public class ThrowFlare : MonoBehaviour
                 GameObject newFlare = Instantiate(flare, leftCave.transform.position, Quaternion.identity);
                 toss.flareToss();
                 Inventory.inv.Throw();
-                if (MasterLogic.MLInstance.currentRoom.safeDoors[caveNum] == true)
+                if (ML.currentRoom.safeDoors[caveNum] == true)
                 {
                     newFlare.GetComponent<AnimFlare>().correct = true;
                 }

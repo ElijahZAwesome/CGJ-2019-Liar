@@ -5,7 +5,9 @@ using TMPro;
 using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
-	public static GameManager instance;
+
+    private MasterLogic ML;
+
 	public bool isDamaged = false;
 	public int numFlares = 2;
 
@@ -23,11 +25,10 @@ public class GameManager : MonoBehaviour
     [SerializeField]
 	private List<GameObject> rocks, mushrooms, rats, webs, gems, stalagmites, cracks;
 
-    private List<List<GameObject>> allProps;
-    /*
-	[SerializeField]
-	private List<GameObject> spawnPoints;
-    */
+    //private List<List<GameObject>> allProps;
+    [SerializeField]
+    private List<GameObject>[] allProps;
+
 	[SerializeField]
 	private List<List<Vector2>> transformPoints;
 
@@ -94,20 +95,17 @@ public class GameManager : MonoBehaviour
 	[SerializeField]
 	TextMeshProUGUI timerText;
 	// Start is called before the first frame update
-	void Start()
+	void Awake()
     {
+        ML = GetComponent<MasterLogic>();
         isDamaged = false;
         currentlyTrapped = false;
 		damaged = GameObject.Find("Damage");
         damaged.SetActive(false);
-        allProps = new List<List<GameObject>>() { };
+        //allProps = new List<List<GameObject>>() { };
+        allProps = new List<GameObject>[7] { rocks, mushrooms, rats, webs, gems, stalagmites, cracks };
         transformPoints = new List<List<Vector2>>() { };
-        /*
-		for(int i = 0; i < spawnPoints.Count;i++)
-		{
-			availableSpawnPoints.Add(spawnPoints[i]);
-		}
-        */
+
 		foreach (GameObject r in rockSpawn)
 		{
             rockTransformPoints.Add(r.transform.position);
@@ -155,13 +153,10 @@ public class GameManager : MonoBehaviour
             backpackTransformPoints.Add(b.transform.position);
         }
 
-        if (instance == null)
-		{
-			instance = this;
-		}
 		//Debugging Purposes
 		Debug.Log("GameStart");
-		DontDestroyOnLoad(instance);
+		DontDestroyOnLoad(gameObject);
+        /*
         allProps.Add(rocks);
         allProps.Add(mushrooms);
         allProps.Add(rats);
@@ -169,10 +164,13 @@ public class GameManager : MonoBehaviour
         allProps.Add(gems);
         allProps.Add(stalagmites);
         allProps.Add(cracks);
+        */
 	}
 
     private void Update()
     {
+        print("ASDFASDF: " + allProps.Length);
+
 		if (isTiming && !currentlyTrapped)
 		{
 			StartTimer();
@@ -198,7 +196,7 @@ public class GameManager : MonoBehaviour
 	public void AddToTimer()
 	{
         timer += timeAdd;
-        int roomsCleared = MasterLogic.MLInstance.allRooms.Count;
+        int roomsCleared = ML.allRooms.Count;
         if (roomsCleared % 5 == 0)
         {
             timer += timeAdd;
@@ -228,13 +226,13 @@ public class GameManager : MonoBehaviour
 		string newKey = "";
 
         // For each type of prop
-		for (int i = 0; i < allProps.Count; i++)
+		for (int i = 0; i < allProps.Length; i++)
 		{
 			// If we still have objects to place, then place a random number of this object
 			if (numberOfThings > 0)
 			{
 				int numberOfThisProp;
-				if (i == allProps.Count - 1)
+				if (i == allProps.Length - 1)
 				{
                     print("Last i value");
 					// This is the last prop, dump the rest of the things here
@@ -284,7 +282,7 @@ public class GameManager : MonoBehaviour
     public void CheckSpawnItems()
     {
 		List<Vector2> tempBackPackSpawn = new List<Vector2>();
-		for (int i = 0; i < backpackTransformPoints.Count; i++)
+		for (int i = 0; i < backpackTransformPoints.Count -1; i++)
 		{
 			tempBackPackSpawn.Add(backpackTransformPoints[i]);
 		}
@@ -307,7 +305,8 @@ public class GameManager : MonoBehaviour
             for (int i = 0; i < itemsToSpawn; i++)
             {
                 int randBackPackSpawn = Random.Range(0, tempBackPackSpawn.Count);
-                GameObject pack = Instantiate(backPackObject, tempBackPackSpawn[randBackPackSpawn], Quaternion.identity);
+                //GameObject pack = Instantiate(backPackObject, tempBackPackSpawn[randBackPackSpawn], Quaternion.identity);
+                GameObject pack = Instantiate(backPackObject, tempBackPackSpawn[0], Quaternion.identity);
                 pack.transform.SetParent(gameObject.transform);
                 tempBackPackSpawn.RemoveAt(randBackPackSpawn);
             }

@@ -43,7 +43,7 @@ public class TrapEvent : MonoBehaviour
     {
         QTEevents = new string[] { "ASDF", "NOUIDIOT", "THINKFAST", "EIFUHWKY", "IMOUTOFIDEAS", "MIDDLEDOOR", "LEFTDOOR", "LYING", "SAFE", "RIGHTDOOR", "ROCK", "MUSHROOM", "SIGNISLYING", "CANURAED", "JEFFWENTLEFT", "WWVWWV" };
         //StartTrap();
-        GM = GameManager.instance;
+        GM = GameObject.Find("LogicHandler").GetComponent<GameManager>();
         AM = GameObject.Find("AudioManager").GetComponent<AudioMaster>();
     }
 
@@ -52,7 +52,7 @@ public class TrapEvent : MonoBehaviour
     {
         if (GM == null)
         {
-            GM = GameManager.instance;
+            GM = GameObject.Find("LogicHandler").GetComponent<GameManager>();
         }
 
         if(isTrapped)

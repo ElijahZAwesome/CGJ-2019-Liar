@@ -11,12 +11,16 @@ public class Inventory : MonoBehaviour
 	[SerializeField]
 	private GameObject flare;
 	public int flareCount = 0;
+
+    private GameManager GM;
+
     // Start is called before the first frame update
     void Start()
     {
+        GM = GameObject.Find("LogicHandler").GetComponent<GameManager>();
 		inv = this;
-		numText.text = GameManager.instance.numFlares.ToString();
-		flareCount = GameManager.instance.numFlares;
+		numText.text = GM.numFlares.ToString();
+		flareCount = GM.numFlares;
 	}
 	public void Throw()
 	{
@@ -26,8 +30,8 @@ public class Inventory : MonoBehaviour
 	public void AddFlare()
 	{
 		flareCount++;
-		GameManager.instance.numFlares = flareCount;
-		numText.text = GameManager.instance.numFlares.ToString();
+        GM.numFlares = flareCount;
+		numText.text = GM.numFlares.ToString();
 	}
 	public void DeleteFlare()
 	{
@@ -36,8 +40,8 @@ public class Inventory : MonoBehaviour
 		{
 			flareCount = 0;
 		}
-		GameManager.instance.numFlares = flareCount;
-		numText.text = GameManager.instance.numFlares.ToString();
+        GM.numFlares = flareCount;
+		numText.text = GM.numFlares.ToString();
 	}
 	void Update()
     {

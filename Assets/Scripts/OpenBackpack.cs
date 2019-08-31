@@ -10,6 +10,8 @@ public class OpenBackpack : MonoBehaviour
 
     AudioMaster play;
 
+    private GameManager GM;
+
     void Start()
     {
         //Keeps the backpack closed at the start
@@ -19,6 +21,7 @@ public class OpenBackpack : MonoBehaviour
         closedPack.SetActive(true);
 
         play = GameObject.Find("AudioManager").GetComponent<AudioMaster>();
+        GM = GameObject.Find("LogicHandler").GetComponent<GameManager>();
     }
 
     private void OnMouseDown()
@@ -70,7 +73,7 @@ public class OpenBackpack : MonoBehaviour
                 healthPack.SetActive(false);
                 play.pickupHealth();
                 emptyPack.SetActive(true);
-                GameManager.instance.isDamaged = false;
+                GM.isDamaged = false;
             }
         }
     }

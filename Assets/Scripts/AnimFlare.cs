@@ -10,9 +10,11 @@ public class AnimFlare : MonoBehaviour
     public GameObject x;
     public GameObject o;
 
+    private GameManager GM;
+
     void Start()
     {
-        
+        GM = GameObject.Find("LogicHandler").GetComponent<GameManager>();
     }
 
     void Update()
@@ -28,13 +30,13 @@ public class AnimFlare : MonoBehaviour
             {
                 // put check on door
                 GameObject mark = Instantiate(o, transform.position, Quaternion.identity);
-                mark.transform.SetParent(GameManager.instance.transform);
+                mark.transform.SetParent(GM.transform);
             }
             else
             {
                 // put X on door
                 GameObject mark = Instantiate(x, transform.position, Quaternion.identity);
-                mark.transform.SetParent(GameManager.instance.transform);
+                mark.transform.SetParent(GM.transform);
             }
         }
         Destroy(gameObject);

@@ -49,6 +49,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  newRuleHint: {fileID: 0}
+  hintText: {fileID: 0}
 --- !u!114 &46841839943826978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61,6 +63,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: effb39b891e277d41b8fe6082ce66bf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerRuleSheet: {fileID: 0}
 --- !u!114 &46841839943826979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -75,10 +78,87 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDamaged: 0
   numFlares: 0
+  playerRules: 
   timeRemaining: 0
-  rocks: []
-  mushrooms: []
-  rats: []
-  webs: []
-  water: []
-  spawnPoints: []
+  damaged: {fileID: 0}
+  rocks:
+  - {fileID: 911604137706880309, guid: f63ace86b80429941af5c6f5cbb12f8f, type: 3}
+  - {fileID: 6873672507537649811, guid: 0fd1825f87d2833448dd91fa43c26459, type: 3}
+  - {fileID: 462786178714428909, guid: 3066585211a1b8348a8e3bbe1bd77bd7, type: 3}
+  - {fileID: 8458777893267944006, guid: 1273340fab1ec624c8b5dc77aeb7a3ea, type: 3}
+  - {fileID: 3076319871975480958, guid: d209ae54fa32fd14487eb7e4034fd668, type: 3}
+  mushrooms:
+  - {fileID: 6936758369993577693, guid: bd56a1a2a2198e141873aa40a9251f7a, type: 3}
+  - {fileID: 7832038166633247903, guid: cede5263b05440248869d0ec2bbcef79, type: 3}
+  rats:
+  - {fileID: 9060256100958017025, guid: d2230495afaa057439038c0b361f3d96, type: 3}
+  webs:
+  - {fileID: 4376859226830939172, guid: bc89455de224b254499d46cbcd470d3f, type: 3}
+  gems:
+  - {fileID: 6581314014766252320, guid: 92372c41d20fea7409d1081bfea3fe34, type: 3}
+  - {fileID: 7350457360823894242, guid: 9f2b5d7f85c38be4b89a8a9dea37e86d, type: 3}
+  - {fileID: 1456649847847553657, guid: 86e1b86578b0a7743b9127f877cecfaf, type: 3}
+  - {fileID: 783896167658464450, guid: 32918b50b515f404bbf191763063d371, type: 3}
+  stalagmites:
+  - {fileID: 4205144639954410562, guid: c6348de9a69760c44bd1a250453791f1, type: 3}
+  - {fileID: 3074692409125681157, guid: 28aced6374e23b44398ee3d4448e7cc0, type: 3}
+  cracks:
+  - {fileID: 8245833287012215612, guid: 8ec37ef2b1236bc4ab616f9b0ce1ae9f, type: 3}
+  - {fileID: 4558616868333431855, guid: 47c9c7a7e372b08429015fb0227850f0, type: 3}
+  - {fileID: 4342240589486765641, guid: e6760abf91c0fc84786f7055a1042846, type: 3}
+  backPackSpawnPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  backPackObject: {fileID: 1017901018790503304, guid: 0357a1bfcfd8fb44ab0bcc8d6093bcab,
+    type: 3}
+  rockSpawn:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  shroomSpawn:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  ratSpawn:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  webSpawn:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  gemSpawn:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  stalagmiteSpawn:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  crackSpawn:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  currentlyTrapped: 0
+  isTiming: 1
+  timerText: {fileID: 0}
