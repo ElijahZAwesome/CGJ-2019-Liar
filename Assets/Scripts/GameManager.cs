@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     public float timeRemaining;
 
 	//Rocks V Stalactites V etc....
-	private string key = "0v0v0v0v0";
+	private string key = "";
 
     [SerializeField]
     private GameObject damaged;
@@ -230,20 +230,25 @@ public class GameManager : MonoBehaviour
 				int numberOfThisProp;
 				if (i == allProps.Count - 1)
 				{
+                    print("Last i value");
 					// This is the last prop, dump the rest of the things here
 					numberOfThisProp = numberOfThings;
+                    print("Dumping: " + numberOfThings + " things");
                     if (numberOfThings > transformPoints[i].Count)
                     {
-                        numberOfThings = transformPoints[i].Count;
+                        numberOfThisProp = transformPoints[i].Count;
                     }
 				}
 				else
 				{
                     // Place random number of this prop, up to a max of number of spawns for this proptype
+                    print("Placing a random number of things between 0 and " + transformPoints[i].Count);
 					numberOfThisProp = Random.Range(0, transformPoints[i].Count);
+                    print("Placing " + numberOfThisProp + " things");
                     // Ensure we still can place that many props
                     if (numberOfThisProp > numberOfThings)
                     {
+                        print(numberOfThisProp + " is too high, place " + numberOfThings + " instead");
                         numberOfThisProp = numberOfThings;
                     }
                     // Add this info to the room key
@@ -329,7 +334,11 @@ public class GameManager : MonoBehaviour
     // Place props on the random spawnpoints, these are props in the room logic
 	void PlaceProps(List<GameObject> propList, int howMany, List<Vector2> location)
 	{
-        List<Vector2> temp = location;
+        List<Vector2> temp = new List<Vector2>() { };
+        foreach (Vector2 item in location)
+        {
+            temp.Add(item);
+        }
         if (howMany > 0)
         {
             // Place the item at the point
